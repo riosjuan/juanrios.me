@@ -3,7 +3,7 @@
     "name": "Mendix Community",
     "description": "The place where for Makers to connect, get answers to questions and post ideas for our product managers",
     "url": "https://forum.mendix.com/p/community",
-    "tags": ["css", "scss", "design-systems", "low-code"]
+    "tags": ["css", "scss", "design system", "low-code"]
   },
   {
     "name": "SVG Grabber",
@@ -21,6 +21,6 @@
     "name": "Llorona Records",
     "description": "Label and a platform for creative projects around music based in Bogotá, Colombia. Since 2007 Llorona Records, documents, promotes and represents unique and authentic artists",
     "url": "https://lloronarecords.com",
-    "tags": ["web design", "vue", "gridsome", "jamstack"]
+    "tags": ["design", "html", "tachyons", "jekyll"]
   }
 ]

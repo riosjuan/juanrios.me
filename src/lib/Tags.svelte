@@ -17,9 +17,10 @@
   }
 
   li {
-    padding: var(--spacing-quarter) var(--spacing-half);
-    border-radius: --border-radius;
-    color: var(--text-secondary);
     background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    color: var(--text-secondary);
+    padding: var(--spacing-quarter) var(--spacing-half);
+    text-transform: lowercase;
   }
 </style>
