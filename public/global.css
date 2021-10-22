@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('/Inter-roman.var.woff2?v=3.19') format('woff2');
+}
+
+:root {
+  /* Light Theme */
+  --rose-white: hsl(20, 100%, 98%);
+  --solitude: hsl(256, 37%, 94%);
+  --minsk: hsl(256, 37%, 30%);
+  --mirage: hsl(256, 37%, 12%);
+  --palatinate-blue: hsl(228, 100%, 50%);
+
+  /* Dark Theme */
+  --vulcan: hsl(256, 37%, 9%);
+  --blackurrant: hsl(256, 37%, 18%);
+  --lavender: hsl(256, 60%, 94%);
+  --gray-suit: hsl(256, 10%, 60%);
+  --pale-green: hsl(130, 100%, 78%);
+
+  /* Terminal Theme */
+  --black: hsl(0, 0%, 0%);
+  --pine-tree: hsl(90, 100%, 6%);
+  --lawn-green: hsl(90, 100%, 50%);
+  --fern: hsl(90, 100%, 30%);
+  --cyan: hsl(180, 100%, 50%);
+
+  /* Deep Blue Theme */
+  --dark-blue: hsl(233, 81%, 10%);
+  --navy-blue: hsl(233, 100%, 20%);
+  --zircon: hsl(233, 81%, 94%);
+  --faded-blue: hsl(233, 81%, 70%);
+  --medium-purple: hsl(260, 65%, 69%);
+
+  /* Cupcake Theme */
+  --lilac: #eae6f0;
+  --rose-quartz: #f7cac9;
+  --pink: hsl(332, 38%, 55%);
+  --fuchsia: #bf3880;
+  --chocolate: #4b0f07;
+
+  /* Spacing */
+  --spacing: 1rem;
+  --spacing2x: calc(var(--spacing) * 2);
+  --spacing3x: calc(var(--spacing) * 3);
+  --spacing4x: calc(var(--spacing) * 4);
+  --spacing-half: calc(var(--spacing) / 2);
+  --spacing-quarter: calc(var(--spacing) / 4);
+
+  /* Typography */
+  --font-body: clamp(1.25rem, 2.5vw, 2rem);
+  --font-family: 'Inter var', 'Helvetica', sans-serif;
+  --font-heading: clamp(1.5rem, 3vw, 2.5rem);
+  --font-weight-body: 400;
+  --font-weight-headline: 600;
+
+  /* Default Theme */
+  --bg-main: var(--rose-white);
+  --bg-secondary: var(--solitude);
+  --text-primary: var(--mirage);
+  --text-secondary: var(--minsk);
+  --accent-color: var(--palatinate-blue);
+
+  --border-radius: calc(var(--spacing) / 4);
+  --animation-count: 4;
+
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+  Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-feature-settings: 'ss01' 1, 'ss02' 1, 'ss03' 1;
+  transition: background 200ms linear, color 500ms linear;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --bg-main: var(--vulcan);
+    --bg-secondary: var(--blackurrant);
+    --text-primary: var(--lavender);
+    --text-secondary: var(--gray-suit);
+    --accent-color: var(--pale-green);
+
+    --font-weight-body: 350;
+  }
+}
+
+[data-user-color-scheme='light'] {
+  --bg-main: var(--rose-white);
+  --bg-secondary: var(--solitude);
+  --text-primary: var(--mirage);
+  --text-secondary: var(--minsk);
+  --accent-color: var(--palatinate-blue);
+
+  --font-weight-body: 400;
+}
+
+[data-user-color-scheme='dark'] {
+  --bg-main: var(--vulcan);
+  --bg-secondary: var(--blackurrant);
+  --text-primary: var(--lavender);
+  --text-secondary: var(--gray-suit);
+  --accent-color: var(--pale-green);
+
+  --font-weight-body: 350;
+}
+
+[data-user-color-scheme='terminal'] {
+  --bg-main: var(--black);
+  --bg-secondary: var(--pine-tree);
+  --text-primary: var(--lawn-green);
+  --text-secondary: var(--fern);
+  --accent-color: var(--cyan);
+
+  /* Typography */
+  --font-weight-body: 100;
+  --font-weight-headline: 500;
+  --font-body: clamp(1.25rem, 2.5vw, 2rem);
+
+  --font-family: 'SF Mono', monospace;
+}
+
+[data-user-color-scheme='deep-blue'] {
+  --bg-main: var(--dark-blue);
+  --bg-secondary: var(--navy-blue);
+  --text-primary: var(--zircon);
+  --text-secondary: var(--faded-blue);
+  --accent-color: var(--medium-purple);
+
+  --font-family: 'Avenir Next', sans-serif;
+  --font-weight-body: 450;
+  --font-weight-headline: 600;
+}
+
+[data-user-color-scheme='cupcake'] {
+  --bg-main: var(--lilac);
+  --bg-secondary: var(--rose-quartz);
+  --text-primary: var(--chocolate);
+  --text-secondary: var(--fuchsia);
+  --accent-color: var(--pink);
+
+  --font-family: 'American Typewriter', 'Courier New', serif;
+  --font-weight-body: 400;
+  --font-weight-headline: 800;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h2 {
+  font-size: calc(14 / var(--spacing));
+  text-transform: uppercase;
+  letter-spacing: calc(var(--spacing) / 8);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing2x);
+  margin-bottom: var(--spacing2x);
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 100%;
+  background: var(--text-secondary);
+  height: calc(var(--spacing) / 16);
+
+  flex: 1;
+  opacity: 0.12;
+}
+
+p {
+  max-width: 48ch;
+  line-height: 1.45;
+  color: var(--text-primary);
+  font-size: var(--font-body);
+  font-weight: var(--font-weight-body);
+}
+
+a {
+  background-color: transparent;
+  border-radius: var(--border-radius);
+  color: var(--accent-color);
+  margin: 0 calc(var(--spacing-quarter) * -1);
+  padding: calc(var(--spacing) / 8) var(--spacing-quarter);
+  text-decoration: none;
+  transition: color 200ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+a:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-main);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

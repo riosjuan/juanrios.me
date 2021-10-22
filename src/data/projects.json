@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Mendix Community",
+    "description": "The place where for Makers to connect, get answers to questions and post ideas for our product managers",
+    "url": "https://forum.mendix.com/p/community",
+    "tags": ["css", "scss", "design-systems", "low-code"]
+  },
+  {
+    "name": "SVG Grabber",
+    "description": "A Google Chrome extension to quickly preview and get all the svg assets from a website",
+    "url": "https://chrome.google.com/webstore/detail/svg-grabber-get-all-the-s/ndakggdliegnegeclmfgodmgemdokdmg?hl=en",
+    "tags": ["javaScript", "svg", "extension"]
+  },
+  {
+    "name": "Swisscom – myCloud App",
+    "description": "A service to store and share photos and files securely and access them from any device",
+    "url": "https://www.swisscom.ch/en/residential/additional-services/mycloud.html",
+    "tags": ["product design", "mobile", "iOS", "android"]
+  },
+  {
+    "name": "Llorona Records",
+    "description": "Label and a platform for creative projects around music based in Bogotá, Colombia. Since 2007 Llorona Records, documents, promotes and represents unique and authentic artists",
+    "url": "https://lloronarecords.com",
+    "tags": ["web design", "vue", "gridsome", "jamstack"]
+  }
+]
