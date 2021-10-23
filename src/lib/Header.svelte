@@ -9,9 +9,13 @@
     { name: 'Projects', url: '#projects' },
     { name: 'Contact', url: '#contact' },
   ];
+
+  let y = 0;
 </script>
 
-<header role="banner" transition:fade={{ delay: 100, duration: 400, easing: quartIn }}>
+<svelte:window bind:scrollY={y} />
+
+<header role="banner" class:on-scroll={y >= 48} transition:fade={{ delay: 100, duration: 400, easing: quartIn }}>
   <nav>
     <ul>
       {#each links as link}
@@ -28,9 +32,18 @@
   header {
     align-items: center;
     display: flex;
-    height: var(--spacing3x);
+    flex-wrap: wrap;
+    height: var(--spacing4x);
     justify-content: space-between;
-    padding: var(--spacing) clamp(var(--spacing), 5vw, calc(var(--spacing) * 2));
+    padding: 0 clamp(var(--spacing), 5vw, calc(var(--spacing) * 2));
+    position: sticky;
+    top: 0;
+  }
+
+  .on-scroll {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--divider);
   }
 
   nav {

@@ -3,7 +3,7 @@
   import capitalize from '../utilities';
 
   const STORAGE_KEY = 'user-color-scheme';
-  const colorThemes = ['light', 'dark', 'system', 'terminal', 'deep-blue', 'cupcake'];
+  const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
   let selected;
 
   const toggleTheme = () => {
@@ -51,7 +51,6 @@
     display: block;
     height: 1px;
     overflow: hidden;
-    position: absolute;
     white-space: nowrap;
     width: 1px;
   }
@@ -61,7 +60,6 @@
       clip-path: initial;
       height: initial;
       overflow: visible;
-      position: static;
       white-space: initial;
       width: initial;
     }
@@ -80,20 +78,22 @@
 
   select {
     -webkit-appearance: none;
-    animation: none;
     appearance: none;
-    background: var(--bg-main);
+    background: transparent;
+    border-radius: var(--border-radius);
     border: 0;
     color: var(--text-secondary);
     cursor: pointer;
     font-family: inherit;
     font-size: inherit;
-    padding: 0;
-    position: relative;
+    margin: 0;
+    padding: 0 var(--spacing-quarter);
   }
 
-  select:hover {
-    color: var(--text-primary);
+  select:focus {
+    outline: 1px dotted var(--text-primary);
+    outline-offset: var(--spacing-quarter);
+    border-radius: var(--border-radius);
   }
 
   @keyframes blinking {

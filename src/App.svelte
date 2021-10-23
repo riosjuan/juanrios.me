@@ -38,6 +38,7 @@
     grid-template-rows: 1fr;
     padding: 0 clamp(var(--spacing), 5vw, var(--spacing2x));
     row-gap: calc(var(--spacing) * 5);
+    margin-top: var(--spacing2x);
   }
 
   h1 {
@@ -48,5 +49,9 @@
 
   p + p {
     margin-bottom: 0;
+  }
+
+  section {
+    scroll-margin-top: calc(var(--spacing) * 5);
   }
 </style>
