@@ -11,7 +11,7 @@
   /* Light Theme */
   --rose-white: hsl(20, 100%, 98%);
   --solitude: hsl(256, 37%, 94%);
-  --minsk: hsl(256, 37%, 30%);
+  --minsk: hsl(256, 37%, 60%);
   --mirage: hsl(256, 37%, 12%);
   --palatinate-blue: hsl(228, 100%, 50%);
   --divider-light: rgba(0, 0, 0, 0.1);
@@ -20,7 +20,7 @@
   --vulcan: hsl(256, 37%, 9%);
   --blackurrant: hsl(256, 37%, 18%);
   --lavender: hsl(256, 60%, 94%);
-  --gray-suit: hsl(256, 10%, 60%);
+  --gray-suit: hsl(256, 10%, 57%);
   --pale-green: hsl(130, 100%, 78%);
   --divider-dark: rgba(255, 255, 255, 0.15);
 
@@ -178,17 +178,17 @@ h2 {
   align-items: center;
   gap: var(--spacing2x);
   margin-bottom: var(--spacing2x);
+  color: var(--text-secondary);
 }
 
 h2::after {
+  background: var(--text-secondary);
   content: '';
   display: block;
-  width: 100%;
-  background: var(--text-secondary);
-  height: calc(var(--spacing) / 16);
-
   flex: 1;
+  height: calc(var(--spacing) / 16);
   opacity: 0.12;
+  width: 100%;
 }
 
 p {

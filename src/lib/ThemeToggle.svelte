@@ -1,20 +1,16 @@
 <script>
   import { onMount } from 'svelte';
-  import capitalize from '../utilities';
 
   const STORAGE_KEY = 'user-color-scheme';
   const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
+  const dataColorScheme = 'data-user-color-scheme';
   let selected;
 
   const toggleTheme = () => {
     let currentSetting = localStorage.getItem(STORAGE_KEY);
-
     currentSetting = selected;
-
-    document.documentElement.setAttribute('data-user-color-scheme', currentSetting);
-
+    document.documentElement.setAttribute(dataColorScheme, currentSetting);
     localStorage.setItem(STORAGE_KEY, currentSetting);
-
     return currentSetting;
   };
 
@@ -23,7 +19,7 @@
       selected = 'system';
     } else {
       selected = localStorage.getItem(STORAGE_KEY);
-      document.documentElement.setAttribute('data-user-color-scheme', selected);
+      document.documentElement.setAttribute(dataColorScheme, selected);
     }
   });
 </script>
@@ -33,7 +29,7 @@
   <div class="select-wrapper">
     <select bind:value={selected} on:change={toggleTheme} id="theme-select">
       {#each colorThemes as theme}
-        <option value={theme} selected={selected === theme}>{capitalize(theme)} </option>
+        <option value={theme} selected={selected === theme}>{theme} </option>
       {/each}
     </select>
   </div>
@@ -88,6 +84,7 @@
     font-size: inherit;
     margin: 0;
     padding: 0 var(--spacing-quarter);
+    text-transform: capitalize;
   }
 
   select:focus {

@@ -1,7 +1,6 @@
 <script>
   import { fade } from 'svelte/transition';
   import { quartIn } from 'svelte/easing';
-
   import ThemeToggle from './ThemeToggle.svelte';
 
   let links = [
@@ -11,11 +10,19 @@
   ];
 
   let y = 0;
+  $: opacity = () => {
+    const currentOpacity = y / 64;
+    if (currentOpacity >= 1) {
+      return 1;
+    } else {
+      return currentOpacity;
+    }
+  };
 </script>
 
 <svelte:window bind:scrollY={y} />
 
-<header role="banner" class:on-scroll={y >= 48} transition:fade={{ delay: 100, duration: 400, easing: quartIn }}>
+<header role="banner" transition:fade={{ delay: 100, duration: 400, easing: quartIn }}>
   <nav>
     <ul>
       {#each links as link}
@@ -26,6 +33,7 @@
     </ul>
   </nav>
   <ThemeToggle />
+  <div class="header-background" style={`opacity: ${opacity()}`} aria-hidden="true" />
 </header>
 
 <style>
@@ -35,15 +43,34 @@
     flex-wrap: wrap;
     height: var(--spacing4x);
     justify-content: space-between;
-    padding: 0 clamp(var(--spacing), 5vw, calc(var(--spacing) * 2));
+    padding: 0 clamp(var(--spacing), 5vw, var(--spacing2x));
     position: sticky;
     top: 0;
+    z-index: 10;
   }
 
-  .on-scroll {
+  .header-background {
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--divider);
+    display: block;
+    inset: 0;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .header-background::after {
+    -webkit-backdrop-filter: saturate(180%);
+    backdrop-filter: saturate(180%);
+    background-color: var(--text-primary);
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 0;
+    opacity: 0.05;
+    position: absolute;
+    right: 0;
   }
 
   nav {

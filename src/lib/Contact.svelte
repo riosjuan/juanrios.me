@@ -1,6 +1,4 @@
 <script>
-  import capitalize from '../utilities';
-
   let channels = [
     { name: 'email', url: 'mailto:juanesteban.rios@gmail.com' },
     { name: 'twitter', url: 'https://twitter.com/juanriosnl' },
@@ -11,7 +9,7 @@
 
 <ul>
   {#each channels as channel}
-    <li><a href={channel.url}>{capitalize(channel.name)}</a></li>
+    <li><a href={channel.url}>{channel.name}</a></li>
   {/each}
 </ul>
 
@@ -19,5 +17,9 @@
   ul {
     column-gap: clamp(var(--spacing), 5vw, var(--spacing2x));
     display: flex;
+  }
+
+  a {
+    text-transform: capitalize;
   }
 </style>
