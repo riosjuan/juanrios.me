@@ -14,6 +14,10 @@
     return currentSetting;
   };
 
+  const capitalize = (string) => {
+    return string.replace(/^\w/, (letter) => letter.toUpperCase());
+  };
+
   onMount(() => {
     if (localStorage.getItem(STORAGE_KEY) === null) {
       selected = 'system';
@@ -29,7 +33,7 @@
   <div class="select-wrapper">
     <select bind:value={selected} on:change={toggleTheme} id="theme-select">
       {#each colorThemes as theme}
-        <option value={theme} selected={selected === theme}>{theme} </option>
+        <option value={theme} selected={selected === theme}>{capitalize(theme)} </option>
       {/each}
     </select>
   </div>
@@ -84,7 +88,6 @@
     font-size: inherit;
     margin: 0;
     padding: 0 var(--spacing-quarter);
-    text-transform: capitalize;
   }
 
   select:focus {

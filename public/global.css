@@ -129,7 +129,7 @@
   --accent-color: var(--medium-purple);
   --divider: var(--divider-dark);
 
-  --font-family: 'Avenir Next', sans-serif;
+  --font-family: 'Avenir Next', 'Verdana', sans-serif;
   --font-weight-body: 450;
   --font-weight-headline: 600;
 }
@@ -142,7 +142,7 @@
   --accent-color: var(--pink);
   --divider: var(--divider-light);
 
-  --font-family: 'American Typewriter', 'Courier New', serif;
+  --font-family: 'American Typewriter', 'Georgia', serif;
   --font-weight-body: 400;
   --font-weight-headline: 800;
 }

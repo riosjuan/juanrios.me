@@ -1,6 +1,6 @@
 [
   {
-    "name": "Mendix Community",
+    "name": "community.mendix.com",
     "description": "The place for Makers to connect, get answers to questions and post ideas for our product managers",
     "url": "https://forum.mendix.com/p/community",
     "tags": ["css", "scss", "design system", "low-code"]
@@ -12,14 +12,14 @@
     "tags": ["javaScript", "svg", "extension"]
   },
   {
-    "name": "Swisscom – myCloud App",
+    "name": "myCloud App –– Swisscom",
     "description": "A service to store and share photos and files securely and access them from any device",
     "url": "https://www.swisscom.ch/en/residential/additional-services/mycloud.html",
     "tags": ["product design", "mobile", "iOS", "android"]
   },
   {
-    "name": "Llorona Records",
-    "description": "Label and a platform for creative projects around music based in Bogotá, Colombia. Since 2007 Llorona Records, documents, promotes and represents unique and authentic artists",
+    "name": "lloronarecords.com",
+    "description": "Llorona Records is a label and a platform for creative projects around music based in Bogotá, Colombia. Since 2007 it documents, promotes and represents unique and authentic artists",
     "url": "https://lloronarecords.com",
     "tags": ["design", "html", "tachyons", "jekyll"]
   }

@@ -17,6 +17,8 @@
   ul {
     column-gap: clamp(var(--spacing), 5vw, var(--spacing2x));
     display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--spacing);
   }
 
   a {

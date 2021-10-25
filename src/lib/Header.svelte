@@ -41,10 +41,11 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    height: var(--spacing4x);
     justify-content: space-between;
-    padding: 0 clamp(var(--spacing), 5vw, var(--spacing2x));
+    min-height: var(--spacing4x);
+    padding: var(--spacing) clamp(var(--spacing), 5vw, var(--spacing2x));
     position: sticky;
+    row-gap: var(--spacing2x);
     top: 0;
     z-index: 10;
   }
@@ -80,8 +81,10 @@
   ul {
     column-gap: clamp(var(--spacing), 5vw, var(--spacing2x));
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
+    row-gap: var(--spacing);
   }
 </style>
