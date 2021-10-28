@@ -51,8 +51,8 @@
   }
 
   .header-background {
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    backdrop-filter: saturate(180%) blur(20px);
+    background: var(--bg-main);
+    filter: opacity(0.95);
     display: block;
     inset: 0;
     opacity: 0;
@@ -60,9 +60,21 @@
     z-index: -1;
   }
 
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .header-background {
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      backdrop-filter: saturate(180%) blur(20px);
+      background: transparent;
+      filter: none;
+    }
+
+    .header-background::after {
+      -webkit-backdrop-filter: saturate(180%);
+      backdrop-filter: saturate(180%);
+    }
+  }
+
   .header-background::after {
-    -webkit-backdrop-filter: saturate(180%);
-    backdrop-filter: saturate(180%);
     background-color: var(--text-primary);
     bottom: 0;
     content: '';
