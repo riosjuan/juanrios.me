@@ -60,6 +60,18 @@
     z-index: -1;
   }
 
+  .header-background::after {
+    background-color: var(--text-primary);
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 0;
+    opacity: 0.05;
+    position: absolute;
+    right: 0;
+  }
+
   @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     .header-background {
       -webkit-backdrop-filter: saturate(180%) blur(20px);
@@ -72,18 +84,6 @@
       -webkit-backdrop-filter: saturate(180%);
       backdrop-filter: saturate(180%);
     }
-  }
-
-  .header-background::after {
-    background-color: var(--text-primary);
-    bottom: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    left: 0;
-    opacity: 0.05;
-    position: absolute;
-    right: 0;
   }
 
   nav {
