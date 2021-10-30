@@ -67,21 +67,19 @@
     display: block;
     height: 1px;
     left: 0;
-    opacity: 0.05;
+    opacity: 0.1;
     position: absolute;
     right: 0;
   }
 
   @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     .header-background {
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
       backdrop-filter: saturate(180%) blur(20px);
       background: transparent;
       filter: none;
     }
 
     .header-background::after {
-      -webkit-backdrop-filter: saturate(180%);
       backdrop-filter: saturate(180%);
     }
   }

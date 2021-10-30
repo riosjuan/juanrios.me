@@ -77,7 +77,6 @@
   }
 
   select {
-    -webkit-appearance: none;
     appearance: none;
     background: transparent;
     border-radius: var(--border-radius);
