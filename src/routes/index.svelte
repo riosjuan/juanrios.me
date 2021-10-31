@@ -1,32 +1,29 @@
 <script>
+	import { slideIn } from '../utilities';
 	import OpenGraph from '$lib/OpenGraph.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
-
-	let intro = (delay) => {
-		return `animation: introAnimation 300ms var(--timing) ${delay}ms backwards`;
-	};
 </script>
 
 <OpenGraph />
 
 <div>
-	<h1 style={intro(200)}>Hi, I'm Juan Rios</h1>
-	<p style={intro(400)}>
+	<h1 style={slideIn(2)}>Hi, I'm Juan Rios</h1>
+	<p style={slideIn(3)}>
 		I'm a Product Designer and Developer based in Rotterdam, The Netherlands. I have 10+ years of
 		experience building digital products and services.
 	</p>
-	<p style={intro(600)}>
+	<p style={slideIn(4)}>
 		Currently, I'm a Team Lead and UX Engineer at <a href="https://www.mendix.com">Mendix</a>,
 		making apps that enable community and collaboration.
 	</p>
 </div>
-<section id="projects" style={intro(800)}>
+<section id="projects" style={slideIn(5)}>
 	<h2>Selected Projects</h2>
 	<Projects />
 </section>
 
-<section id="contact" style={intro(1000)}>
+<section id="contact" style={slideIn(6)}>
 	<h2>Get in touch</h2>
 	<Contact />
 </section>

@@ -53,10 +53,6 @@
 	--spacing-half: calc(var(--spacing) / 2);
 	--spacing-quarter: calc(var(--spacing) / 4);
 
-	/* Animation */
-	--delay: 0;
-	--timing: cubic-bezier(0.64, 0, 0.78, 0);
-
 	/* Typography */
 	--font-body: clamp(1.25rem, 2.5vw, 2rem);
 	--font-family: 'Inter var', 'Helvetica', sans-serif;
@@ -72,7 +68,6 @@
 	--accent-color: var(--palatinate-blue);
 	--border-radius: var(--spacing-quarter);
 	--divider: var(--divider-light);
-	--intro-animation: introAnimation 300ms var(--delay) var(--timing);
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -225,7 +220,7 @@ ul {
 	margin: 0;
 }
 
-@keyframes introAnimation {
+@keyframes slide-in {
 	0% {
 		opacity: 0;
 		transform: translateY(calc(var(--spacing-half) * -1));

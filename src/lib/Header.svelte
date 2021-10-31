@@ -1,4 +1,5 @@
 <script>
+	import { slideIn } from '../utilities';
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
 
 	let isJavaScriptEnabled = false;
@@ -8,10 +9,6 @@
 		{ name: 'Projects', url: '#projects' },
 		{ name: 'Contact', url: '#contact' }
 	];
-
-	let intro = (delay) => {
-		return `animation: introAnimation 300ms var(--timing) ${delay}ms 1 forwards`;
-	};
 
 	let y = 0;
 	$: opacity = () => {
@@ -26,7 +23,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<header role="banner" style={intro(0)}>
+<header role="banner" style={slideIn(1)}>
 	<nav>
 		<ul>
 			{#each links as link}
