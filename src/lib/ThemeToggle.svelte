@@ -6,6 +6,8 @@
 	const dataColorScheme = 'data-user-color-scheme';
 	let selected;
 
+	let isJavaScriptEnabled = false;
+
 	const toggleTheme = () => {
 		let currentSetting = localStorage.getItem(STORAGE_KEY);
 		currentSetting = selected;
@@ -28,7 +30,7 @@
 	});
 </script>
 
-<div class="theme-selector">
+<div class="theme-selector no-js" class:no-js={isJavaScriptEnabled}>
 	<label for="theme-select">Theme</label>
 	<div class="select-wrapper">
 		<select bind:value={selected} on:change={toggleTheme} id="theme-select">
@@ -45,6 +47,11 @@
 		column-gap: calc(var(--spacing) / 2);
 		display: flex;
 	}
+
+	.no-js {
+		display: none;
+	}
+
 	label {
 		clip-path: inset(1px);
 		color: var(--text-secondary);

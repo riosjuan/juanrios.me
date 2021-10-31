@@ -1,6 +1,8 @@
 <script>
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
 
+	let isJavaScriptEnabled = false;
+
 	let links = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Projects', url: '#projects' },
@@ -35,7 +37,12 @@
 		</ul>
 	</nav>
 	<ThemeToggle />
-	<div class="header-background" style={`opacity: ${opacity()}`} aria-hidden="true" />
+	<div
+		class="header-background no-js"
+		class:no-js={isJavaScriptEnabled}
+		style={`opacity: ${opacity()}`}
+		aria-hidden="true"
+	/>
 </header>
 
 <style>
@@ -84,6 +91,10 @@
 		.header-background::after {
 			backdrop-filter: saturate(180%);
 		}
+	}
+
+	.no-js {
+		opacity: 1 !important;
 	}
 
 	nav {
