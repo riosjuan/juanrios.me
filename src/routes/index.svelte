@@ -3,9 +3,17 @@
 	import OpenGraph from '$lib/OpenGraph.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
+
+	let openGraphData = {
+		title: 'Juan Rios',
+		description:
+			'Product Designer and Developer with over 10 years of experience building digital products and services.',
+		url: 'https://juan-rios-2021.netlify.app',
+		ogImage: 'og-image.png'
+	};
 </script>
 
-<OpenGraph />
+<OpenGraph {...openGraphData} />
 
 <div>
 	<h1 style={slideIn(2)}>Hi, I'm Juan Rios</h1>

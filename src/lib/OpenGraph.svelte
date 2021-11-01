@@ -1,31 +1,26 @@
+<script>
+	export let title;
+	export let description;
+	export let url;
+	export let ogImage;
+</script>
+
 <svelte:head>
-	<title>Juan Rios</title>
-	<meta
-		name="description"
-		content="Product Designer and Developer with over 10 years of experience building digital products and services."
-	/>
+	<title>{title}</title>
+	<meta name="description" content={description} />
 	<!-- Google / Search Engine Tags -->
-	<meta itemprop="name" content="Juan Rios" />
-	<meta
-		itemprop="description"
-		content="Product Designer and Developer with over 10 years of experience building digital products and services."
-	/>
-	<meta itemprop="image" content="https://juan-rios-2021.netlify.app/og-image.png" />
+	<meta itemprop="name" content={title} />
+	<meta itemprop="description" content={description} />
+	<meta itemprop="image" content={`${url}/${ogImage}`} />
 	<!-- Facebook Meta Tags -->
-	<meta property="og:url" content="https://juan-rios-2021.netlify.app" />
+	<meta property="og:url" content={url} />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Juan Rios" />
-	<meta
-		property="og:description"
-		content="Product Designer and Developer with over 10 years of experience building digital products and services."
-	/>
-	<meta property="og:image" content="https://juan-rios-2021.netlify.app/og-image.png" />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={`${url}/${ogImage}`} />
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Juan Rios" />
-	<meta
-		name="twitter:description"
-		content="Product Designer and Developer with over 10 years of experience building digital products and services."
-	/>
-	<meta name="twitter:image" content="https://juan-rios-2021.netlify.app/og-image.png" />
+	<meta name="twitter:title" content={title} />
+	<meta name="twitter:description" content={description} />
+	<meta name="twitter:image" content={url + ogImage} />
 </svelte:head>
