@@ -4,5 +4,4 @@
 
 ## Stack
 
-- [Svelte](https://svelte.dev)
-- [Vite](https://vitejs.dev)
+- [SvelteKit](https://kit.svelte.dev)
