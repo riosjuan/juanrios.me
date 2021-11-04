@@ -1,8 +1,8 @@
 <script>
 	import { slideIn } from '../utilities';
+	import { onMount } from 'svelte';
+	import { removeNoJSClass } from '../utilities';
 	import ThemeToggle from '$lib/ThemeToggle.svelte';
-
-	let isJavaScriptEnabled = false;
 
 	let links = [
 		{ name: 'Home', url: '/' },
@@ -11,14 +11,20 @@
 	];
 
 	let y = 0;
+
 	$: opacity = () => {
 		const currentOpacity = y / 64;
+
 		if (currentOpacity >= 1) {
 			return 1;
 		} else {
 			return currentOpacity;
 		}
 	};
+
+	onMount(() => {
+		removeNoJSClass();
+	});
 </script>
 
 <svelte:window bind:scrollY={y} />
@@ -34,12 +40,7 @@
 		</ul>
 	</nav>
 	<ThemeToggle />
-	<div
-		class="header-background no-js"
-		class:no-js={isJavaScriptEnabled}
-		style={`opacity: ${opacity()}`}
-		aria-hidden="true"
-	/>
+	<div class="header-background no-js" style={`opacity: ${opacity()}`} aria-hidden="true" />
 </header>
 
 <style>

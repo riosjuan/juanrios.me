@@ -1,41 +1,42 @@
 <script>
 	import { onMount } from 'svelte';
+	import { capitalize, removeNoJSClass } from '../utilities';
 
 	const STORAGE_KEY = 'user-color-scheme';
 	const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
 	const dataColorScheme = 'data-user-color-scheme';
-	let selected;
+	let userTheme;
 
-	let isJavaScriptEnabled = false;
-
-	const toggleTheme = () => {
-		let currentSetting = localStorage.getItem(STORAGE_KEY);
-		currentSetting = selected;
-		document.documentElement.setAttribute(dataColorScheme, currentSetting);
-		localStorage.setItem(STORAGE_KEY, currentSetting);
-		return currentSetting;
+	const setTheme = () => {
+		const theme = localStorage.getItem(STORAGE_KEY);
+		if (theme) {
+			userTheme = theme;
+		} else {
+			userTheme = 'system';
+		}
+		document.documentElement.setAttribute(dataColorScheme, userTheme);
 	};
 
-	const capitalize = (string) => {
-		return string.replace(/^\w/, (letter) => letter.toUpperCase());
+	const selectTheme = () => {
+		let currentTheme = localStorage.getItem(STORAGE_KEY);
+		currentTheme = userTheme;
+		document.documentElement.setAttribute(dataColorScheme, currentTheme);
+		localStorage.setItem(STORAGE_KEY, currentTheme);
+		setSelectWidth();
 	};
 
 	onMount(() => {
-		if (localStorage.getItem(STORAGE_KEY) === null) {
-			selected = 'system';
-		} else {
-			selected = localStorage.getItem(STORAGE_KEY);
-			document.documentElement.setAttribute(dataColorScheme, selected);
-		}
+		setTheme();
+		removeNoJSClass();
 	});
 </script>
 
-<div class="theme-selector no-js" class:no-js={isJavaScriptEnabled}>
+<div class="theme-selector no-js">
 	<label for="theme-select">Theme</label>
 	<div class="select-wrapper">
-		<select bind:value={selected} on:change={toggleTheme} id="theme-select">
+		<select bind:value={userTheme} on:change={selectTheme} id="theme-select">
 			{#each colorThemes as theme}
-				<option value={theme} selected={selected === theme}>{capitalize(theme)} </option>
+				<option value={theme}>{capitalize(theme)}</option>
 			{/each}
 		</select>
 	</div>
