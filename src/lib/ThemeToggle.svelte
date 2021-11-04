@@ -1,41 +1,46 @@
 <script>
 	import { onMount } from 'svelte';
+	import { capitalize, removeNoJSClass } from '../utilities';
 
 	const STORAGE_KEY = 'user-color-scheme';
 	const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
 	const dataColorScheme = 'data-user-color-scheme';
-	let selected;
+	let userTheme;
 
-	let isJavaScriptEnabled = false;
-
-	const toggleTheme = () => {
-		let currentSetting = localStorage.getItem(STORAGE_KEY);
-		currentSetting = selected;
-		document.documentElement.setAttribute(dataColorScheme, currentSetting);
-		localStorage.setItem(STORAGE_KEY, currentSetting);
-		return currentSetting;
+	const setUserTheme = (theme) => {
+		document.documentElement.setAttribute(dataColorScheme, theme);
 	};
 
-	const capitalize = (string) => {
-		return string.replace(/^\w/, (letter) => letter.toUpperCase());
+	const setTheme = () => {
+		userTheme = localStorage.getItem(STORAGE_KEY);
+		if (!userTheme) {
+			userTheme = 'system';
+		} else {
+			userTheme;
+			setUserTheme(userTheme);
+		}
+	};
+
+	const selectTheme = () => {
+		let currentTheme = localStorage.getItem(STORAGE_KEY);
+		currentTheme = userTheme;
+		setUserTheme(currentTheme);
+		localStorage.setItem(STORAGE_KEY, currentTheme);
+		return currentTheme;
 	};
 
 	onMount(() => {
-		if (localStorage.getItem(STORAGE_KEY) === null) {
-			selected = 'system';
-		} else {
-			selected = localStorage.getItem(STORAGE_KEY);
-			document.documentElement.setAttribute(dataColorScheme, selected);
-		}
+		setTheme();
+		removeNoJSClass();
 	});
 </script>
 
-<div class="theme-selector no-js" class:no-js={isJavaScriptEnabled}>
+<div class="theme-selector no-js">
 	<label for="theme-select">Theme</label>
 	<div class="select-wrapper">
-		<select bind:value={selected} on:change={toggleTheme} id="theme-select">
+		<select bind:value={userTheme} on:change={selectTheme} id="theme-select">
 			{#each colorThemes as theme}
-				<option value={theme} selected={selected === theme}>{capitalize(theme)} </option>
+				<option value={theme} userTheme={userTheme === theme}>{capitalize(theme)} </option>
 			{/each}
 		</select>
 	</div>
