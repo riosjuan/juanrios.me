@@ -2,9 +2,9 @@
 	import { onMount } from 'svelte';
 	import { capitalize, removeNoJSClass } from '../utilities';
 
-	const STORAGE_KEY = 'user-color-scheme';
+	const STORAGE_KEY = 'user-color-theme';
 	const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
-	const dataColorScheme = 'data-user-color-scheme';
+	const dataColorScheme = 'data-user-color-theme';
 	let userTheme;
 
 	const setTheme = () => {

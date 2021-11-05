@@ -83,7 +83,7 @@
 	}
 }
 
-[data-user-color-scheme='light'] {
+[data-user-color-theme='light'] {
 	--bg-main: var(--rose-white);
 	--bg-secondary: var(--solitude);
 	--text-primary: var(--mirage);
@@ -94,7 +94,7 @@
 	--font-weight-body: 400;
 }
 
-[data-user-color-scheme='dark'] {
+[data-user-color-theme='dark'] {
 	--bg-main: var(--vulcan);
 	--bg-secondary: var(--blackurrant);
 	--text-primary: var(--lavender);
@@ -105,7 +105,7 @@
 	--font-weight-body: 350;
 }
 
-[data-user-color-scheme='terminal'] {
+[data-user-color-theme='terminal'] {
 	--bg-main: var(--black);
 	--bg-secondary: var(--pine-tree);
 	--text-primary: var(--lawn-green);
@@ -121,7 +121,7 @@
 	--font-family: 'SF Mono', monospace;
 }
 
-[data-user-color-scheme='deep-blue'] {
+[data-user-color-theme='deep-blue'] {
 	--bg-main: var(--dark-blue);
 	--bg-secondary: var(--navy-blue);
 	--text-primary: var(--zircon);
@@ -134,7 +134,7 @@
 	--font-weight-headline: 600;
 }
 
-[data-user-color-scheme='cupcake'] {
+[data-user-color-theme='cupcake'] {
 	--bg-main: var(--lilac);
 	--bg-secondary: var(--rose-quartz);
 	--text-primary: var(--chocolate);
