@@ -22,7 +22,6 @@
 		currentTheme = userTheme;
 		document.documentElement.setAttribute(dataColorScheme, currentTheme);
 		localStorage.setItem(STORAGE_KEY, currentTheme);
-		setSelectWidth();
 	};
 
 	onMount(() => {
