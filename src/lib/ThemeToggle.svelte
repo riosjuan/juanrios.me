@@ -1,6 +1,9 @@
 <script>
 	import { onMount } from 'svelte';
 	import { capitalize, removeNoJSClass } from '../utilities';
+	import Modal from '$lib/Modal.svelte';
+
+	let showModal = false;
 
 	const STORAGE_KEY = 'user-color-theme';
 	const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
@@ -9,6 +12,7 @@
 
 	const setTheme = () => {
 		const theme = localStorage.getItem(STORAGE_KEY);
+
 		if (theme) {
 			userTheme = theme;
 		} else {
@@ -17,11 +21,15 @@
 		document.documentElement.setAttribute(dataColorScheme, userTheme);
 	};
 
-	const selectTheme = () => {
+	const selectTheme = (e) => {
+		userTheme = e.target.innerText.toLowerCase();
+
 		let currentTheme = localStorage.getItem(STORAGE_KEY);
 		currentTheme = userTheme;
 		document.documentElement.setAttribute(dataColorScheme, currentTheme);
 		localStorage.setItem(STORAGE_KEY, currentTheme);
+
+		showModal = false;
 	};
 
 	onMount(() => {
@@ -33,11 +41,20 @@
 <div class="theme-selector no-js">
 	<label for="theme-select">Theme</label>
 	<div class="select-wrapper">
-		<select bind:value={userTheme} on:change={selectTheme} id="theme-select">
-			{#each colorThemes as theme}
-				<option value={theme}>{capitalize(theme)}</option>
-			{/each}
-		</select>
+		<button on:click={() => (showModal = true)}>{userTheme}</button>
+		{#if showModal}
+			<Modal on:close={() => (showModal = false)}>
+				<ul>
+					{#each colorThemes as theme}
+						<li>
+							<button on:click|preventDefault={selectTheme}>
+								{capitalize(theme)}
+							</button>
+						</li>
+					{/each}
+				</ul>
+			</Modal>
+		{/if}
 	</div>
 </div>
 
@@ -73,6 +90,7 @@
 	}
 
 	.select-wrapper {
+		position: relative;
 		align-items: center;
 		column-gap: var(--spacing-quarter);
 		display: flex;
@@ -81,22 +99,56 @@
 	.select-wrapper::before {
 		animation: blinking 750ms ease-in-out 1250ms 4 backwards;
 		content: '\276F';
+		margin-right: var(--spacing-quarter);
 	}
 
-	select {
-		appearance: none;
-		background: transparent;
+	button {
+		background-color: transparent;
 		border-radius: var(--border-radius);
-		border: 0;
+		color: var(--accent-color);
+		margin: 0 calc(var(--spacing-quarter) * -1);
+		padding: calc(var(--spacing) / 8) var(--spacing-quarter);
+		transition: color 200ms ease-in-out, background-color 150ms ease-in-out;
+		appearance: none;
+		border: none;
 		color: var(--text-secondary);
 		cursor: pointer;
-		font-family: inherit;
 		font-size: inherit;
-		margin: 0;
-		padding: 0 var(--spacing-quarter);
+		font-family: inherit;
+		text-transform: capitalize;
+		font-weight: 500;
 	}
 
-	select:focus {
+	button:hover {
+		color: var(--bg-main);
+		background-color: var(--accent-color);
+	}
+
+	li {
+		cursor: pointer;
+		white-space: nowrap;
+		border-bottom: 1px solid var(--divider);
+	}
+
+	li button {
+		padding: var(--spacing) var(--spacing2x);
+		margin: 0;
+		width: 100%;
+		transition: background-color 0.2s ease-in-out;
+		font-family: inherit;
+		text-align: left;
+	}
+
+	li button:hover {
+		color: var(--text-primary);
+		background-color: rgba(255, 255, 255, 0.12);
+	}
+
+	li:last-of-type {
+		border-bottom: none;
+	}
+
+	button:focus {
 		outline: 1px dotted var(--text-primary);
 		outline-offset: var(--spacing-quarter);
 		border-radius: var(--border-radius);

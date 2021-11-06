@@ -1,0 +1,77 @@
+<script>
+	import { createEventDispatcher, onDestroy } from 'svelte';
+	import { scale } from 'svelte/transition';
+	import { quadIn } from 'svelte/easing';
+
+	const dispatch = createEventDispatcher();
+	const close = () => dispatch('close');
+
+	let modal;
+
+	const handle_keydown = (e) => {
+		if (e.key === 'Escape') {
+			close();
+			return;
+		}
+
+		if (e.key === 'Tab') {
+			// trap focus
+			const nodes = modal.querySelectorAll('*');
+			const tabbable = Array.from(nodes).filter((n) => n.tabIndex >= 0);
+
+			let index = tabbable.indexOf(document.activeElement);
+			if (index === -1 && e.shiftKey) index = 0;
+
+			index += tabbable.length + (e.shiftKey ? -1 : 1);
+			index %= tabbable.length;
+
+			tabbable[index].focus();
+			e.preventDefault();
+		}
+	};
+
+	const previously_focused = typeof document !== 'undefined' && document.activeElement;
+
+	if (previously_focused) {
+		onDestroy(() => {
+			previously_focused.focus();
+		});
+	}
+</script>
+
+<svelte:window on:keydown={handle_keydown} on:scroll={close} />
+
+<div class="popup-backdrop" on:click={close} />
+
+<div
+	class="modal"
+	role="dialog"
+	aria-modal="true"
+	bind:this={modal}
+	in:scale={{ duration: 100, start: 0.95, easing: quadIn }}
+>
+	<slot />
+</div>
+
+<style>
+	.popup-backdrop {
+		position: fixed;
+		inset: 0;
+		width: 100vw;
+		height: 100vh;
+		background: transparent;
+	}
+
+	.modal {
+		position: absolute;
+		top: var(--spacing2x);
+		right: 0;
+		padding: 0;
+		background-color: var(--bg-main);
+		width: 250px;
+		border-radius: calc(var(--border-radius) * 2);
+		overflow: hidden;
+		box-shadow: 0px 1.1px 5.3px rgba(0, 0, 0, 0.02), 0px 3.6px 17.9px rgba(0, 0, 0, 0.03),
+			0px 16px 80px rgba(0, 0, 0, 0.05);
+	}
+</style>
