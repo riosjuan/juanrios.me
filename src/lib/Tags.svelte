@@ -17,7 +17,7 @@
 	}
 
 	li {
-		background-color: var(--bg-secondary);
+		background-color: var(--bg-2);
 		border-radius: var(--border-radius);
 		color: var(--text-secondary);
 		padding: var(--spacing-quarter) var(--spacing-half);

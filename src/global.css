@@ -10,39 +10,49 @@
 :root {
 	/* Light Theme */
 	--rose-white: hsl(20, 100%, 98%);
+	--rose-white-light: hsl(20, 100%, 99%);
 	--solitude: hsl(256, 37%, 94%);
 	--minsk: hsl(256, 37%, 60%);
+	--minsk-translucent: hsl(256, 37%, 60%, 0.07);
 	--mirage: hsl(256, 37%, 12%);
 	--palatinate-blue: hsl(228, 100%, 50%);
 	--divider-light: rgba(0, 0, 0, 0.1);
 
 	/* Dark Theme */
 	--vulcan: hsl(256, 37%, 9%);
+	--vulcan-light: hsl(256, 37%, 14%);
 	--blackurrant: hsl(256, 37%, 18%);
 	--lavender: hsl(256, 60%, 94%);
 	--gray-suit: hsl(256, 10%, 57%);
+	--gray-suit-translucent: hsl(256, 10%, 57%, 0.05);
 	--pale-green: hsl(130, 100%, 78%);
-	--divider-dark: rgba(255, 255, 255, 0.15);
+	--divider-dark: rgba(255, 255, 255, 0.1);
 
 	/* Terminal Theme */
 	--black: hsl(0, 0%, 0%);
+	--black-light: hsl(0, 0%, 5%);
 	--pine-tree: hsl(90, 100%, 6%);
 	--lawn-green: hsl(90, 100%, 50%);
 	--fern: hsl(90, 100%, 30%);
+	--fern-translucent: hsla(90, 100%, 30%, 0.06);
 	--cyan: hsl(180, 100%, 50%);
 
 	/* Deep Blue Theme */
 	--dark-blue: hsl(233, 81%, 10%);
+	--dark-blue-light: hsl(233, 81%, 15%);
 	--navy-blue: hsl(233, 100%, 20%);
 	--zircon: hsl(233, 81%, 94%);
 	--faded-blue: hsl(233, 81%, 70%);
+	--faded-blue-translucent: hsl(233, 81%, 70%, 0.05);
 	--medium-purple: hsl(260, 65%, 69%);
 
 	/* Cupcake Theme */
 	--lilac: #eae6f0;
+	--lilac-light: #efebf5;
 	--rose-quartz: #f7cac9;
 	--pink: hsl(332, 38%, 55%);
-	--fuchsia: #bf3880;
+	--fuchsia: hsl(328, 55%, 48%);
+	--fuchsia-translucent: hsl(328, 55%, 48%, 0.05);
 	--chocolate: #4b0f07;
 
 	/* Spacing */
@@ -60,9 +70,15 @@
 	--font-weight-body: 400;
 	--font-weight-headline: 600;
 
+	/* Box Shadow */
+	--shadow: 0px 1.1px 5.3px rgba(0, 0, 0, 0.02), 0px 3.6px 17.9px rgba(0, 0, 0, 0.03),
+		0px 16px 80px rgba(0, 0, 0, 0.05);
+
 	/* Default Theme */
-	--bg-main: var(--rose-white);
-	--bg-secondary: var(--solitude);
+	--bg-0: var(--rose-white);
+	--bg-1: var(--rose-white-light);
+	--bg-2: var(--solitude);
+	--bg-x: var(--minsk-translucent);
 	--text-primary: var(--mirage);
 	--text-secondary: var(--minsk);
 	--accent-color: var(--palatinate-blue);
@@ -72,8 +88,10 @@
 
 @media screen and (prefers-color-scheme: dark) {
 	:root {
-		--bg-main: var(--vulcan);
-		--bg-secondary: var(--blackurrant);
+		--bg-0: var(--vulcan);
+		--bg-1: var(--vulcan-light);
+		--bg-2: var(--blackurrant);
+		--bg-x: var(--gray-suit-translucent);
 		--text-primary: var(--lavender);
 		--text-secondary: var(--gray-suit);
 		--accent-color: var(--pale-green);
@@ -84,8 +102,10 @@
 }
 
 [data-user-color-theme='light'] {
-	--bg-main: var(--rose-white);
-	--bg-secondary: var(--solitude);
+	--bg-0: var(--rose-white);
+	--bg-1: var(--rose-white-light);
+	--bg-2: var(--solitude);
+	--bg-x: var(--minsk-translucent);
 	--text-primary: var(--mirage);
 	--text-secondary: var(--minsk);
 	--accent-color: var(--palatinate-blue);
@@ -95,8 +115,10 @@
 }
 
 [data-user-color-theme='dark'] {
-	--bg-main: var(--vulcan);
-	--bg-secondary: var(--blackurrant);
+	--bg-0: var(--vulcan);
+	--bg-1: var(--vulcan-light);
+	--bg-2: var(--blackurrant);
+	--bg-x: var(--gray-suit-translucent);
 	--text-primary: var(--lavender);
 	--text-secondary: var(--gray-suit);
 	--accent-color: var(--pale-green);
@@ -106,8 +128,10 @@
 }
 
 [data-user-color-theme='terminal'] {
-	--bg-main: var(--black);
-	--bg-secondary: var(--pine-tree);
+	--bg-0: var(--black);
+	--bg-1: var(--black-light);
+	--bg-2: var(--pine-tree);
+	--bg-x: var(--fern-translucent);
 	--text-primary: var(--lawn-green);
 	--text-secondary: var(--fern);
 	--accent-color: var(--cyan);
@@ -122,8 +146,10 @@
 }
 
 [data-user-color-theme='deep-blue'] {
-	--bg-main: var(--dark-blue);
-	--bg-secondary: var(--navy-blue);
+	--bg-0: var(--dark-blue);
+	--bg-1: var(--dark-blue-light);
+	--bg-2: var(--navy-blue);
+	--bg-x: var(--faded-blue-translucent);
 	--text-primary: var(--zircon);
 	--text-secondary: var(--faded-blue);
 	--accent-color: var(--medium-purple);
@@ -135,8 +161,10 @@
 }
 
 [data-user-color-theme='cupcake'] {
-	--bg-main: var(--lilac);
-	--bg-secondary: var(--rose-quartz);
+	--bg-0: var(--lilac);
+	--bg-1: var(--lilac-light);
+	--bg-2: var(--rose-quartz);
+	--bg-x: var(--fuchsia-translucent);
 	--text-primary: var(--chocolate);
 	--text-secondary: var(--fuchsia);
 	--accent-color: var(--pink);
@@ -148,7 +176,7 @@
 }
 
 html {
-	background: var(--bg-main);
+	background: var(--bg-0);
 	color: var(--text-primary);
 	font-family: var(--font-family);
 	font-feature-settings: 'ss01' 1, 'ss02' 1, 'ss03' 1;
@@ -211,7 +239,7 @@ a {
 
 a:hover {
 	background-color: var(--accent-color);
-	color: var(--bg-main);
+	color: var(--bg-0);
 }
 
 ul {

@@ -67,11 +67,9 @@
 		top: var(--spacing2x);
 		right: 0;
 		padding: 0;
-		background-color: var(--bg-main);
-		width: 250px;
+		background-color: var(--bg-1);
+		width: calc(var(--spacing) * 15);
 		border-radius: calc(var(--border-radius) * 2);
-		overflow: hidden;
-		box-shadow: 0px 1.1px 5.3px rgba(0, 0, 0, 0.02), 0px 3.6px 17.9px rgba(0, 0, 0, 0.03),
-			0px 16px 80px rgba(0, 0, 0, 0.05);
+		box-shadow: var(--shadow);
 	}
 </style>

@@ -58,7 +58,7 @@
 	}
 
 	.header-background {
-		background: var(--bg-main);
+		background: var(--bg-0);
 		filter: opacity(0.95);
 		display: block;
 		inset: 0;

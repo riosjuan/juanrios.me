@@ -47,7 +47,10 @@
 				<ul>
 					{#each colorThemes as theme}
 						<li>
-							<button on:click|preventDefault={selectTheme}>
+							<button
+								on:click={selectTheme}
+								class="button-theme {userTheme === theme ? 'selected' : ''}"
+							>
 								{capitalize(theme)}
 							</button>
 						</li>
@@ -120,32 +123,43 @@
 	}
 
 	button:hover {
-		color: var(--bg-main);
+		color: var(--bg-0);
 		background-color: var(--accent-color);
 	}
 
 	li {
-		cursor: pointer;
-		white-space: nowrap;
 		border-bottom: 1px solid var(--divider);
-	}
-
-	li button {
-		padding: var(--spacing) var(--spacing2x);
-		margin: 0;
-		width: 100%;
-		transition: background-color 0.2s ease-in-out;
-		font-family: inherit;
-		text-align: left;
-	}
-
-	li button:hover {
-		color: var(--text-primary);
-		background-color: rgba(255, 255, 255, 0.12);
 	}
 
 	li:last-of-type {
 		border-bottom: none;
+	}
+
+	.button-theme {
+		align-items: center;
+		background-color: transparent;
+		column-gap: var(--spacing-quarter);
+		cursor: pointer;
+		display: flex;
+		font-family: inherit;
+		font-weight: 500;
+		padding: calc(var(--spacing) * 0.75) var(--spacing2x);
+		position: relative;
+		transition: background-color 200ms ease-in-out;
+		width: 100%;
+		margin: 0;
+	}
+
+	.button-theme:hover {
+		color: var(--text-secondary);
+		background-color: var(--bg-x);
+	}
+
+	.selected::before {
+		content: '\2713';
+		position: absolute;
+		left: calc(var(--spacing) / 3);
+		width: calc(var(--spacing) * 1.5);
 	}
 
 	button:focus {
