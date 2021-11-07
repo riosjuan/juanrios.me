@@ -59,7 +59,8 @@
 		inset: 0;
 		width: 100vw;
 		height: 100vh;
-		background: transparent;
+		background: var(--bg-0);
+		opacity: 0.12;
 	}
 
 	.modal {
