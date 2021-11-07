@@ -3,14 +3,13 @@
 	import { capitalize, removeNoJSClass } from '../utilities';
 	import Modal from '$lib/Modal.svelte';
 
-	let showModal = false;
-
 	const STORAGE_KEY = 'user-color-theme';
 	const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
 	const dataColorScheme = 'data-user-color-theme';
+	let showModal = false;
 	let userTheme;
 
-	const setTheme = () => {
+	const setThemeFromStorage = () => {
 		const theme = localStorage.getItem(STORAGE_KEY);
 
 		if (theme) {
@@ -21,8 +20,8 @@
 		document.documentElement.setAttribute(dataColorScheme, userTheme);
 	};
 
-	const selectTheme = (e) => {
-		userTheme = e.target.innerText.toLowerCase();
+	const selectTheme = (event) => {
+		userTheme = event.target.value;
 
 		let currentTheme = localStorage.getItem(STORAGE_KEY);
 		currentTheme = userTheme;
@@ -33,13 +32,13 @@
 	};
 
 	onMount(() => {
-		setTheme();
+		setThemeFromStorage();
 		removeNoJSClass();
 	});
 </script>
 
 <div class="theme-selector no-js">
-	<label for="theme-select">Theme</label>
+	<p for="theme-select">Theme</p>
 	<div class="select-wrapper">
 		<button on:click={() => (showModal = true)}>{userTheme}</button>
 		{#if showModal}
@@ -49,6 +48,7 @@
 						<li>
 							<button
 								on:click={selectTheme}
+								value={theme}
 								class="button-theme {userTheme === theme ? 'selected' : ''}"
 							>
 								{capitalize(theme)}
@@ -72,7 +72,7 @@
 		display: none;
 	}
 
-	label {
+	p {
 		clip-path: inset(1px);
 		color: var(--text-secondary);
 		display: block;
@@ -80,10 +80,11 @@
 		overflow: hidden;
 		white-space: nowrap;
 		width: 1px;
+		font-size: inherit;
 	}
 
 	@media screen and (min-width: 36em) {
-		label {
+		p {
 			clip-path: initial;
 			height: initial;
 			overflow: visible;
@@ -106,25 +107,24 @@
 	}
 
 	button {
+		appearance: none;
 		background-color: transparent;
 		border-radius: var(--border-radius);
+		border: 1px solid transparent;
 		color: var(--accent-color);
-		margin: 0 calc(var(--spacing-quarter) * -1);
-		padding: calc(var(--spacing) / 8) var(--spacing-quarter);
-		transition: color 200ms ease-in-out, background-color 150ms ease-in-out;
-		appearance: none;
-		border: none;
 		color: var(--text-secondary);
 		cursor: pointer;
-		font-size: inherit;
 		font-family: inherit;
+		font-size: inherit;
+		margin: 0 calc(var(--spacing-quarter) * -1);
+		padding: calc(var(--spacing) / 6) var(--spacing-quarter);
 		text-transform: capitalize;
-		font-weight: 500;
+		transition: color 200ms ease-in-out, background-color 150ms ease-in-out;
 	}
 
 	button:hover {
-		color: var(--bg-0);
-		background-color: var(--accent-color);
+		border: 1px solid var(--accent-color);
+		color: var(--accent-color);
 	}
 
 	li {
@@ -148,9 +148,12 @@
 		transition: background-color 200ms ease-in-out;
 		width: 100%;
 		margin: 0;
+		border-radius: 0;
+		border: none;
 	}
 
 	.button-theme:hover {
+		border: none;
 		color: var(--text-secondary);
 		background-color: var(--bg-x);
 	}
