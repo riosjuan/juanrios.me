@@ -4,8 +4,10 @@
 	import Modal from '$lib/Modal.svelte';
 
 	const STORAGE_KEY = 'user-color-theme';
-	const colorThemes = ['system', 'cupcake', 'dark', 'deep-blue', 'light', 'terminal'];
-	const dataColorScheme = 'data-user-color-theme';
+	let userMode = ['light', 'dark', 'auto'];
+	let colorThemes = ['cupcake', 'default', 'deep-blue', 'terminal'];
+	const dataTheme = 'data-theme';
+	const colorScheme = 'data-color-scheme';
 	let showModal = false;
 	let userTheme;
 
@@ -15,9 +17,9 @@
 		if (theme) {
 			userTheme = theme;
 		} else {
-			userTheme = 'system';
+			userTheme = 'default';
 		}
-		document.documentElement.setAttribute(dataColorScheme, userTheme);
+		document.documentElement.setAttribute(dataTheme, userTheme);
 	};
 
 	const selectTheme = (event) => {
@@ -25,8 +27,20 @@
 
 		let currentTheme = localStorage.getItem(STORAGE_KEY);
 		currentTheme = userTheme;
-		document.documentElement.setAttribute(dataColorScheme, currentTheme);
+		document.documentElement.setAttribute(dataTheme, currentTheme);
 		localStorage.setItem(STORAGE_KEY, currentTheme);
+
+		showModal = false;
+	};
+
+	const selectColorScheme = (event) => {
+		let scheme = event.target.value;
+
+		if (scheme === 'auto') {
+			document.documentElement.removeAttribute(colorScheme, scheme);
+		} else {
+			document.documentElement.setAttribute(colorScheme, scheme);
+		}
 
 		showModal = false;
 	};
@@ -43,6 +57,11 @@
 		<button on:click={() => (showModal = true)}>{userTheme}</button>
 		{#if showModal}
 			<Modal on:close={() => (showModal = false)}>
+				<div class="color-scheme-controls">
+					{#each userMode as mode}
+						<button on:click={selectColorScheme} value={mode}>{mode}</button>
+					{/each}
+				</div>
 				<ul>
 					{#each colorThemes as theme}
 						<li>
@@ -70,6 +89,12 @@
 
 	.no-js {
 		display: none;
+	}
+
+	.color-scheme-controls {
+		display: flex;
+		padding: calc(var(--spacing) * 0.75) var(--spacing2x);
+		justify-content: space-between;
 	}
 
 	p {

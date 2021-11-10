@@ -81,7 +81,7 @@
 
 	@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
 		.header-background {
-			backdrop-filter: saturate(180%) blur(20px);
+			backdrop-filter: saturate(120%) blur(20px);
 			background: transparent;
 			filter: none;
 		}
