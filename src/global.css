@@ -86,7 +86,7 @@
 	--divider: var(--divider-light);
 }
 
-@media screen and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root {
 		--bg-0: var(--vulcan);
 		--bg-1: var(--vulcan-light);
