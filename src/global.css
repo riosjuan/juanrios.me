@@ -211,6 +211,21 @@
 	}
 }
 
+:root[data-theme='cupcake'][data-color-scheme='dark'] {
+	--bg-0: var(--dark-chocolate);
+	--bg-1: var(--lilac-light);
+	--bg-2: var(--rose-quartz);
+	--bg-x: var(--fuchsia-translucent);
+	--text-primary: var(--lilac);
+	--text-secondary: var(--pink);
+	--accent-color: var(--fuchsia);
+	--divider: var(--divider-light);
+
+	--font-family: 'American Typewriter', 'Georgia', serif;
+	--font-weight-body: 400;
+	--font-weight-headline: 800;
+}
+
 @media screen and (prefers-color-scheme: dark) {
 	:root[data-theme='default'] {
 		--bg-0: var(--vulcan);
@@ -226,8 +241,8 @@
 	}
 
 	:root[data-theme='cupcake'] {
-		--bg-1: var(--lilac-light);
 		--bg-0: var(--dark-chocolate);
+		--bg-1: var(--lilac-light);
 		--bg-2: var(--rose-quartz);
 		--bg-x: var(--fuchsia-translucent);
 		--text-primary: var(--lilac);

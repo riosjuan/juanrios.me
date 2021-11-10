@@ -3,13 +3,19 @@
 	import { capitalize, removeNoJSClass } from '../utilities';
 	import Modal from '$lib/Modal.svelte';
 
-	const STORAGE_KEY = 'user-color-theme';
-	let userMode = ['light', 'dark', 'auto'];
-	let colorThemes = ['cupcake', 'default', 'deep-blue', 'terminal'];
+	const STORAGE_KEY = 'user-preferences';
+	let userMode = ['auto', 'light', 'dark'];
+	let colorThemes = [
+		{ name: 'default' },
+		{ name: 'cupcake' },
+		{ name: 'deep-blue' },
+		{ name: 'terminal' }
+	];
 	const dataTheme = 'data-theme';
 	const colorScheme = 'data-color-scheme';
 	let showModal = false;
 	let userTheme;
+	let userColorScheme;
 
 	const setThemeFromStorage = () => {
 		const theme = localStorage.getItem(STORAGE_KEY);
@@ -36,10 +42,12 @@
 	const selectColorScheme = (event) => {
 		let scheme = event.target.value;
 
-		if (scheme === 'auto') {
-			document.documentElement.removeAttribute(colorScheme, scheme);
+		userColorScheme = scheme;
+
+		if (userColorScheme === 'auto') {
+			document.documentElement.removeAttribute(colorScheme, userColorScheme);
 		} else {
-			document.documentElement.setAttribute(colorScheme, scheme);
+			document.documentElement.setAttribute(colorScheme, userColorScheme);
 		}
 
 		showModal = false;
@@ -59,7 +67,11 @@
 			<Modal on:close={() => (showModal = false)}>
 				<div class="color-scheme-controls">
 					{#each userMode as mode}
-						<button on:click={selectColorScheme} value={mode}>{mode}</button>
+						<button
+							on:click={selectColorScheme}
+							value={mode}
+							class="button-color-scheme {userColorScheme === mode ? 'active' : ''}">{mode}</button
+						>
 					{/each}
 				</div>
 				<ul>
@@ -67,10 +79,10 @@
 						<li>
 							<button
 								on:click={selectTheme}
-								value={theme}
-								class="button-theme {userTheme === theme ? 'selected' : ''}"
+								value={theme.name}
+								class="button-theme {userTheme === theme.name ? 'selected' : ''}"
 							>
-								{capitalize(theme)}
+								{capitalize(theme.name)}
 							</button>
 						</li>
 					{/each}
@@ -93,8 +105,35 @@
 
 	.color-scheme-controls {
 		display: flex;
-		padding: calc(var(--spacing) * 0.75) var(--spacing2x);
+		margin: calc(var(--spacing) * 0.75) var(--spacing);
 		justify-content: space-between;
+		border: 1px solid var(--divider);
+		border-radius: calc(var(--border-radius) * 1.5);
+		padding: calc(var(--spacing-quarter) / 2);
+	}
+
+	.button-color-scheme {
+		width: 100%;
+		background: transparent;
+		border: 1px solid transparent;
+		border-radius: calc(var(--border-radius));
+		cursor: pointer;
+		font-size: var(--font-size-small);
+		font-weight: var(--font-weight-bold);
+		text-align: center;
+		margin: 0;
+		color: var(--text-secondary);
+	}
+
+	.button-color-scheme:hover:not(.active) {
+		background: var(--bg-x);
+		border: 1px solid var(--bg-x);
+		color: var(--text-secondary);
+	}
+
+	.active {
+		background: var(--text-secondary);
+		color: var(--bg-0);
 	}
 
 	p {
