@@ -142,11 +142,11 @@
 		clip-path: inset(1px);
 		color: var(--text-secondary);
 		display: block;
+		font-size: inherit;
 		height: 1px;
 		overflow: hidden;
 		white-space: nowrap;
 		width: 1px;
-		font-size: inherit;
 	}
 
 	@media screen and (min-width: 36em) {
