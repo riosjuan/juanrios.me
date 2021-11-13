@@ -83,8 +83,6 @@
 		0px 16px 80px rgba(0, 0, 0, 0.05);
 
 	--border-radius: var(--spacing-quarter);
-
-	--color-scheme: auto;
 }
 
 :root[data-theme='cupcake'][data-color-scheme='light'] {
@@ -148,7 +146,7 @@
 	--font-weight-headline: 600;
 }
 
-@media screen and (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
 	:root[data-theme='default'] {
 		--bg-0: var(--rose-white);
 		--bg-1: var(--rose-white-light);
@@ -226,7 +224,7 @@
 	--font-weight-headline: 800;
 }
 
-@media screen and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	:root[data-theme='default'] {
 		--bg-0: var(--vulcan);
 		--bg-1: var(--vulcan-light);

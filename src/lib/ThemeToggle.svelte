@@ -4,7 +4,7 @@
 	import Modal from '$lib/Modal.svelte';
 
 	const STORAGE_KEY = 'user-preferences';
-	let userMode = ['auto', 'light', 'dark'];
+	let userMode = ['light', 'dark', 'auto'];
 	let colorThemes = [
 		{ name: 'default' },
 		{ name: 'cupcake' },
@@ -95,7 +95,7 @@
 <style>
 	.theme-selector {
 		align-items: center;
-		column-gap: calc(var(--spacing) / 2);
+		column-gap: var(--spacing-half);
 		display: flex;
 	}
 
@@ -110,6 +110,7 @@
 		border: 1px solid var(--divider);
 		border-radius: calc(var(--border-radius) * 1.5);
 		padding: calc(var(--spacing-quarter) / 2);
+		column-gap: calc(var(--spacing) / 8);
 	}
 
 	.button-color-scheme {
@@ -126,14 +127,15 @@
 	}
 
 	.button-color-scheme:hover:not(.active) {
-		background: var(--bg-x);
-		border: 1px solid var(--bg-x);
-		color: var(--text-secondary);
+		border: 1px solid transparent;
+		color: var(--bg-x);
 	}
 
-	.active {
+	.active,
+	.active:hover {
 		background: var(--text-secondary);
 		color: var(--bg-0);
+		border: 1px solid transparent;
 	}
 
 	p {
@@ -192,11 +194,7 @@
 	}
 
 	li {
-		border-bottom: 1px solid var(--divider);
-	}
-
-	li:last-of-type {
-		border-bottom: none;
+		border-top: 1px solid var(--divider);
 	}
 
 	.button-theme {
