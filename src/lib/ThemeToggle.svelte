@@ -200,18 +200,18 @@
 	.button-theme {
 		align-items: center;
 		background-color: transparent;
+		border-radius: 0;
+		border: none;
 		column-gap: var(--spacing-quarter);
 		cursor: pointer;
 		display: flex;
 		font-family: inherit;
 		font-weight: 500;
+		margin: 0;
 		padding: calc(var(--spacing) * 0.75) var(--spacing2x);
 		position: relative;
 		transition: background-color 200ms ease-in-out;
 		width: 100%;
-		margin: 0;
-		border-radius: 0;
-		border: none;
 	}
 
 	.button-theme:hover {
@@ -228,9 +228,9 @@
 	}
 
 	button:focus {
-		outline: 1px dotted var(--text-primary);
-		outline-offset: var(--spacing-quarter);
 		border-radius: var(--border-radius);
+		outline-offset: var(--spacing-quarter);
+		outline: 1px dotted var(--text-primary);
 	}
 
 	@keyframes blinking {
