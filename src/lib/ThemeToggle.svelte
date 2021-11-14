@@ -4,57 +4,62 @@
 	import Modal from '$lib/Modal.svelte';
 
 	const STORAGE_KEY = 'user-preferences';
-	let userMode = ['light', 'dark', 'auto'];
-	let colorThemes = [
-		{ name: 'default' },
-		{ name: 'cupcake' },
-		{ name: 'deep-blue' },
-		{ name: 'terminal' }
-	];
-	const dataTheme = 'data-theme';
-	const colorScheme = 'data-color-scheme';
+	const COLOR_SCHEMES = ['light', 'dark', 'auto'];
+	const COLOR_THEMES = ['default', 'cupcake', 'deep-blue', 'terminal'];
+
+	const dataColorTheme = 'data-theme';
+	const dataColorScheme = 'data-color-scheme';
+
+	let colorScheme;
+	let colorTheme;
+	let userPreferences = { colorScheme, colorTheme };
 	let showModal = false;
-	let userTheme;
-	let userColorScheme;
 
-	const setThemeFromStorage = () => {
-		const theme = localStorage.getItem(STORAGE_KEY);
-
-		if (theme) {
-			userTheme = theme;
+	const setUserPreferences = () => {
+		userPreferences = localStorage.getItem(STORAGE_KEY);
+		if (userPreferences) {
+			userPreferences = JSON.parse(userPreferences);
 		} else {
-			userTheme = 'default';
+			userPreferences = {
+				colorScheme: 'auto',
+				colorTheme: 'default'
+			};
 		}
-		document.documentElement.setAttribute(dataTheme, userTheme);
+		document.documentElement.setAttribute(dataColorTheme, userPreferences.colorTheme);
+		document.documentElement.setAttribute(dataColorScheme, userPreferences.colorScheme);
 	};
 
-	const selectTheme = (event) => {
-		userTheme = event.target.value;
+	const saveUserPreferences = () => {
+		localStorage.setItem(STORAGE_KEY, JSON.stringify(userPreferences));
+	};
 
-		let currentTheme = localStorage.getItem(STORAGE_KEY);
-		currentTheme = userTheme;
-		document.documentElement.setAttribute(dataTheme, currentTheme);
-		localStorage.setItem(STORAGE_KEY, currentTheme);
+	const selectColorTheme = (event) => {
+		colorTheme = event.target.value;
+		userPreferences.colorTheme = colorTheme;
+
+		document.documentElement.setAttribute(dataColorTheme, colorTheme);
+		saveUserPreferences();
 
 		showModal = false;
 	};
 
 	const selectColorScheme = (event) => {
-		let scheme = event.target.value;
+		colorScheme = event.target.value;
+		userPreferences.colorScheme = colorScheme;
 
-		userColorScheme = scheme;
-
-		if (userColorScheme === 'auto') {
-			document.documentElement.removeAttribute(colorScheme, userColorScheme);
+		if (colorScheme === 'auto') {
+			document.documentElement.removeAttribute(dataColorScheme);
 		} else {
-			document.documentElement.setAttribute(colorScheme, userColorScheme);
+			document.documentElement.setAttribute(dataColorScheme, colorScheme);
 		}
+
+		saveUserPreferences();
 
 		showModal = false;
 	};
 
 	onMount(() => {
-		setThemeFromStorage();
+		setUserPreferences();
 		removeNoJSClass();
 	});
 </script>
@@ -62,27 +67,29 @@
 <div class="theme-selector no-js">
 	<p for="theme-select">Theme</p>
 	<div class="select-wrapper">
-		<button on:click={() => (showModal = true)}>{userTheme}</button>
+		<button on:click={() => (showModal = true)}>{userPreferences.colorTheme}</button>
 		{#if showModal}
 			<Modal on:close={() => (showModal = false)}>
 				<div class="color-scheme-controls">
-					{#each userMode as mode}
+					{#each COLOR_SCHEMES as colorScheme}
 						<button
 							on:click={selectColorScheme}
-							value={mode}
-							class="button-color-scheme {userColorScheme === mode ? 'active' : ''}">{mode}</button
+							value={colorScheme}
+							class="button-color-scheme {userPreferences.colorScheme === colorScheme
+								? 'active'
+								: ''}">{colorScheme}</button
 						>
 					{/each}
 				</div>
 				<ul>
-					{#each colorThemes as theme}
+					{#each COLOR_THEMES as theme}
 						<li>
 							<button
-								on:click={selectTheme}
-								value={theme.name}
-								class="button-theme {userTheme === theme.name ? 'selected' : ''}"
+								on:click={selectColorTheme}
+								value={theme}
+								class="button-theme {userPreferences.colorTheme === theme ? 'selected' : ''}"
 							>
-								{capitalize(theme.name)}
+								{capitalize(theme)}
 							</button>
 						</li>
 					{/each}
