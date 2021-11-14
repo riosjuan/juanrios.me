@@ -59,7 +59,7 @@
 		inset: 0;
 		width: 100vw;
 		height: 100vh;
-		background: var(--bg-0);
+		background: transparent;
 		opacity: 0.12;
 	}
 

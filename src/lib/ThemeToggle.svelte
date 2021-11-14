@@ -5,7 +5,7 @@
 
 	const STORAGE_KEY = 'user-preferences';
 	const COLOR_SCHEMES = ['light', 'dark', 'auto'];
-	const COLOR_THEMES = ['default', 'cupcake', 'deep-blue', 'terminal'];
+	const COLOR_THEMES = ['default', 'berenjena', 'cupcake', 'deep-blue', 'terminal'];
 
 	const dataColorTheme = 'data-theme';
 	const dataColorScheme = 'data-color-scheme';
@@ -127,20 +127,20 @@
 		border-radius: calc(var(--border-radius));
 		cursor: pointer;
 		font-size: var(--font-size-small);
-		font-weight: var(--font-weight-bold);
+		font-weight: 400;
 		text-align: center;
 		margin: 0;
-		color: var(--text-secondary);
+		color: var(--accent-color);
 	}
 
 	.button-color-scheme:hover:not(.active) {
 		border: 1px solid transparent;
-		color: var(--bg-x);
+		opacity: 0.5;
 	}
 
 	.active,
 	.active:hover {
-		background: var(--text-secondary);
+		background: var(--accent-color);
 		color: var(--bg-0);
 		border: 1px solid transparent;
 	}
@@ -185,10 +185,10 @@
 		border-radius: var(--border-radius);
 		border: 1px solid transparent;
 		color: var(--accent-color);
-		color: var(--text-secondary);
 		cursor: pointer;
 		font-family: inherit;
 		font-size: inherit;
+		font-weight: 500;
 		margin: 0 calc(var(--spacing-quarter) * -1);
 		padding: calc(var(--spacing) / 6) var(--spacing-quarter);
 		text-transform: capitalize;
@@ -223,7 +223,6 @@
 
 	.button-theme:hover {
 		border: none;
-		color: var(--text-secondary);
 		background-color: var(--bg-x);
 	}
 
