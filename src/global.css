@@ -16,8 +16,8 @@
 	--tuna: hsl(230, 20%, 12%);
 	--minsk: hsl(228, 63%, 64%);
 	--wild-blue: hsl(228, 40%, 70%);
+	--midnight-express: hsl(228, 20%, 12%);
 	--mirage: hsl(228, 20%, 15%);
-	--bunting: hsl(228, 20%, 18%);
 	--palatinate-blue: hsl(228, 100%, 50%);
 	--palatinate-blue-translucent: hsl(228, 100%, 50%, 0.05);
 	--cornflower-blue: hsl(228, 100%, 70%);
@@ -26,15 +26,17 @@
 	/* Berenjena Theme  */
 	--vulcan: hsl(256, 37%, 9%);
 	--vulcan-light: hsl(256, 37%, 14%);
+	--windsor: hsl(256, 40%, 30%);
 	--blackurrant: hsl(256, 37%, 18%);
 	--quartz: hsl(256, 61%, 90%);
 	--lavender: hsl(256, 60%, 94%);
-	--selago: hsl(256, 60%, 96%);
+	--soft-purple: hsl(268, 100%, 70%);
+	--bright-lavender: hsl(268, 100%, 72%);
+	--lavender-indigo: hsl(267, 100%, 68%);
 	--gray-suit: hsl(256, 10%, 57%);
 	--gray-suit-translucent: hsl(256, 10%, 57%, 0.05);
 	--pale-green: hsl(130, 100%, 78%);
-	--grass-green: hsl(130, 80%, 35%);
-	--grass-green-translucent: hsl(130, 80%, 35%, 0.03);
+	--grass-green-translucent: hsl(130, 100%, 78%, 0.1);
 
 	/* Cupcake Theme*/
 	--lilac: hsl(264, 25%, 92%);
@@ -114,12 +116,13 @@
 }
 
 :root[data-theme='berenjena'][data-color-scheme='light'] {
-	--bg-0: var(--lavender);
-	--bg-1: var(--selago);
-	--bg-2: var(--quartz);
+	--bg-0: var(--soft-purple);
+	--bg-1: var(--bright-lavender);
+	--bg-2: var(--lavender-indigo);
 	--bg-x: var(--grass-green-translucent);
 	--text-primary: var(--vulcan);
-	--accent-color: var(--grass-green);
+	--text-secondary: var(--windsor);
+	--accent-color: var(--pale-green);
 	--divider: var(--divider-light);
 
 	--font-weight-body: 400;
@@ -189,12 +192,13 @@
 	}
 
 	:root[data-theme='berenjena'] {
-		--bg-0: var(--lavender);
-		--bg-1: var(--selago);
-		--bg-2: var(--quartz);
+		--bg-0: var(--soft-purple);
+		--bg-1: var(--bright-lavender);
+		--bg-2: var(--lavender-indigo);
 		--bg-x: var(--grass-green-translucent);
 		--text-primary: var(--vulcan);
-		--accent-color: var(--grass-green);
+		--text-secondary: var(--windsor);
+		--accent-color: var(--pale-green);
 		--divider: var(--divider-light);
 
 		--font-weight-body: 400;
@@ -250,8 +254,8 @@
 }
 
 :root[data-theme='default'][data-color-scheme='dark'] {
-	--bg-0: var(--mirage);
-	--bg-1: var(--bunting);
+	--bg-0: var(--midnight-express);
+	--bg-1: var(--mirage);
 	--bg-2: var(--tuna);
 	--bg-x: var(--cornflower-blue-translucent);
 	--text-primary: var(--white-lilac);
@@ -326,8 +330,8 @@
 @media (prefers-color-scheme: dark) {
 	:root,
 	:root[data-theme='default'] {
-		--bg-0: var(--mirage);
-		--bg-1: var(--bunting);
+		--bg-0: var(--midnight-express);
+		--bg-1: var(--mirage);
 		--bg-2: var(--tuna);
 		--bg-x: var(--cornflower-blue-translucent);
 		--text-primary: var(--white-lilac);
