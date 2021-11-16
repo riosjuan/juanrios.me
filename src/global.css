@@ -8,52 +8,74 @@
 }
 
 :root {
-	/* Light Theme */
+	/* Default Theme */
 	--rose-white: hsl(20, 100%, 98%);
 	--rose-white-light: hsl(20, 100%, 99%);
-	--solitude: hsl(256, 37%, 94%);
-	--minsk: hsl(256, 37%, 60%);
-	--minsk-translucent: hsl(256, 37%, 60%, 0.07);
-	--mirage: hsl(256, 37%, 12%);
+	--white-lilac: hsl(20, 50%, 94%);
+	--solitude: hsl(260, 30%, 94%);
+	--tuna: hsl(230, 20%, 12%);
+	--minsk: hsl(228, 63%, 64%);
+	--wild-blue: hsl(228, 40%, 70%);
+	--midnight-express: hsl(228, 20%, 12%);
+	--mirage: hsl(228, 20%, 15%);
 	--palatinate-blue: hsl(228, 100%, 50%);
-	--divider-light: rgba(0, 0, 0, 0.1);
+	--palatinate-blue-translucent: hsl(228, 100%, 50%, 0.05);
+	--cornflower-blue: hsl(228, 100%, 70%);
+	--cornflower-blue-translucent: hsl(228, 100%, 70%, 0.03);
 
-	/* Dark Theme */
+	/* Berenjena Theme  */
 	--vulcan: hsl(256, 37%, 9%);
 	--vulcan-light: hsl(256, 37%, 14%);
+	--windsor: hsl(256, 40%, 30%);
 	--blackurrant: hsl(256, 37%, 18%);
+	--quartz: hsl(256, 61%, 90%);
 	--lavender: hsl(256, 60%, 94%);
+	--soft-purple: hsl(268, 100%, 70%);
+	--bright-lavender: hsl(268, 100%, 72%);
+	--lavender-indigo: hsl(267, 100%, 68%);
 	--gray-suit: hsl(256, 10%, 57%);
 	--gray-suit-translucent: hsl(256, 10%, 57%, 0.05);
 	--pale-green: hsl(130, 100%, 78%);
-	--divider-dark: rgba(255, 255, 255, 0.1);
+	--grass-green-translucent: hsl(130, 100%, 78%, 0.1);
+
+	/* Cupcake Theme*/
+	--lilac: hsl(264, 25%, 92%);
+	--lilac-light: hsl(264, 33%, 94%);
+	--rose-quartz: hsl(1, 74%, 88%);
+	--hopbush: hsl(332, 38%, 55%);
+	--fuchsia: hsl(328, 55%, 48%);
+	--fuchsia-translucent: hsl(328, 55%, 48%, 0.05);
+	--chocolate: hsl(8, 83%, 16%);
+	--bean: hsl(8, 80%, 12%);
+	--dark-chocolate: hsl(8, 83%, 8%);
 
 	/* Terminal Theme */
 	--black: hsl(0, 0%, 0%);
+	--dark-gray: hsl(0, 0%, 0%, 0.35);
 	--black-light: hsl(0, 0%, 5%);
 	--pine-tree: hsl(90, 100%, 6%);
 	--lawn-green: hsl(90, 100%, 50%);
+	--spring-green: hsl(143, 80%, 50%);
+	--spring-green-light: hsl(143, 80%, 54%);
+	--pigment-green: hsl(143, 80%, 47%);
 	--fern: hsl(90, 100%, 30%);
 	--fern-translucent: hsla(90, 100%, 30%, 0.06);
 	--cyan: hsl(180, 100%, 50%);
+	--crayon-blue: hsl(219, 100%, 50%);
 
-	/* Deep Blue Theme */
+	/* Deep-blue Theme */
+	--baby-blue: hsl(177, 86%, 70%);
 	--dark-blue: hsl(233, 81%, 10%);
 	--dark-blue-light: hsl(233, 81%, 15%);
 	--navy-blue: hsl(233, 100%, 20%);
-	--zircon: hsl(233, 81%, 94%);
+	--ultramarine-blue: hsl(233, 89%, 59%);
+	--ultramarine-blue-light: hsl(233, 87%, 61%);
+	--zaffre: hsl(233, 89%, 65%);
+	--zircon: hsl(233, 81%, 96%);
+	--perano: hsl(233, 81%, 88%);
 	--faded-blue: hsl(233, 81%, 70%);
 	--faded-blue-translucent: hsl(233, 81%, 70%, 0.05);
 	--medium-purple: hsl(260, 65%, 69%);
-
-	/* Cupcake Theme */
-	--lilac: #eae6f0;
-	--lilac-light: #efebf5;
-	--rose-quartz: #f7cac9;
-	--pink: hsl(332, 38%, 55%);
-	--fuchsia: hsl(328, 55%, 48%);
-	--fuchsia-translucent: hsl(328, 55%, 48%, 0.05);
-	--chocolate: #4b0f07;
 
 	/* Spacing */
 	--spacing: 1rem;
@@ -74,38 +96,17 @@
 	--shadow: 0px 1.1px 5.3px rgba(0, 0, 0, 0.02), 0px 3.6px 17.9px rgba(0, 0, 0, 0.03),
 		0px 16px 80px rgba(0, 0, 0, 0.05);
 
-	/* Default Theme */
-	--bg-0: var(--rose-white);
-	--bg-1: var(--rose-white-light);
-	--bg-2: var(--solitude);
-	--bg-x: var(--minsk-translucent);
-	--text-primary: var(--mirage);
-	--text-secondary: var(--minsk);
-	--accent-color: var(--palatinate-blue);
 	--border-radius: var(--spacing-quarter);
-	--divider: var(--divider-light);
+
+	--divider-light: rgba(0, 0, 0, 0.08);
+	--divider-dark: rgba(255, 255, 255, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg-0: var(--vulcan);
-		--bg-1: var(--vulcan-light);
-		--bg-2: var(--blackurrant);
-		--bg-x: var(--gray-suit-translucent);
-		--text-primary: var(--lavender);
-		--text-secondary: var(--gray-suit);
-		--accent-color: var(--pale-green);
-		--divider: var(--divider-dark);
-
-		--font-weight-body: 350;
-	}
-}
-
-[data-user-color-theme='light'] {
+:root[data-theme='default'][data-color-scheme='light'] {
 	--bg-0: var(--rose-white);
 	--bg-1: var(--rose-white-light);
 	--bg-2: var(--solitude);
-	--bg-x: var(--minsk-translucent);
+	--bg-x: var(--palatinate-blue-translucent);
 	--text-primary: var(--mirage);
 	--text-secondary: var(--minsk);
 	--accent-color: var(--palatinate-blue);
@@ -114,7 +115,158 @@
 	--font-weight-body: 400;
 }
 
-[data-user-color-theme='dark'] {
+:root[data-theme='berenjena'][data-color-scheme='light'] {
+	--bg-0: var(--soft-purple);
+	--bg-1: var(--bright-lavender);
+	--bg-2: var(--lavender-indigo);
+	--bg-x: var(--grass-green-translucent);
+	--text-primary: var(--vulcan);
+	--text-secondary: var(--windsor);
+	--accent-color: var(--pale-green);
+	--divider: var(--divider-light);
+
+	--font-weight-body: 400;
+}
+
+:root[data-theme='cupcake'][data-color-scheme='light'] {
+	--bg-0: var(--lilac);
+	--bg-1: var(--lilac-light);
+	--bg-2: var(--rose-quartz);
+	--bg-x: var(--fuchsia-translucent);
+	--text-primary: var(--chocolate);
+	--text-secondary: var(--hopbush);
+	--accent-color: var(--fuchsia);
+	--divider: var(--divider-light);
+
+	--font-family: 'American Typewriter', 'Georgia', serif;
+	--font-weight-body: 400;
+	--font-weight-headline: 800;
+}
+
+:root[data-theme='terminal'][data-color-scheme='light'] {
+	--bg-0: var(--spring-green);
+	--bg-1: var(--spring-green-light);
+	--bg-2: var(--pigment-green);
+	--bg-x: var(--fern-translucent);
+	--text-primary: var(--pine-tree);
+	--text-secondary: var(--dark-gray);
+	--accent-color: var(--crayon-blue);
+	--divider: var(--divider-light);
+
+	/* Typography */
+	--font-weight-body: 100;
+	--font-weight-headline: 500;
+	--font-body: clamp(1.25rem, 2.5vw, 2rem);
+
+	--font-family: 'SF Mono', monospace;
+}
+
+:root[data-theme='deep-blue'][data-color-scheme='light'] {
+	--bg-0: var(--ultramarine-blue);
+	--bg-1: var(--ultramarine-blue-light);
+	--bg-2: var(--zaffre);
+	--bg-x: var(--faded-blue-translucent);
+	--text-primary: var(--zircon);
+	--text-secondary: var(--perano);
+	--accent-color: var(--baby-blue);
+	--divider: var(--divider-dark);
+
+	--font-family: 'Avenir Next', 'Verdana', sans-serif;
+	--font-weight-body: 450;
+	--font-weight-headline: 600;
+}
+
+@media (prefers-color-scheme: light) {
+	:root,
+	:root[data-theme='default'] {
+		--bg-0: var(--rose-white);
+		--bg-1: var(--rose-white-light);
+		--bg-2: var(--solitude);
+		--bg-x: var(--palatinate-blue-translucent);
+		--text-primary: var(--mirage);
+		--text-secondary: var(--minsk);
+		--accent-color: var(--palatinate-blue);
+		--divider: var(--divider-light);
+
+		--font-weight-body: 400;
+	}
+
+	:root[data-theme='berenjena'] {
+		--bg-0: var(--soft-purple);
+		--bg-1: var(--bright-lavender);
+		--bg-2: var(--lavender-indigo);
+		--bg-x: var(--grass-green-translucent);
+		--text-primary: var(--vulcan);
+		--text-secondary: var(--windsor);
+		--accent-color: var(--pale-green);
+		--divider: var(--divider-light);
+
+		--font-weight-body: 400;
+	}
+
+	:root[data-theme='cupcake'] {
+		--bg-0: var(--lilac);
+		--bg-1: var(--lilac-light);
+		--bg-2: var(--rose-quartz);
+		--bg-x: var(--fuchsia-translucent);
+		--text-primary: var(--chocolate);
+		--text-secondary: var(--hopbush);
+		--accent-color: var(--fuchsia);
+		--divider: var(--divider-light);
+
+		--font-family: 'American Typewriter', 'Georgia', serif;
+		--font-weight-body: 400;
+		--font-weight-headline: 800;
+	}
+
+	:root[data-theme='terminal'] {
+		--bg-0: var(--spring-green);
+		--bg-1: var(--spring-green-light);
+		--bg-2: var(--pigment-green);
+		--bg-x: var(--fern-translucent);
+		--text-primary: var(--pine-tree);
+		--text-secondary: var(--dark-gray);
+		--accent-color: var(--crayon-blue);
+		--divider: var(--divider-light);
+
+		/* Typography */
+		--font-weight-body: 100;
+		--font-weight-headline: 500;
+		--font-body: clamp(1.25rem, 2.5vw, 2rem);
+
+		--font-family: 'SF Mono', monospace;
+	}
+
+	:root[data-theme='deep-blue'] {
+		--bg-0: var(--ultramarine-blue);
+		--bg-1: var(--ultramarine-blue-light);
+		--bg-2: var(--zaffre);
+		--bg-x: var(--faded-blue-translucent);
+		--text-primary: var(--zircon);
+		--text-secondary: var(--perano);
+		--accent-color: var(--baby-blue);
+		--divider: var(--divider-dark);
+
+		--font-family: 'Avenir Next', 'Verdana', sans-serif;
+		--font-weight-body: 450;
+		--font-weight-headline: 600;
+	}
+}
+
+:root[data-theme='default'][data-color-scheme='dark'] {
+	--bg-0: var(--midnight-express);
+	--bg-1: var(--mirage);
+	--bg-2: var(--tuna);
+	--bg-x: var(--cornflower-blue-translucent);
+	--text-primary: var(--white-lilac);
+	--text-secondary: var(--wild-blue);
+	--accent-color: var(--cornflower-blue);
+	--divider: var(--divider-dark);
+
+	--font-weight-body: 350;
+}
+
+:root[data-theme='berenjena'][data-color-scheme='dark'] {
 	--bg-0: var(--vulcan);
 	--bg-1: var(--vulcan-light);
 	--bg-2: var(--blackurrant);
@@ -127,7 +279,7 @@
 	--font-weight-body: 350;
 }
 
-[data-user-color-theme='terminal'] {
+:root[data-theme='terminal'][data-color-scheme='dark'] {
 	--bg-0: var(--black);
 	--bg-1: var(--black-light);
 	--bg-2: var(--pine-tree);
@@ -145,7 +297,22 @@
 	--font-family: 'SF Mono', monospace;
 }
 
-[data-user-color-theme='deep-blue'] {
+:root[data-theme='cupcake'][data-color-scheme='dark'] {
+	--bg-0: var(--dark-chocolate);
+	--bg-1: var(--bean);
+	--bg-2: var(--rose-quartz);
+	--bg-x: var(--fuchsia-translucent);
+	--text-primary: var(--lilac);
+	--text-secondary: var(--hopbush);
+	--accent-color: var(--fuchsia);
+	--divider: var(--divider-dark);
+
+	--font-family: 'American Typewriter', 'Georgia', serif;
+	--font-weight-body: 400;
+	--font-weight-headline: 800;
+}
+
+:root[data-theme='deep-blue'][data-color-scheme='dark'] {
 	--bg-0: var(--dark-blue);
 	--bg-1: var(--dark-blue-light);
 	--bg-2: var(--navy-blue);
@@ -160,19 +327,81 @@
 	--font-weight-headline: 600;
 }
 
-[data-user-color-theme='cupcake'] {
-	--bg-0: var(--lilac);
-	--bg-1: var(--lilac-light);
-	--bg-2: var(--rose-quartz);
-	--bg-x: var(--fuchsia-translucent);
-	--text-primary: var(--chocolate);
-	--text-secondary: var(--fuchsia);
-	--accent-color: var(--pink);
-	--divider: var(--divider-light);
+@media (prefers-color-scheme: dark) {
+	:root,
+	:root[data-theme='default'] {
+		--bg-0: var(--midnight-express);
+		--bg-1: var(--mirage);
+		--bg-2: var(--tuna);
+		--bg-x: var(--cornflower-blue-translucent);
+		--text-primary: var(--white-lilac);
+		--text-secondary: var(--wild-blue);
+		--accent-color: var(--cornflower-blue);
+		--divider: var(--divider-dark);
 
-	--font-family: 'American Typewriter', 'Georgia', serif;
-	--font-weight-body: 400;
-	--font-weight-headline: 800;
+		--font-weight-body: 350;
+	}
+
+	:root[data-theme='berenjena'] {
+		--bg-0: var(--vulcan);
+		--bg-1: var(--vulcan-light);
+		--bg-2: var(--blackurrant);
+		--bg-x: var(--gray-suit-translucent);
+		--text-primary: var(--lavender);
+		--text-secondary: var(--gray-suit);
+		--accent-color: var(--pale-green);
+		--divider: var(--divider-dark);
+
+		--font-weight-body: 350;
+	}
+
+	:root[data-theme='cupcake'] {
+		--bg-0: var(--dark-chocolate);
+		--bg-1: var(--bean);
+		--bg-2: var(--rose-quartz);
+		--bg-x: var(--fuchsia-translucent);
+		--text-primary: var(--lilac);
+		--text-secondary: var(--hopbush);
+		--accent-color: var(--fuchsia);
+		--divider: var(--divider-dark);
+
+		--font-family: 'American Typewriter', 'Georgia', serif;
+		--font-weight-body: 400;
+		--font-weight-headline: 800;
+	}
+
+	:root[data-theme='terminal'] {
+		--bg-0: var(--black);
+		--bg-1: var(--black-light);
+		--bg-2: var(--pine-tree);
+		--bg-x: var(--fern-translucent);
+		--text-primary: var(--lawn-green);
+		--text-secondary: var(--fern);
+		--accent-color: var(--cyan);
+		--divider: var(--divider-dark);
+
+		/* Typography */
+		--font-weight-body: 100;
+		--font-weight-headline: 500;
+		--font-body: clamp(1.25rem, 2.5vw, 2rem);
+
+		--font-family: 'SF Mono', monospace;
+	}
+
+	:root[data-theme='deep-blue'] {
+		--bg-0: var(--dark-blue);
+		--bg-1: var(--dark-blue-light);
+		--bg-2: var(--navy-blue);
+		--bg-x: var(--faded-blue-translucent);
+		--text-primary: var(--zircon);
+		--text-secondary: var(--faded-blue);
+		--accent-color: var(--medium-purple);
+		--divider: var(--divider-dark);
+
+		--font-family: 'Avenir Next', 'Verdana', sans-serif;
+		--font-weight-body: 450;
+		--font-weight-headline: 600;
+	}
 }
 
 html {
@@ -181,6 +410,12 @@ html {
 	font-family: var(--font-family);
 	font-feature-settings: 'ss01' 1, 'ss02' 1, 'ss03' 1;
 	transition: background 200ms linear, color 500ms linear;
+}
+
+@supports (scroll-behavior: smooth) {
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 /* Box sizing rules */
