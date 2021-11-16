@@ -188,6 +188,18 @@
 		--font-weight-body: 400;
 	}
 
+	:root[data-theme='berenjena'] {
+		--bg-0: var(--lavender);
+		--bg-1: var(--selago);
+		--bg-2: var(--quartz);
+		--bg-x: var(--grass-green-translucent);
+		--text-primary: var(--vulcan);
+		--accent-color: var(--grass-green);
+		--divider: var(--divider-light);
+
+		--font-weight-body: 400;
+	}
+
 	:root[data-theme='cupcake'] {
 		--bg-0: var(--lilac);
 		--bg-1: var(--lilac-light);
