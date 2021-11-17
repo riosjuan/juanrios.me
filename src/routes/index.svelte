@@ -8,7 +8,7 @@
 		title: 'Juan Rios',
 		description:
 			'Product Designer and Developer with over 10 years of experience building digital products and services.',
-		url: 'https://juan-rios-2021.netlify.app',
+		url: 'https://juanrios.me',
 		ogImage: 'og-image.png'
 	};
 </script>
