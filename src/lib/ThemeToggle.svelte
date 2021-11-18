@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { capitalize, removeNoJSClass } from '../utilities';
 	import Modal from '$lib/Modal.svelte';
+	import SegmentedControl from '$lib/SegmentedControl.svelte';
 
 	const STORAGE_KEY = 'user-preferences';
 	const COLOR_SCHEMES = ['light', 'dark', 'auto'];
@@ -17,14 +18,21 @@
 
 	const setUserPreferences = () => {
 		userPreferences = localStorage.getItem(STORAGE_KEY);
+
 		if (userPreferences) {
 			userPreferences = JSON.parse(userPreferences);
+			colorScheme = userPreferences.colorScheme;
+			colorTheme = userPreferences.colorTheme;
 		} else {
 			userPreferences = {
 				colorScheme: 'auto',
 				colorTheme: 'default'
 			};
+
+			colorScheme = userPreferences.colorScheme;
+			saveUserPreferences();
 		}
+
 		document.documentElement.setAttribute(dataColorTheme, userPreferences.colorTheme);
 		document.documentElement.setAttribute(dataColorScheme, userPreferences.colorScheme);
 	};
@@ -43,8 +51,7 @@
 		showModal = false;
 	};
 
-	const selectColorScheme = (event) => {
-		colorScheme = event.target.value;
+	const setColorScheme = () => {
 		userPreferences.colorScheme = colorScheme;
 
 		if (colorScheme === 'auto') {
@@ -70,17 +77,12 @@
 		<button on:click={() => (showModal = true)}>{userPreferences.colorTheme}</button>
 		{#if showModal}
 			<Modal on:close={() => (showModal = false)}>
-				<div class="color-scheme-controls">
-					{#each COLOR_SCHEMES as colorScheme}
-						<button
-							on:click={selectColorScheme}
-							value={colorScheme}
-							class="button-color-scheme {userPreferences.colorScheme === colorScheme
-								? 'active'
-								: ''}">{colorScheme}</button
-						>
-					{/each}
-				</div>
+				<SegmentedControl
+					options={COLOR_SCHEMES}
+					bind:data={colorScheme}
+					name="color-modes"
+					on:change={setColorScheme}
+				/>
 				<ul>
 					{#each COLOR_THEMES as theme}
 						<li>
@@ -108,41 +110,6 @@
 
 	.no-js {
 		display: none;
-	}
-
-	.color-scheme-controls {
-		display: flex;
-		margin: calc(var(--spacing) * 0.75) var(--spacing);
-		justify-content: space-between;
-		border: 1px solid var(--divider);
-		border-radius: calc(var(--border-radius) * 1.5);
-		padding: calc(var(--spacing-quarter) / 2);
-		column-gap: calc(var(--spacing) / 8);
-	}
-
-	.button-color-scheme {
-		width: 100%;
-		background: transparent;
-		border: 1px solid transparent;
-		border-radius: calc(var(--border-radius));
-		cursor: pointer;
-		font-size: var(--font-size-small);
-		font-weight: 400;
-		text-align: center;
-		margin: 0;
-		color: var(--accent-color);
-	}
-
-	.button-color-scheme:hover:not(.active) {
-		border: 1px solid transparent;
-		opacity: 0.5;
-	}
-
-	.active,
-	.active:hover {
-		background: var(--accent-color);
-		color: var(--bg-0);
-		border: 1px solid transparent;
 	}
 
 	p {
