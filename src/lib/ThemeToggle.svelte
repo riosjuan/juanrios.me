@@ -20,7 +20,7 @@
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(userPreferences));
 	};
 
-	const setUserPreferences = () => {
+	const setUserPreferencesOnLoad = () => {
 		const savedUserPreferences = localStorage.getItem(STORAGE_KEY);
 
 		if (savedUserPreferences) {
@@ -28,10 +28,9 @@
 			updateColorScheme(userPreferences.colorScheme);
 			updateColorTheme(userPreferences.colorTheme);
 		} else {
-			userPreferences = {
-				colorScheme: 'auto',
-				colorTheme: 'default'
-			};
+			colorScheme = 'auto';
+			colorTheme = 'default';
+			userPreferences = { colorScheme, colorTheme };
 
 			saveUserPreferences();
 		}
@@ -72,7 +71,7 @@
 	};
 
 	onMount(() => {
-		setUserPreferences();
+		setUserPreferencesOnLoad();
 		removeNoJSClass();
 	});
 </script>
