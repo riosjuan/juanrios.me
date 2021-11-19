@@ -5,35 +5,21 @@
 	import SegmentedControl from '$lib/SegmentedControl.svelte';
 
 	const STORAGE_KEY = 'user-preferences';
-	const COLOR_SCHEMES = ['light', 'dark', 'auto'];
-	const COLOR_THEMES = ['default', 'berenjena', 'cupcake', 'deep-blue', 'terminal'];
+	const DEFAULT_COLOR_SCHEME = 'auto';
+	const COLOR_SCHEMES = ['light', 'dark', DEFAULT_COLOR_SCHEME];
+	const DEFAULT_COLOR_THEME = 'default';
+	const COLOR_THEMES = [DEFAULT_COLOR_THEME, 'berenjena', 'cupcake', 'deep-blue', 'terminal'];
 
 	const dataColorTheme = 'data-theme';
 	const dataColorScheme = 'data-color-scheme';
 
-	let colorScheme;
-	let colorTheme;
+	let colorScheme = DEFAULT_COLOR_SCHEME;
+	let colorTheme = DEFAULT_COLOR_THEME;
 	let userPreferences = { colorScheme, colorTheme };
 	let showModal = false;
 
 	const saveUserPreferences = () => {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(userPreferences));
-	};
-
-	const setUserPreferencesOnLoad = () => {
-		const savedUserPreferences = localStorage.getItem(STORAGE_KEY);
-
-		if (savedUserPreferences) {
-			userPreferences = JSON.parse(savedUserPreferences);
-			updateColorScheme(userPreferences.colorScheme);
-			updateColorTheme(userPreferences.colorTheme);
-		} else {
-			colorScheme = 'auto';
-			colorTheme = 'default';
-			userPreferences = { colorScheme, colorTheme };
-
-			saveUserPreferences();
-		}
 	};
 
 	const updateColorScheme = (newColorScheme) => {
@@ -46,27 +32,35 @@
 		document.documentElement.setAttribute(dataColorTheme, colorTheme);
 	};
 
-	const handleColorThemeChange = (event) => {
-		colorTheme = event.target.value;
-		userPreferences.colorTheme = colorTheme;
-		updateColorTheme(colorTheme);
+	const setUserPreferencesOnLoad = () => {
+		const savedUserPreferences = localStorage.getItem(STORAGE_KEY);
 
-		saveUserPreferences();
-
-		showModal = false;
+		if (savedUserPreferences) {
+			userPreferences = JSON.parse(savedUserPreferences);
+			updateColorScheme(userPreferences.colorScheme);
+			updateColorTheme(userPreferences.colorTheme);
+		}
 	};
 
 	const handleColorSchemeChange = () => {
 		userPreferences.colorScheme = colorScheme;
 
-		if (colorScheme === 'auto') {
+		if (colorScheme === DEFAULT_COLOR_SCHEME) {
 			document.documentElement.removeAttribute(dataColorScheme);
 		} else {
 			updateColorScheme(colorScheme);
 		}
 
 		saveUserPreferences();
+		showModal = false;
+	};
 
+	const handleColorThemeChange = (event) => {
+		colorTheme = event.target.value;
+		userPreferences.colorTheme = colorTheme;
+		updateColorTheme(colorTheme);
+
+		saveUserPreferences();
 		showModal = false;
 	};
 
