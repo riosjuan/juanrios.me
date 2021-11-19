@@ -16,48 +16,54 @@
 	let userPreferences = { colorScheme, colorTheme };
 	let showModal = false;
 
-	const setUserPreferences = () => {
-		userPreferences = localStorage.getItem(STORAGE_KEY);
+	const saveUserPreferences = () => {
+		localStorage.setItem(STORAGE_KEY, JSON.stringify(userPreferences));
+	};
 
-		if (userPreferences) {
-			userPreferences = JSON.parse(userPreferences);
-			colorScheme = userPreferences.colorScheme;
-			colorTheme = userPreferences.colorTheme;
+	const setUserPreferences = () => {
+		const savedUserPreferences = localStorage.getItem(STORAGE_KEY);
+
+		if (savedUserPreferences) {
+			userPreferences = JSON.parse(savedUserPreferences);
+			updateColorScheme(userPreferences.colorScheme);
+			updateColorTheme(userPreferences.colorTheme);
 		} else {
 			userPreferences = {
 				colorScheme: 'auto',
 				colorTheme: 'default'
 			};
 
-			colorScheme = userPreferences.colorScheme;
 			saveUserPreferences();
 		}
-
-		document.documentElement.setAttribute(dataColorTheme, userPreferences.colorTheme);
-		document.documentElement.setAttribute(dataColorScheme, userPreferences.colorScheme);
 	};
 
-	const saveUserPreferences = () => {
-		localStorage.setItem(STORAGE_KEY, JSON.stringify(userPreferences));
+	const updateColorScheme = (newColorScheme) => {
+		colorScheme = newColorScheme;
+		document.documentElement.setAttribute(dataColorScheme, colorScheme);
 	};
 
-	const selectColorTheme = (event) => {
+	const updateColorTheme = (newColorTheme) => {
+		colorTheme = newColorTheme;
+		document.documentElement.setAttribute(dataColorTheme, colorTheme);
+	};
+
+	const handleColorThemeChange = (event) => {
 		colorTheme = event.target.value;
 		userPreferences.colorTheme = colorTheme;
+		updateColorTheme(colorTheme);
 
-		document.documentElement.setAttribute(dataColorTheme, colorTheme);
 		saveUserPreferences();
 
 		showModal = false;
 	};
 
-	const setColorScheme = () => {
+	const handleColorSchemeChange = () => {
 		userPreferences.colorScheme = colorScheme;
 
 		if (colorScheme === 'auto') {
 			document.documentElement.removeAttribute(dataColorScheme);
 		} else {
-			document.documentElement.setAttribute(dataColorScheme, colorScheme);
+			updateColorScheme(colorScheme);
 		}
 
 		saveUserPreferences();
@@ -81,13 +87,13 @@
 					options={COLOR_SCHEMES}
 					bind:data={colorScheme}
 					name="color-modes"
-					on:change={setColorScheme}
+					on:change={handleColorSchemeChange}
 				/>
 				<ul>
 					{#each COLOR_THEMES as theme}
 						<li>
 							<button
-								on:click={selectColorTheme}
+								on:click={handleColorThemeChange}
 								value={theme}
 								class="button-theme {userPreferences.colorTheme === theme ? 'selected' : ''}"
 							>
