@@ -24,7 +24,7 @@
 <style>
 	.color-scheme-controls {
 		display: flex;
-		margin: calc(var(--spacing) * 0.75) var(--spacing);
+		margin: var(--spacing);
 		justify-content: space-between;
 		border: 1px solid var(--divider);
 		border-radius: calc(var(--border-radius) * 1.5);

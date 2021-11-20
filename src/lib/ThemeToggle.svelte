@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { capitalize, removeNoJSClass } from '../utilities';
+	import tinycolor from 'tinycolor2';
 	import Modal from '$lib/Modal.svelte';
 	import SegmentedControl from '$lib/SegmentedControl.svelte';
 
@@ -16,6 +17,7 @@
 	let colorScheme = DEFAULT_COLOR_SCHEME;
 	let colorTheme = DEFAULT_COLOR_THEME;
 	let userPreferences = { colorScheme, colorTheme };
+	let themeColor;
 	let showModal = false;
 
 	const saveUserPreferences = () => {
@@ -42,6 +44,15 @@
 		}
 	};
 
+	const getThemeBackgroundColor = () => {
+		const body = document.querySelector('body');
+		let themeBackgroundColor = window.getComputedStyle(body).getPropertyValue('--bg-0');
+		themeBackgroundColor = tinycolor(themeBackgroundColor);
+		themeBackgroundColor = themeBackgroundColor.toHexString();
+
+		return (themeColor = themeBackgroundColor);
+	};
+
 	const handleColorSchemeChange = () => {
 		userPreferences.colorScheme = colorScheme;
 
@@ -51,6 +62,7 @@
 			updateColorScheme(colorScheme);
 		}
 
+		getThemeBackgroundColor();
 		saveUserPreferences();
 		showModal = false;
 	};
@@ -60,6 +72,7 @@
 		userPreferences.colorTheme = colorTheme;
 		updateColorTheme(colorTheme);
 
+		getThemeBackgroundColor();
 		saveUserPreferences();
 		showModal = false;
 	};
@@ -69,6 +82,10 @@
 		removeNoJSClass();
 	});
 </script>
+
+<svelte:head>
+	<meta name="theme-color" content={themeColor} />
+</svelte:head>
 
 <div class="theme-selector no-js">
 	<p>Theme</p>
