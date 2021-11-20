@@ -17,7 +17,7 @@
 	let colorScheme = DEFAULT_COLOR_SCHEME;
 	let colorTheme = DEFAULT_COLOR_THEME;
 	let userPreferences = { colorScheme, colorTheme };
-	let themeColor;
+	let metaThemeColor;
 	let showModal = false;
 
 	const saveUserPreferences = () => {
@@ -47,10 +47,13 @@
 	const getThemeBackgroundColor = () => {
 		const body = document.querySelector('body');
 		let themeBackgroundColor = window.getComputedStyle(body).getPropertyValue('--bg-0');
-		themeBackgroundColor = tinycolor(themeBackgroundColor);
-		themeBackgroundColor = themeBackgroundColor.toHexString();
+		themeBackgroundColor = tinycolor(themeBackgroundColor).toHexString();
 
-		return (themeColor = themeBackgroundColor);
+		return themeBackgroundColor;
+	};
+
+	const setMetaThemeColor = (color) => {
+		color = getThemeBackgroundColor();
 	};
 
 	const handleColorSchemeChange = () => {
@@ -62,7 +65,7 @@
 			updateColorScheme(colorScheme);
 		}
 
-		getThemeBackgroundColor();
+		setMetaThemeColor(metaThemeColor);
 		saveUserPreferences();
 		showModal = false;
 	};
@@ -72,7 +75,7 @@
 		userPreferences.colorTheme = colorTheme;
 		updateColorTheme(colorTheme);
 
-		getThemeBackgroundColor();
+		setMetaThemeColor(metaThemeColor);
 		saveUserPreferences();
 		showModal = false;
 	};
@@ -84,7 +87,7 @@
 </script>
 
 <svelte:head>
-	<meta name="theme-color" content={themeColor} />
+	<meta name="theme-color" content={metaThemeColor} />
 </svelte:head>
 
 <div class="theme-selector no-js">
