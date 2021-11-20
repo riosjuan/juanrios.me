@@ -1,7 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
 	import { capitalize, removeNoJSClass } from '../utilities';
-	import tinycolor from 'tinycolor2';
 	import Modal from '$lib/Modal.svelte';
 	import SegmentedControl from '$lib/SegmentedControl.svelte';
 
@@ -10,15 +9,13 @@
 	const COLOR_SCHEMES = ['light', 'dark', DEFAULT_COLOR_SCHEME];
 	const DEFAULT_COLOR_THEME = 'default';
 	const COLOR_THEMES = [DEFAULT_COLOR_THEME, 'berenjena', 'cupcake', 'deep-blue', 'terminal'];
-	const DEFAULT_META_THEME_COLOR = '#000';
 
 	const dataColorTheme = 'data-theme';
 	const dataColorScheme = 'data-color-scheme';
 
 	let colorScheme = DEFAULT_COLOR_SCHEME;
 	let colorTheme = DEFAULT_COLOR_THEME;
-	let metaThemeColor = DEFAULT_META_THEME_COLOR;
-	let userPreferences = { colorScheme, colorTheme, metaThemeColor };
+	let userPreferences = { colorScheme, colorTheme };
 	let showModal = false;
 
 	const saveUserPreferences = () => {
@@ -35,11 +32,6 @@
 		document.documentElement.setAttribute(dataColorTheme, colorTheme);
 	};
 
-	const updateMetaThemeColor = (newMetaThemeColor) => {
-		metaThemeColor = newMetaThemeColor;
-		userPreferences.metaThemeColor = metaThemeColor;
-	};
-
 	const setUserPreferencesOnLoad = () => {
 		const savedUserPreferences = localStorage.getItem(STORAGE_KEY);
 
@@ -47,16 +39,7 @@
 			userPreferences = JSON.parse(savedUserPreferences);
 			updateColorScheme(userPreferences.colorScheme);
 			updateColorTheme(userPreferences.colorTheme);
-			updateMetaThemeColor(userPreferences.metaThemeColor);
 		}
-	};
-
-	const getThemeBackgroundColor = () => {
-		const body = document.querySelector('body');
-		let themeBackgroundColor = window.getComputedStyle(body).getPropertyValue('--bg-0');
-		themeBackgroundColor = tinycolor(themeBackgroundColor).toHexString();
-
-		return (metaThemeColor = themeBackgroundColor);
 	};
 
 	const handleColorSchemeChange = () => {
@@ -68,8 +51,6 @@
 			updateColorScheme(colorScheme);
 		}
 
-		updateMetaThemeColor(getThemeBackgroundColor());
-
 		saveUserPreferences();
 		showModal = false;
 	};
@@ -78,8 +59,6 @@
 		colorTheme = event.target.value;
 		userPreferences.colorTheme = colorTheme;
 		updateColorTheme(colorTheme);
-
-		updateMetaThemeColor(getThemeBackgroundColor());
 
 		saveUserPreferences();
 		showModal = false;
@@ -90,10 +69,6 @@
 		removeNoJSClass();
 	});
 </script>
-
-<svelte:head>
-	<meta name="theme-color" content={metaThemeColor} />
-</svelte:head>
 
 <div class="theme-selector no-js">
 	<p>Theme</p>
