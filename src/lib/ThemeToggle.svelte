@@ -10,14 +10,15 @@
 	const COLOR_SCHEMES = ['light', 'dark', DEFAULT_COLOR_SCHEME];
 	const DEFAULT_COLOR_THEME = 'default';
 	const COLOR_THEMES = [DEFAULT_COLOR_THEME, 'berenjena', 'cupcake', 'deep-blue', 'terminal'];
+	const DEFAULT_META_THEME_COLOR = '#000';
 
 	const dataColorTheme = 'data-theme';
 	const dataColorScheme = 'data-color-scheme';
 
 	let colorScheme = DEFAULT_COLOR_SCHEME;
 	let colorTheme = DEFAULT_COLOR_THEME;
-	let userPreferences = { colorScheme, colorTheme };
-	let metaThemeColor;
+	let metaThemeColor = DEFAULT_META_THEME_COLOR;
+	let userPreferences = { colorScheme, colorTheme, metaThemeColor };
 	let showModal = false;
 
 	const saveUserPreferences = () => {
@@ -34,6 +35,11 @@
 		document.documentElement.setAttribute(dataColorTheme, colorTheme);
 	};
 
+	const updateMetaThemeColor = (newMetaThemeColor) => {
+		metaThemeColor = newMetaThemeColor;
+		userPreferences.metaThemeColor = metaThemeColor;
+	};
+
 	const setUserPreferencesOnLoad = () => {
 		const savedUserPreferences = localStorage.getItem(STORAGE_KEY);
 
@@ -41,6 +47,9 @@
 			userPreferences = JSON.parse(savedUserPreferences);
 			updateColorScheme(userPreferences.colorScheme);
 			updateColorTheme(userPreferences.colorTheme);
+			updateMetaThemeColor(userPreferences.metaThemeColor);
+
+			console.log('setUserPreferencesOnLoad', userPreferences);
 		}
 	};
 
@@ -48,12 +57,9 @@
 		const body = document.querySelector('body');
 		let themeBackgroundColor = window.getComputedStyle(body).getPropertyValue('--bg-0');
 		themeBackgroundColor = tinycolor(themeBackgroundColor).toHexString();
+		console.log(themeBackgroundColor);
 
-		return themeBackgroundColor;
-	};
-
-	const setMetaThemeColor = (color) => {
-		color = getThemeBackgroundColor();
+		return (metaThemeColor = themeBackgroundColor);
 	};
 
 	const handleColorSchemeChange = () => {
@@ -65,7 +71,8 @@
 			updateColorScheme(colorScheme);
 		}
 
-		setMetaThemeColor(metaThemeColor);
+		updateMetaThemeColor(getThemeBackgroundColor());
+
 		saveUserPreferences();
 		showModal = false;
 	};
@@ -75,7 +82,8 @@
 		userPreferences.colorTheme = colorTheme;
 		updateColorTheme(colorTheme);
 
-		setMetaThemeColor(metaThemeColor);
+		updateMetaThemeColor(getThemeBackgroundColor());
+
 		saveUserPreferences();
 		showModal = false;
 	};
