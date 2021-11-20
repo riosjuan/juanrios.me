@@ -48,8 +48,6 @@
 			updateColorScheme(userPreferences.colorScheme);
 			updateColorTheme(userPreferences.colorTheme);
 			updateMetaThemeColor(userPreferences.metaThemeColor);
-
-			console.log('setUserPreferencesOnLoad', userPreferences);
 		}
 	};
 
@@ -57,7 +55,6 @@
 		const body = document.querySelector('body');
 		let themeBackgroundColor = window.getComputedStyle(body).getPropertyValue('--bg-0');
 		themeBackgroundColor = tinycolor(themeBackgroundColor).toHexString();
-		console.log(themeBackgroundColor);
 
 		return (metaThemeColor = themeBackgroundColor);
 	};
