@@ -2,90 +2,91 @@
 	import { onMount } from 'svelte';
 	import { capitalize, removeNoJSClass } from '../utilities';
 	import Modal from '$lib/Modal.svelte';
+	import SegmentedControl from '$lib/SegmentedControl.svelte';
 
 	const STORAGE_KEY = 'user-preferences';
-	const COLOR_SCHEMES = ['light', 'dark', 'auto'];
-	const COLOR_THEMES = ['default', 'berenjena', 'cupcake', 'deep-blue', 'terminal'];
+	const DEFAULT_COLOR_SCHEME = 'auto';
+	const COLOR_SCHEMES = ['light', 'dark', DEFAULT_COLOR_SCHEME];
+	const DEFAULT_COLOR_THEME = 'default';
+	const COLOR_THEMES = [DEFAULT_COLOR_THEME, 'berenjena', 'cupcake', 'deep-blue', 'terminal'];
 
 	const dataColorTheme = 'data-theme';
 	const dataColorScheme = 'data-color-scheme';
 
-	let colorScheme;
-	let colorTheme;
+	let colorScheme = DEFAULT_COLOR_SCHEME;
+	let colorTheme = DEFAULT_COLOR_THEME;
 	let userPreferences = { colorScheme, colorTheme };
 	let showModal = false;
-
-	const setUserPreferences = () => {
-		userPreferences = localStorage.getItem(STORAGE_KEY);
-		if (userPreferences) {
-			userPreferences = JSON.parse(userPreferences);
-		} else {
-			userPreferences = {
-				colorScheme: 'auto',
-				colorTheme: 'default'
-			};
-		}
-		document.documentElement.setAttribute(dataColorTheme, userPreferences.colorTheme);
-		document.documentElement.setAttribute(dataColorScheme, userPreferences.colorScheme);
-	};
 
 	const saveUserPreferences = () => {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify(userPreferences));
 	};
 
-	const selectColorTheme = (event) => {
-		colorTheme = event.target.value;
-		userPreferences.colorTheme = colorTheme;
-
-		document.documentElement.setAttribute(dataColorTheme, colorTheme);
-		saveUserPreferences();
-
-		showModal = false;
+	const updateColorScheme = (newColorScheme) => {
+		colorScheme = newColorScheme;
+		document.documentElement.setAttribute(dataColorScheme, colorScheme);
 	};
 
-	const selectColorScheme = (event) => {
-		colorScheme = event.target.value;
+	const updateColorTheme = (newColorTheme) => {
+		colorTheme = newColorTheme;
+		document.documentElement.setAttribute(dataColorTheme, colorTheme);
+	};
+
+	const setUserPreferencesOnLoad = () => {
+		const savedUserPreferences = localStorage.getItem(STORAGE_KEY);
+
+		if (savedUserPreferences) {
+			userPreferences = JSON.parse(savedUserPreferences);
+			updateColorScheme(userPreferences.colorScheme);
+			updateColorTheme(userPreferences.colorTheme);
+		}
+	};
+
+	const handleColorSchemeChange = () => {
 		userPreferences.colorScheme = colorScheme;
 
-		if (colorScheme === 'auto') {
+		if (colorScheme === DEFAULT_COLOR_SCHEME) {
 			document.documentElement.removeAttribute(dataColorScheme);
 		} else {
-			document.documentElement.setAttribute(dataColorScheme, colorScheme);
+			updateColorScheme(colorScheme);
 		}
 
 		saveUserPreferences();
+		showModal = false;
+	};
 
+	const handleColorThemeChange = (event) => {
+		colorTheme = event.target.value;
+		userPreferences.colorTheme = colorTheme;
+		updateColorTheme(colorTheme);
+
+		saveUserPreferences();
 		showModal = false;
 	};
 
 	onMount(() => {
-		setUserPreferences();
+		setUserPreferencesOnLoad();
 		removeNoJSClass();
 	});
 </script>
 
 <div class="theme-selector no-js">
-	<p for="theme-select">Theme</p>
+	<p>Theme</p>
 	<div class="select-wrapper">
 		<button on:click={() => (showModal = true)}>{userPreferences.colorTheme}</button>
 		{#if showModal}
 			<Modal on:close={() => (showModal = false)}>
-				<div class="color-scheme-controls">
-					{#each COLOR_SCHEMES as colorScheme}
-						<button
-							on:click={selectColorScheme}
-							value={colorScheme}
-							class="button-color-scheme {userPreferences.colorScheme === colorScheme
-								? 'active'
-								: ''}">{colorScheme}</button
-						>
-					{/each}
-				</div>
+				<SegmentedControl
+					options={COLOR_SCHEMES}
+					bind:data={colorScheme}
+					name="color-modes"
+					on:change={handleColorSchemeChange}
+				/>
 				<ul>
 					{#each COLOR_THEMES as theme}
 						<li>
 							<button
-								on:click={selectColorTheme}
+								on:click={handleColorThemeChange}
 								value={theme}
 								class="button-theme {userPreferences.colorTheme === theme ? 'selected' : ''}"
 							>
@@ -110,59 +111,15 @@
 		display: none;
 	}
 
-	.color-scheme-controls {
-		display: flex;
-		margin: calc(var(--spacing) * 0.75) var(--spacing);
-		justify-content: space-between;
-		border: 1px solid var(--divider);
-		border-radius: calc(var(--border-radius) * 1.5);
-		padding: calc(var(--spacing-quarter) / 2);
-		column-gap: calc(var(--spacing) / 8);
-	}
-
-	.button-color-scheme {
-		width: 100%;
-		background: transparent;
-		border: 1px solid transparent;
-		border-radius: calc(var(--border-radius));
-		cursor: pointer;
-		font-size: var(--font-size-small);
-		font-weight: 400;
-		text-align: center;
-		margin: 0;
-		color: var(--accent-color);
-	}
-
-	.button-color-scheme:hover:not(.active) {
-		border: 1px solid transparent;
-		opacity: 0.5;
-	}
-
-	.active,
-	.active:hover {
-		background: var(--accent-color);
-		color: var(--bg-0);
-		border: 1px solid transparent;
-	}
-
 	p {
-		clip-path: inset(1px);
 		color: var(--text-secondary);
-		display: block;
+		display: none;
 		font-size: inherit;
-		height: 1px;
-		overflow: hidden;
-		white-space: nowrap;
-		width: 1px;
 	}
 
 	@media screen and (min-width: 36em) {
 		p {
-			clip-path: initial;
-			height: initial;
-			overflow: visible;
-			white-space: initial;
-			width: initial;
+			display: block;
 		}
 	}
 

@@ -5,7 +5,7 @@
 	import Contact from '$lib/Contact.svelte';
 
 	let openGraphData = {
-		title: 'Juan Rios',
+		title: 'Juan Rios - Product Designer and Developer',
 		description:
 			'Product Designer and Developer with over 10 years of experience building digital products and services.',
 		url: 'https://juanrios.me',
