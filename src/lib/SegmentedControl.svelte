@@ -23,13 +23,13 @@
 
 <style>
 	.color-scheme-controls {
-		display: flex;
-		margin: var(--spacing);
-		justify-content: space-between;
-		border: 1px solid var(--divider);
 		border-radius: calc(var(--border-radius) * 1.5);
-		padding: calc(var(--spacing-quarter) / 2);
+		border: 1px solid var(--divider);
 		column-gap: calc(var(--spacing) / 8);
+		display: flex;
+		justify-content: space-between;
+		margin: var(--spacing);
+		padding: calc(var(--spacing-quarter) / 2);
 	}
 
 	label {
@@ -43,7 +43,7 @@
 		text-align: center;
 		width: 100%;
 		font-weight: 500;
-		transition: color 200ms ease-in-out;
+		transition: var(--hover-transition);
 		text-transform: capitalize;
 		color: var(--text-secondary);
 	}

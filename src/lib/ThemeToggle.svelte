@@ -149,7 +149,7 @@
 		margin: 0 calc(var(--spacing-quarter) * -1);
 		padding: calc(var(--spacing) / 6) var(--spacing-quarter);
 		text-transform: capitalize;
-		transition: color 200ms ease-in-out, background-color 150ms ease-in-out;
+		transition: var(--hover-transition), background-color 150ms ease-in-out;
 	}
 
 	button:hover {
