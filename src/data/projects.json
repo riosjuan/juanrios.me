@@ -1,7 +1,7 @@
 [
 	{
 		"name": "community.mendix.com",
-		"description": "The place for Makers to connect, get answers to questions and post ideas for our product managers",
+		"description": "The place for Makers to connect, get answers to questions from the community, and post ideas for product managers",
 		"url": "https://forum.mendix.com/p/community",
 		"tags": ["css", "scss", "design system", "low-code"]
 	},
