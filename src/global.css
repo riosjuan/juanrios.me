@@ -102,8 +102,7 @@
 	--divider-dark: rgba(255, 255, 255, 0.08);
 
 	/* Transitions  */
-	--transition-property: color;
-	--hover-transition: var(--transition-property) 200ms ease-in-out;
+	--hover-transition: color 200ms ease-in-out;
 }
 
 :root[data-theme='default'][data-color-scheme='light'] {

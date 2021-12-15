@@ -162,6 +162,8 @@
 	}
 
 	.button-theme {
+		--hover-transition: background-color 200ms ease-in-out;
+
 		align-items: center;
 		background-color: transparent;
 		border-radius: 0;
@@ -174,7 +176,7 @@
 		margin: 0;
 		padding: calc(var(--spacing) * 0.75) var(--spacing2x);
 		position: relative;
-		transition: background-color 200ms ease-in-out;
+		transition: var(--hover-transition);
 		width: 100%;
 	}
 
