@@ -29,7 +29,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<header role="banner" style={slideIn(1)}>
+<header style={slideIn(1)}>
 	<nav>
 		<ul>
 			{#each links as link}
