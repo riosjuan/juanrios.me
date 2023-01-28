@@ -2,6 +2,7 @@
 	let channels = [
 		{ name: 'email', url: 'mailto:juanesteban.rios@gmail.com' },
 		{ name: 'twitter', url: 'https://twitter.com/juanriosnl' },
+		{ name: 'mastodon', url: 'https://mstdn.social/@juanriosnl' },
 		{ name: 'github', url: 'https://github.com/riosjuan' },
 		{ name: 'linkedIn', url: 'https://nl.linkedin.com/in/juanestebanrios' }
 	];
@@ -9,7 +10,7 @@
 
 <ul>
 	{#each channels as channel}
-		<li><a href={channel.url}>{channel.name}</a></li>
+		<li><a href={channel.url} rel="me">{channel.name}</a></li>
 	{/each}
 </ul>
 
