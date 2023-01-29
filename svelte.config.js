@@ -11,8 +11,15 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: null
-		})
+			fallback: null,
+			precompress: false,
+			strict: true
+		}),
+		files: {
+			lib: 'src/lib',
+			params: 'src/params',
+			routes: 'src/routes'
+		}
 	}
 };
 
