@@ -41,7 +41,13 @@
 
 <svelte:window on:keydown={handle_keydown} on:scroll={close} />
 
-<div class="popup-backdrop" on:click={close} />
+<div
+	class="popup-backdrop"
+	on:click={close}
+	on:keydown={(e) => {
+		if (e.key === 'Escape') close();
+	}}
+/>
 
 <div
 	class="modal"
