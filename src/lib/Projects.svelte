@@ -17,14 +17,31 @@
 
 <style>
 	h3 {
-		font-size: var(--font-body);
-		margin: 0 0 var(--spacing);
+		font-size: 2.5rem;
+		margin: 0;
+		font-weight: 300;
+	}
+
+	article {
+		display: grid;
+		grid-template-rows: 1fr;
+		row-gap: 1.5rem;
 	}
 
 	ul {
 		display: grid;
 		grid-template-rows: 1fr;
-		row-gap: var(--spacing3x);
+		row-gap: 96px;
+		list-style: none;
+		padding: 0;
+	}
+
+	a {
+		color: hsla(150, 95%, 50%, 1);
+	}
+
+	a:hover {
+		color: var(--text-color);
 	}
 
 	p {

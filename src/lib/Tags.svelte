@@ -12,15 +12,18 @@
 	ul {
 		display: flex;
 		flex-direction: row;
-		gap: var(--spacing-half);
+		gap: 1rem;
 		flex-wrap: wrap;
+		list-style: none;
+		padding: 0;
 	}
 
 	li {
-		background-color: var(--bg-2);
+		background-color: hsla(280, 10%, 12%, 1);
 		border-radius: var(--border-radius);
-		color: var(--text-secondary);
-		padding: var(--spacing-quarter) var(--spacing-half);
+		color: hsla(150, 95%, 85%, 1);
+		padding: 0.5rem 0.5rem;
 		text-transform: lowercase;
+		font-size: 1rem;
 	}
 </style>

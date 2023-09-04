@@ -2,7 +2,6 @@
 	import { slideIn } from '../utilities';
 	import { onMount } from 'svelte';
 	import { removeNoJSClass } from '../utilities';
-	import ThemeToggle from '$lib/ThemeToggle.svelte';
 
 	let links = [
 		{ name: 'Home', url: '/' },
@@ -30,16 +29,17 @@
 <svelte:window bind:scrollY={y} />
 
 <header style={slideIn(1)}>
-	<nav>
-		<ul>
-			{#each links as link}
-				<li>
-					<a href={link.url}>{link.name}</a>
-				</li>
-			{/each}
-		</ul>
-	</nav>
-	<ThemeToggle />
+	<div>
+		<nav>
+			<ul>
+				{#each links as link}
+					<li>
+						<a href={link.url}>{link.name}</a>
+					</li>
+				{/each}
+			</ul>
+		</nav>
+	</div>
 	<div class="header-background no-js" style={`opacity: ${opacity()}`} aria-hidden="true" />
 </header>
 
@@ -58,7 +58,7 @@
 	}
 
 	.header-background {
-		background: var(--bg-0);
+		background: var(--bg-color);
 		filter: opacity(0.95);
 		display: block;
 		inset: 0;
@@ -68,13 +68,13 @@
 	}
 
 	.header-background::after {
-		background-color: var(--text-primary);
+		background-color: var(--text-color);
 		bottom: 0;
 		content: '';
 		display: block;
 		height: 1px;
 		left: 0;
-		opacity: 0.1;
+		opacity: 0.025;
 		position: absolute;
 		right: 0;
 	}
@@ -97,15 +97,36 @@
 
 	nav {
 		font-weight: 500;
+		grid-column: 1/7;
+		font-size: 1rem;
+		height: 7.5rem;
+		display: flex;
+		align-items: center;
+		max-width: 72rem;
+		padding-inline: 1.5rem;
+		margin-inline: auto;
+	}
+
+	div {
+		width: 100%;
 	}
 
 	ul {
-		column-gap: clamp(var(--spacing), 5vw, var(--spacing2x));
+		column-gap: 3rem;
 		display: flex;
 		flex-wrap: wrap;
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		row-gap: var(--spacing);
+	}
+
+	a {
+		color: hsla(150, 95%, 50%, 1);
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: var(--text-color);
 	}
 </style>

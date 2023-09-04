@@ -1,0 +1,70 @@
+@font-face {
+	font-family: 'Inter var';
+	font-weight: 100 900;
+	font-display: swap;
+	font-style: normal;
+	font-named-instance: 'Regular';
+	src: url('/Inter-roman.var.woff2?v=3.19') format('woff2');
+}
+
+:root {
+	/* Typography */
+	--font-body: clamp(1.25rem, 2.5vw, 2rem);
+	--font-family: 'Inter var', 'Helvetica', sans-serif;
+}
+
+html {
+	background: var(--bg-0);
+	color: var(--text-primary);
+	font-family: var(--font-family);
+	/* font-feature-settings: 'ss01' 1, 'ss02' 1, 'ss03' 1; */
+	font-variant-numeric: lining-nums proportional-nums slashed-zero;
+	transition: background 200ms linear, color 500ms linear;
+}
+
+@supports (scroll-behavior: smooth) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.sr-only {
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+@keyframes slide-in {
+	0% {
+		opacity: 0;
+		transform: translateY(calc(var(--spacing-half) * -1));
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
