@@ -15,13 +15,23 @@
 
 <style>
 	ul {
-		column-gap: clamp(var(--spacing), 5vw, var(--spacing2x));
 		display: flex;
-		flex-wrap: wrap;
-		row-gap: var(--spacing);
+		column-gap: clamp(1.5rem, 3.5vw, 3rem);
+		margin-bottom: 6rem;
+	}
+
+	li {
+		line-height: 1;
 	}
 
 	a {
+		font-size: 1rem;
 		text-transform: capitalize;
+		color: var(--accent-color);
+		font-weight: var(--font-weight);
+	}
+
+	a:hover {
+		color: var(--text-color);
 	}
 </style>

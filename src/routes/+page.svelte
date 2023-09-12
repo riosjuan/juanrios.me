@@ -15,7 +15,7 @@
 
 <OpenGraph {...openGraphData} />
 
-<div class="container" style="margin-top: 8rem;">
+<div class="container">
 	<h1 style={slideIn(2)}>Hi, I'm Juan Rios</h1>
 	<p style={slideIn(3)}>
 		I'm a Product Designer and Developer based in Rotterdam, The Netherlands. I have 10+ years of
@@ -39,23 +39,26 @@
 <style>
 	:global(.container) {
 		grid-column: 1/7;
+		margin-block-start: clamp(4rem, 9vw, 8rem);
 	}
 
 	h1 {
-		font-size: 3rem;
+		font-size: clamp(2rem, 3.5vw, 3rem);
 		font-weight: 700;
 		line-height: 1.3;
 		margin-block: 0 2.4rem;
 	}
 
 	h2 {
-		color: #979797;
-		font-size: 32px;
+		color: var(--text-color-2);
+		font-size: clamp(0.75rem, 3.5vw, 1.5rem);
 		font-style: normal;
 		font-weight: 400;
-		line-height: 56px; /* 175% */
+		letter-spacing: 0.125em;
+		line-height: 1;
+		margin-block-end: 1.5em;
 		margin-block-start: 0;
-		margin-block-end: 1.5rem;
+		text-transform: uppercase;
 	}
 
 	a {
@@ -64,7 +67,7 @@
 	}
 
 	a:hover {
-		color: hsla(150, 95%, 50%, 1);
+		color: var(--accent-color);
 	}
 
 	p + p {
@@ -72,8 +75,8 @@
 	}
 
 	section {
-		scroll-margin-top: calc(var(--spacing) * 5);
 		grid-column: 1/7;
-		margin-block-start: 9rem;
+		margin-block-start: clamp(4.5rem, 10vw, 9rem);
+		scroll-margin-top: 8rem;
 	}
 </style>

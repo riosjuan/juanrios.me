@@ -8,15 +8,69 @@
 }
 
 :root {
-	/* Typography */
-	--font-body: clamp(1.25rem, 2.5vw, 2rem);
+	--bg-color-dark: hsla(280, 10%, 7%, 1);
+	--bg-color-dark-2: hsla(280, 10%, 12%, 1);
+	--text-color-dark: hsla(150, 95%, 96%, 1);
+	--text-color-dark-2: hsla(150, 0%, 56%, 1);
+	--accent-color-dark: color(display-p3 0 1 0.53);
+	--font-weight-dark: 300;
+
+	--bg-color-light: hsl(280, 70%, 98%);
+	--bg-color-light-2: hsl(280, 70%, 95%);
+	--text-color-light: hsla(150, 95%, 7%, 1);
+	--text-color-light-2: hsla(150, 5%, 60%, 1);
+	--accent-color-light: hsla(148, 100%, 34%, 1);
+	--font-weight-light: 350;
+
+	--font-body: clamp(1.25rem, 3.5vw, 2.5rem);
 	--font-family: 'Inter var', 'Helvetica', sans-serif;
 }
 
+:root[data-theme='dark'] {
+	--bg-color: var(--bg-color-dark);
+	--bg-color-2: var(--bg-color-dark-2);
+	--text-color: var(--text-color-dark);
+	--text-color-2: var(--text-color-dark-2);
+	--accent-color: var(--accent-color-dark);
+	--font-weight: var(--font-weight-dark);
+}
+
+:root[data-theme='light'] {
+	--bg-color: var(--bg-color-light);
+	--bg-color-2: var(--bg-color-light-2);
+	--text-color: var(--text-color-light);
+	--text-color-2: var(--text-color-light-2);
+	--accent-color: var(--accent-color-light);
+	--font-weight: var(--font-weight-light);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: var(--bg-color-dark);
+		--bg-color-2: var(--bg-color-dark-2);
+		--text-color: var(--text-color-dark);
+		--text-color-2: var(--text-color-dark-2);
+		--accent-color: var(--accent-color-dark);
+		--font-weight: var(--font-weight-dark);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg-color: var(--bg-color-light);
+		--bg-color-2: var(--bg-color-light-2);
+		--text-color: var(--text-color-light);
+		--text-color-2: var(--text-color-light-2);
+		--accent-color: var(--accent-color-light);
+		--font-weight: var(--font-weight-light);
+	}
+}
+
 html {
-	background: var(--bg-0);
-	color: var(--text-primary);
+	background: var(--bg-color);
+	color: var(--text-color);
 	font-family: var(--font-family);
+	font-weight: var(--font-weight);
 	/* font-feature-settings: 'ss01' 1, 'ss02' 1, 'ss03' 1; */
 	font-variant-numeric: lining-nums proportional-nums slashed-zero;
 	transition: background 200ms linear, color 500ms linear;
@@ -28,7 +82,6 @@ html {
 	}
 }
 
-/* Box sizing rules */
 *,
 *::before,
 *::after {
@@ -42,10 +95,21 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+h3 {
+	font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+	font-weight: 300;
+	margin: 0;
+}
+
 ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
+}
+
+p {
+	font-size: var(--font-body);
+	line-height: 1.4;
 }
 
 .sr-only {

@@ -16,28 +16,21 @@
 </ul>
 
 <style>
-	h3 {
-		font-size: 2.5rem;
-		margin: 0;
-		font-weight: 300;
-	}
-
 	article {
 		display: grid;
 		grid-template-rows: 1fr;
-		row-gap: 1.5rem;
+		row-gap: clamp(0.5rem, 3.5vw, 1.5rem);
 	}
 
 	ul {
 		display: grid;
 		grid-template-rows: 1fr;
-		row-gap: 96px;
-		list-style: none;
-		padding: 0;
+		row-gap: clamp(3rem, 6.5vw, 6rem);
 	}
 
 	a {
-		color: hsla(150, 95%, 50%, 1);
+		/* color: hsla(150, 95%, 50%, 1); */
+		color: var(--accent-color);
 	}
 
 	a:hover {
@@ -45,6 +38,6 @@
 	}
 
 	p {
-		margin: 0 0 var(--spacing);
+		margin: 0;
 	}
 </style>
