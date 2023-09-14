@@ -111,7 +111,7 @@
 		/* color: hsla(150, 95%, 50%, 1); */
 		color: var(--accent-color);
 		text-decoration: none;
-		transition: color 150ms ease-in-out;
+		transition: color var(--hover-transition);
 	}
 
 	a:hover {

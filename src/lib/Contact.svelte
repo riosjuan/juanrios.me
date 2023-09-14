@@ -1,15 +1,10 @@
 <script>
-	let channels = [
-		{ name: 'email', url: 'mailto:juanesteban.rios@gmail.com' },
-		{ name: 'twitter', url: 'https://twitter.com/juanriosnl' },
-		{ name: 'github', url: 'https://github.com/riosjuan' },
-		{ name: 'linkedIn', url: 'https://nl.linkedin.com/in/juanestebanrios' }
-	];
+	import contactData from '../data/contact.json';
 </script>
 
 <ul>
-	{#each channels as channel}
-		<li><a href={channel.url}>{channel.name}</a></li>
+	{#each contactData as contact}
+		<li><a href={contact.url}>{contact.name}</a></li>
 	{/each}
 </ul>
 
@@ -25,10 +20,11 @@
 	}
 
 	a {
-		font-size: 1rem;
-		text-transform: capitalize;
 		color: var(--accent-color);
+		font-size: 1rem;
 		font-weight: var(--font-weight);
+		text-transform: capitalize;
+		transition: color var(--hover-transition);
 	}
 
 	a:hover {

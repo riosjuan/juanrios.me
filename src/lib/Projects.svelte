@@ -31,6 +31,7 @@
 	a {
 		/* color: hsla(150, 95%, 50%, 1); */
 		color: var(--accent-color);
+		transition: color var(--hover-transition);
 	}
 
 	a:hover {

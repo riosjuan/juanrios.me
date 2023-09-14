@@ -8,38 +8,23 @@
 
 	// Function to get the color preference
 	const getColorPreference = () => {
-		return (
-			localStorage.getItem(storageKey) ||
-			(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-		);
+		return localStorage.getItem(storageKey);
 	};
 
 	// Function to set the theme and update the preferences
 	const setTheme = (newTheme) => {
 		theme = newTheme;
-		document.firstElementChild.setAttribute('data-theme', theme);
+		document.documentElement.setAttribute('data-theme', theme);
 		localStorage.setItem(storageKey, theme);
-	};
-
-	// Function to handle theme changes
-	const handleThemeChange = () => {
-		setTheme(theme);
 	};
 
 	// Set the initial theme on component mount
 	onMount(() => {
-		setTheme(getColorPreference());
-
-		// Listen for changes in preferred color scheme
-		window
-			.matchMedia('(prefers-color-scheme: dark)')
-			.addEventListener('change', ({ matches: isDark }) => {
-				setTheme(isDark ? 'dark' : 'light');
-			});
+		theme = getColorPreference();
 	});
 </script>
 
-<select name="" id="" bind:value={theme} on:change={handleThemeChange}>
+<select name="" id="" bind:value={theme} on:change={setTheme(theme)}>
 	{#each themes as theme}
 		<option value={theme}>{theme}</option>
 	{/each}
@@ -58,6 +43,12 @@
 		margin-inline-start: auto;
 		padding: 0 0.5rem;
 		text-transform: capitalize;
+		opacity: 0.6;
+		transition: opacity var(--hover-transition);
+	}
+
+	select:hover {
+		opacity: 1;
 	}
 
 	select:focus {

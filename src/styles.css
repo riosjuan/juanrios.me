@@ -15,6 +15,8 @@
 	--accent-color-dark: color(display-p3 0 1 0.53);
 	--font-weight-dark: 300;
 
+	--hover-transition: 150ms ease-in-out;
+
 	--bg-color-light: hsl(280, 70%, 98%);
 	--bg-color-light-2: hsl(280, 70%, 95%);
 	--text-color-light: hsla(150, 95%, 7%, 1);
