@@ -28,14 +28,8 @@
 		row-gap: clamp(3rem, 6.5vw, 6rem);
 	}
 
-	a {
-		/* color: hsla(150, 95%, 50%, 1); */
-		color: var(--accent-color);
-		transition: color var(--hover-transition);
-	}
-
-	a:hover {
-		color: var(--text-color);
+	h3 {
+		font-weight: 400;
 	}
 
 	p {

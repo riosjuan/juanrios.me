@@ -108,13 +108,7 @@
 	}
 
 	a {
-		/* color: hsla(150, 95%, 50%, 1); */
-		color: var(--accent-color);
 		text-decoration: none;
-		transition: color var(--hover-transition);
-	}
-
-	a:hover {
-		color: var(--text-color);
+		font-weight: 550;
 	}
 </style>

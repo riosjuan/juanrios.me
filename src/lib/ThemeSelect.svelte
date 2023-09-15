@@ -41,18 +41,19 @@
 		font-size: 1rem;
 		font-weight: 500;
 		margin-inline-start: auto;
-		padding: 0 0.5rem;
-		text-transform: capitalize;
 		opacity: 0.6;
+		padding: 0.125rem 0.5rem;
+		text-transform: capitalize;
 		transition: opacity var(--hover-transition);
 	}
 
-	select:hover {
+	select:hover,
+	select:focus {
 		opacity: 1;
 	}
 
 	select:focus {
-		outline: 1px solid var(--accent-color);
+		outline: 0.125rem solid var(--accent-color);
 		outline-offset: 0.125rem;
 	}
 </style>

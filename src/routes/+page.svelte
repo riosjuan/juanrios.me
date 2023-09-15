@@ -51,7 +51,7 @@
 
 	h2 {
 		color: var(--text-color-2);
-		font-size: clamp(0.75rem, 3.5vw, 1.5rem);
+		font-size: clamp(0.75rem, 3.5vw, 1rem);
 		font-style: normal;
 		font-weight: 400;
 		letter-spacing: 0.125em;
@@ -63,7 +63,7 @@
 
 	a {
 		color: inherit;
-		transition: color 150ms ease-in-out;
+		transition: color 100ms ease-in-out;
 	}
 
 	a:hover {

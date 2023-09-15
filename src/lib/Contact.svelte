@@ -20,14 +20,8 @@
 	}
 
 	a {
-		color: var(--accent-color);
 		font-size: 1rem;
 		font-weight: var(--font-weight);
 		text-transform: capitalize;
-		transition: color var(--hover-transition);
-	}
-
-	a:hover {
-		color: var(--text-color);
 	}
 </style>
