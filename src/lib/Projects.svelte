@@ -16,18 +16,23 @@
 </ul>
 
 <style>
-	h3 {
-		font-size: var(--font-body);
-		margin: 0 0 var(--spacing);
+	article {
+		display: grid;
+		grid-template-rows: 1fr;
+		row-gap: clamp(0.5rem, 3.5vw, 1.5rem);
 	}
 
 	ul {
 		display: grid;
 		grid-template-rows: 1fr;
-		row-gap: var(--spacing3x);
+		row-gap: clamp(3rem, 6.5vw, 6rem);
+	}
+
+	h3 {
+		font-weight: 400;
 	}
 
 	p {
-		margin: 0 0 var(--spacing);
+		margin: 0;
 	}
 </style>

@@ -15,8 +15,10 @@
 		display: flex;
 		font-size: clamp(0.75rem, 1.5vw, 0.875rem);
 		height: var(--spacing3x);
-		margin-top: clamp(var(--spacing2x), 5vw, var(--spacing4x));
-		padding: 0 clamp(var(--spacing), 5vw, var(--spacing2x));
+		margin-block-end: 3rem;
+		margin-inline: auto;
+		max-width: 72rem;
+		padding-inline: 1.5rem;
 		text-transform: uppercase;
 	}
 
