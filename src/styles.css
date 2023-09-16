@@ -12,7 +12,7 @@
 	--bg-color-dark-2: hsla(280, 10%, 12%, 1);
 	--text-color-dark: hsla(150, 95%, 96%, 1);
 	--text-color-dark-2: hsla(150, 0%, 56%, 1);
-	--accent-color-dark: color(display-p3 0 1 0.53);
+	--accent-color-dark: hsla(148, 100%, 50%, 1);
 	--font-weight-dark: 300;
 
 	--hover-transition: 150ms ease-in-out;
@@ -21,12 +21,19 @@
 	--bg-color-light-2: hsl(280, 70%, 95%);
 	--text-color-light: hsla(150, 95%, 7%, 1);
 	--text-color-light-2: hsla(150, 5%, 40%, 1);
-	--accent-color-light: color(display-p3 0 0.23 0.98);
+	--accent-color-light: hsla(226, 100%, 50%, 1);
 	--font-weight-light: 350;
 	--color-scheme-light: light;
 
 	--font-body: clamp(1.25rem, 3.5vw, 2.5rem);
 	--font-family: 'Inter var', 'Helvetica', sans-serif;
+}
+
+@supports (color: color(display-p3 1 0 0)) {
+	:root {
+		--accent-color-dark: color(display-p3 0 1 0.53);
+		--accent-color-light: color(display-p3 0 0.23 0.98);
+	}
 }
 
 :root[data-theme='dark'] {

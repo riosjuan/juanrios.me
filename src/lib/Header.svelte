@@ -49,8 +49,8 @@
 	}
 
 	.header-background {
-		background: var(--bg-color);
-		filter: opacity(0.95);
+		backdrop-filter: saturate(120%) blur(40px);
+		background: transparent;
 		display: block;
 		inset: 0;
 		opacity: 0;
@@ -59,6 +59,7 @@
 	}
 
 	.header-background::after {
+		backdrop-filter: saturate(180%);
 		background-color: var(--text-color);
 		content: '';
 		display: block;
@@ -66,18 +67,6 @@
 		inset: auto 0 0;
 		opacity: 0.025;
 		position: absolute;
-	}
-
-	@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-		.header-background {
-			backdrop-filter: saturate(120%) blur(40px);
-			background: transparent;
-			filter: none;
-		}
-
-		.header-background::after {
-			backdrop-filter: saturate(180%);
-		}
 	}
 
 	.no-js {
@@ -93,10 +82,6 @@
 		max-width: 72rem;
 		padding-inline: 1.5rem;
 		margin-inline: auto;
-	}
-
-	div {
-		width: 100%;
 	}
 
 	ul {
