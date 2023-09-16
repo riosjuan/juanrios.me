@@ -5,10 +5,6 @@ export const slideIn = (order) => {
 	return `animation: slide-in 300ms ${easeInQuart} ${delay}ms 1 backwards`;
 };
 
-export const capitalize = (string) => {
-	return string.charAt(0).toUpperCase() + string.slice(1);
-};
-
 export const removeNoJSClass = () => {
 	const elements = document.querySelectorAll('.no-js');
 	elements.forEach((element) => {
