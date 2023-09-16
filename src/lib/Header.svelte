@@ -1,7 +1,6 @@
 <script>
-	import { slideIn } from '../utilities';
+	import { slideIn, removeNoJSClass } from '../utilities';
 	import { onMount } from 'svelte';
-	import { removeNoJSClass } from '../utilities';
 	import ThemeSelect from './ThemeSelect.svelte';
 
 	let links = [
@@ -15,7 +14,7 @@
 	let navHeight;
 
 	$: {
-		if (y >= 0) {
+		if (y >= 0 || y > 200) {
 			opacity = Math.min(y / 64, 1);
 			navHeight = Math.max(8 - y * 0.025, 4);
 		}

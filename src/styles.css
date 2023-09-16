@@ -20,8 +20,8 @@
 	--bg-color-light: hsl(280, 70%, 98%);
 	--bg-color-light-2: hsl(280, 70%, 95%);
 	--text-color-light: hsla(150, 95%, 7%, 1);
-	--text-color-light-2: hsla(150, 5%, 60%, 1);
-	--accent-color-light: hsla(148, 100%, 34%, 1);
+	--text-color-light-2: hsla(150, 5%, 40%, 1);
+	--accent-color-light: color(display-p3 0 0.23 0.98);
 	--font-weight-light: 350;
 	--color-scheme-light: light;
 
