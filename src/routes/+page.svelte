@@ -15,7 +15,7 @@
 
 <OpenGraph {...openGraphData} />
 
-<div class="container">
+<div>
 	<h1 style={slideIn(2)}>Hi, I'm Juan Rios</h1>
 	<p style={slideIn(3)}>
 		I'm a Product Designer and Developer based in Rotterdam, The Netherlands. I have 10+ years of
@@ -37,7 +37,7 @@
 </section>
 
 <style>
-	:global(.container) {
+	div {
 		grid-column: 1/7;
 		margin-block-start: clamp(4rem, 9vw, 8rem);
 	}
