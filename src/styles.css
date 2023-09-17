@@ -29,6 +29,7 @@
 	--font-family: 'Inter var', 'Helvetica', sans-serif;
 }
 
+/* Check if the browser supports the 'color' property with 'display-p3' */
 @supports (color: color(display-p3 1 0 0)) {
 	:root {
 		--accent-color-dark: color(display-p3 0 1 0.53);
@@ -127,7 +128,6 @@ p {
 
 a {
 	border-radius: 0.25rem;
-	/* color: hsla(150, 95%, 50%, 1); */
 	color: var(--accent-color);
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;

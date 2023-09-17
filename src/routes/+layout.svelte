@@ -5,21 +5,20 @@
 </script>
 
 <Header />
-<main class="page-grid">
+<main class="container">
 	<slot />
 </main>
 <Footer />
 
 <style>
 	main {
-		margin-top: var(--spacing2x);
-		max-width: 72rem;
-		margin-inline: auto;
-		padding-inline: 1.5rem;
-	}
-
-	:global(.page-grid) {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
+	}
+
+	:global(.container) {
+		padding-inline: 1.5rem;
+		max-width: 72rem;
+		margin-inline: auto;
 	}
 </style>

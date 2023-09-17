@@ -28,7 +28,7 @@
 <svelte:window bind:scrollY={y} />
 
 <header style={slideIn(1)}>
-	<nav style={`height: ${navHeight}rem`}>
+	<nav style={`height: ${navHeight}rem`} class="container">
 		<ul>
 			{#each links as link}
 				<li>
@@ -79,9 +79,6 @@
 		font-size: 1rem;
 		display: flex;
 		align-items: center;
-		max-width: 72rem;
-		padding-inline: 1.5rem;
-		margin-inline: auto;
 	}
 
 	ul {
