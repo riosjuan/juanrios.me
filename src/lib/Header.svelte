@@ -15,8 +15,8 @@
 
 	$: {
 		if (y >= 0 || y > 200) {
-			opacity = Math.min(y / 64, 1);
-			navHeight = Math.max(8 - y * 0.025, 4);
+			opacity = Math.min(y / 64, 1).toFixed(1);
+			navHeight = Math.max(8 - y * 0.025, 4).toFixed(1);
 		}
 	}
 
@@ -27,7 +27,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<header style={slideIn(1)}>
+<header class="no-js" style={slideIn(1)}>
 	<nav style={`height: ${navHeight}rem`} class="container">
 		<ul>
 			{#each links as link}
@@ -38,7 +38,7 @@
 		</ul>
 		<ThemeSelect />
 	</nav>
-	<div class="header-background no-js" style={`opacity: ${opacity}`} aria-hidden="true" />
+	<div class="header-background" style={`opacity: ${opacity}`} aria-hidden="true" />
 </header>
 
 <style>
@@ -58,6 +58,10 @@
 		z-index: -1;
 	}
 
+	.no-js .header-background {
+		opacity: 1 !important;
+	}
+
 	.header-background::after {
 		backdrop-filter: saturate(180%);
 		background-color: var(--text-color);
@@ -69,16 +73,16 @@
 		position: absolute;
 	}
 
-	.no-js {
-		opacity: 1 !important;
-	}
-
 	nav {
 		font-weight: 500;
 		grid-column: 1/7;
 		font-size: 1rem;
 		display: flex;
 		align-items: center;
+	}
+
+	.no-js nav {
+		height: 4rem !important;
 	}
 
 	ul {

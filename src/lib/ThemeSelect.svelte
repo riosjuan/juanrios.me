@@ -61,6 +61,7 @@
 		transition: opacity var(--hover-transition);
 		transition: outline-color var(--hover-transition);
 		width: 2.5rem;
+		outline-offset: -0.5rem;
 	}
 
 	button:hover,

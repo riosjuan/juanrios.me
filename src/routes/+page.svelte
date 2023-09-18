@@ -71,7 +71,7 @@
 	}
 
 	p + p {
-		margin-bottom: 0;
+		margin-block-end: 0;
 	}
 
 	section {
