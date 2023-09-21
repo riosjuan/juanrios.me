@@ -90,9 +90,11 @@ html {
 	font-variant-numeric: lining-nums proportional-nums slashed-zero;
 }
 
-@supports (scroll-behavior: smooth) {
-	html {
-		scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+	@supports (scroll-behavior: smooth) {
+		html {
+			scroll-behavior: smooth;
+		}
 	}
 }
 
@@ -131,7 +133,12 @@ a {
 	color: var(--accent-color);
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;
-	transition: color var(--hover-transition);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	a {
+		transition: color var(--hover-transition);
+	}
 }
 
 a:hover {
@@ -153,13 +160,15 @@ a:focus {
 	width: 1px;
 }
 
-@keyframes slide-in {
-	0% {
-		opacity: 0;
-		transform: translateY(calc(0.25rem * -1));
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
+@media (prefers-reduced-motion: no-preference) {
+	@keyframes slide-in {
+		0% {
+			opacity: 0;
+			transform: translateY(calc(0.25rem * -1));
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 }

@@ -46,7 +46,7 @@
 		font-size: clamp(2rem, 3.5vw, 3rem);
 		font-weight: 700;
 		line-height: 1.3;
-		margin-block: 0 2.4rem;
+		margin-block: 0 2.5rem;
 	}
 
 	h2 {
@@ -63,7 +63,6 @@
 
 	a {
 		color: inherit;
-		transition: color 100ms ease-in-out;
 	}
 
 	a:hover {

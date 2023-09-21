@@ -16,15 +16,17 @@
 </ul>
 
 <style>
-	article {
+	article,
+	ul {
 		display: grid;
 		grid-template-rows: 1fr;
+	}
+
+	article {
 		row-gap: clamp(0.5rem, 3.5vw, 1.5rem);
 	}
 
 	ul {
-		display: grid;
-		grid-template-rows: 1fr;
 		row-gap: clamp(3rem, 6.5vw, 6rem);
 	}
 

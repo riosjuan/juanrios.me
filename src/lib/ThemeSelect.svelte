@@ -28,19 +28,13 @@
 	});
 </script>
 
-<div class="no-js">
-	<button on:click={themeToggleHandler} title="Toggles light & dark" aria-label={theme}>
-		<IconThemeToggle />
-	</button>
-</div>
+<button class="no-js" on:click={themeToggleHandler} title="Toggles light & dark" aria-label={theme}>
+	<IconThemeToggle />
+</button>
 
 <style>
 	.no-js {
 		display: none;
-	}
-
-	div {
-		margin-inline-start: auto;
 	}
 
 	button {
@@ -55,13 +49,14 @@
 		font-size: 1rem;
 		height: 2.5rem;
 		justify-content: center;
+		margin-inline-start: auto;
+		outline-offset: -0.5rem;
 		outline: 0.125rem solid transparent;
 		padding: 0;
 		text-transform: capitalize;
 		transition: opacity var(--hover-transition);
 		transition: outline-color var(--hover-transition);
 		width: 2.5rem;
-		outline-offset: -0.5rem;
 	}
 
 	button:hover,
