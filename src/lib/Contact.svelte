@@ -1,17 +1,12 @@
 <script>
-	const contact = {
-		email: { text: 'juanesteban.rios@gmail.com', url: 'mailto:juanesteban.rios@gmail.com' },
-		xcom: { text: 'x.com', url: 'https://x.com/juanriosnl' },
-		github: { text: 'Github', url: 'https://github.com/riosjuan' },
-		linkedin: { text: 'LinkedIn', url: 'https://nl.linkedin.com/in/juanestebanrios' }
-	};
+	import contactData from '../data/contact.json';
 </script>
 
 <p>
-	Feel free to reach out to me at <a href={contact.email.url}>{contact.email.text}</a>, or find me
-	elsewhere on <a href={contact.xcom.url}>{contact.xcom.text}</a>,
-	<a href={contact.github.url}>{contact.github.text}</a>, and
-	<a href={contact.linkedin.url}>{contact.linkedin.text}</a>.
+	Feel free to reach out to me at <a href={contactData.email.url}>{contactData.email.text}</a>, or
+	find me elsewhere on <a href={contactData.xcom.url}>{contactData.xcom.text}</a>,
+	<a href={contactData.github.url}>{contactData.github.text}</a>, and
+	<a href={contactData.linkedin.url}>{contactData.linkedin.text}</a>.
 </p>
 
 <style>

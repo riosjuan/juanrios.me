@@ -81,6 +81,12 @@
 		align-items: center;
 	}
 
+	@media (prefers-reduced-motion: reduce) {
+		nav {
+			height: 4rem !important;
+		}
+	}
+
 	.no-js nav {
 		height: 4rem !important;
 	}
