@@ -8,23 +8,26 @@
 }
 
 :root {
+	/* Dark mode  */
 	--bg-color-dark: hsla(280, 10%, 7%, 1);
 	--bg-color-dark-2: hsla(280, 10%, 12%, 1);
 	--text-color-dark: hsla(150, 95%, 96%, 1);
 	--text-color-dark-2: hsla(150, 0%, 56%, 1);
 	--accent-color-dark: hsla(148, 100%, 50%, 1);
 	--font-weight-dark: 300;
+	--letter-spacing-dark: unset;
 
-	--hover-transition: 150ms ease-in-out;
-
+	/* Light mode  */
 	--bg-color-light: hsl(280, 70%, 98%);
 	--bg-color-light-2: hsl(280, 70%, 95%);
 	--text-color-light: hsla(150, 95%, 7%, 1);
 	--text-color-light-2: hsla(150, 5%, 40%, 1);
 	--accent-color-light: hsla(226, 100%, 50%, 1);
 	--font-weight-light: 350;
-	--color-scheme-light: light;
+	--letter-spacing-light: -0.125px;
 
+	/* General */
+	--hover-transition: 150ms ease-in-out;
 	--font-body: clamp(1.25rem, 3.5vw, 2.5rem);
 	--font-family: 'Inter var', 'Helvetica', sans-serif;
 }
@@ -44,6 +47,7 @@
 	--text-color-2: var(--text-color-dark-2);
 	--accent-color: var(--accent-color-dark);
 	--font-weight: var(--font-weight-dark);
+	--letter-spacing: var(--letter-spacing-dark);
 	color-scheme: dark;
 }
 
@@ -54,6 +58,7 @@
 	--text-color-2: var(--text-color-light-2);
 	--accent-color: var(--accent-color-light);
 	--font-weight: var(--font-weight-light);
+	--letter-spacing: var(--letter-spacing-light);
 	color-scheme: light;
 }
 
@@ -65,6 +70,7 @@
 		--text-color-2: var(--text-color-dark-2);
 		--accent-color: var(--accent-color-dark);
 		--font-weight: var(--font-weight-dark);
+		--letter-spacing: var(--letter-spacing-dark);
 		color-scheme: dark;
 	}
 }
@@ -77,6 +83,7 @@
 		--text-color-2: var(--text-color-light-2);
 		--accent-color: var(--accent-color-light);
 		--font-weight: var(--font-weight-light);
+		--letter-spacing: var(--letter-spacing-light);
 		color-scheme: light;
 	}
 }
@@ -126,6 +133,7 @@ ul {
 p {
 	font-size: var(--font-body);
 	line-height: 1.4;
+	letter-spacing: var(--letter-spacing);
 }
 
 a {
