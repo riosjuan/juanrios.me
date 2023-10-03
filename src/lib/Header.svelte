@@ -10,8 +10,8 @@
 	];
 
 	let y = 0;
-	let opacity = 0;
-	let navHeight = 4;
+	let opacity;
+	let navHeight;
 
 	$: {
 		if (y >= 0 || y > 200) {
