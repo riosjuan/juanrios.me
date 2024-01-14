@@ -19,9 +19,9 @@
 	a {
 		color: inherit;
 		font-weight: inherit;
-	}
 
-	a:hover {
-		color: var(--accent-color);
+		&:hover {
+			color: var(--accent-color);
+		}
 	}
 </style>
