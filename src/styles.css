@@ -8,21 +8,26 @@
 }
 
 :root {
+	/* Colors */
+	--dark-grape: hsl(280, 10%, 7%);
+	--neon-green: color(display-p3 0 1 0.53);
+	--deep-blue: color(display-p3 0 0.23 0.98);
+
 	/* Dark mode  */
-	--bg-color-dark: hsla(280, 10%, 7%, 1);
-	--bg-color-dark-2: hsla(280, 10%, 12%, 1);
-	--text-color-dark: hsla(150, 95%, 96%, 1);
-	--text-color-dark-2: hsla(150, 0%, 56%, 1);
-	--accent-color-dark: hsla(148, 100%, 50%, 1);
+	--bg-color-dark: var(--dark-grape);
+	--bg-color-dark-2: color-mix(in hsl, var(--dark-grape) 95%, white);
+	--text-color-dark: color-mix(in srgb, var(--neon-green) 8%, white);
+	--text-color-dark-2: color-mix(in hsl, var(--dark-grape) 30%, white);
+	--accent-color-dark: var(--neon-green);
 	--font-weight-dark: 300;
 	--letter-spacing-dark: unset;
 
 	/* Light mode  */
-	--bg-color-light: hsl(280, 70%, 98%);
-	--bg-color-light-2: hsl(280, 70%, 95%);
-	--text-color-light: hsla(150, 95%, 7%, 1);
-	--text-color-light-2: hsla(150, 5%, 40%, 1);
-	--accent-color-light: hsla(226, 100%, 50%, 1);
+	--bg-color-light: color-mix(in hsl, var(--dark-grape) 3%, white);
+	--bg-color-light-2: color-mix(in hsl, var(--dark-grape) 6%, white);
+	--text-color-light: color-mix(in hsl, var(--dark-grape) 90%, white);
+	--text-color-light-2: color-mix(in hsl, var(--dark-grape) 68%, white);
+	--accent-color-light: var(--deep-blue);
 	--font-weight-light: 350;
 	--letter-spacing-light: -0.125px;
 
@@ -30,14 +35,6 @@
 	--hover-transition: 150ms ease-in-out;
 	--font-body: clamp(1.25rem, 3.5vw, 2.5rem);
 	--font-family: 'Inter var', 'Helvetica', sans-serif;
-}
-
-/* Check if the browser supports the 'color' property with 'display-p3' */
-@supports (color: color(display-p3 1 0 0)) {
-	:root {
-		--accent-color-dark: color(display-p3 0 1 0.53);
-		--accent-color-light: color(display-p3 0 0.23 0.98);
-	}
 }
 
 :root[data-theme='dark'] {
