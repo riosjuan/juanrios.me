@@ -57,10 +57,10 @@
 		transition: opacity var(--hover-transition);
 		transition: outline-color var(--hover-transition);
 		width: 2.5rem;
-	}
 
-	button:hover,
-	button:focus {
-		outline: 0.125rem solid var(--accent-color);
+		&:hover,
+		&:focus {
+			outline: 0.125rem solid var(--accent-color);
+		}
 	}
 </style>

@@ -90,8 +90,7 @@ html {
 	color: var(--text-color);
 	font-family: var(--font-family);
 	font-weight: var(--font-weight);
-	/* font-feature-settings: 'ss01' 1, 'ss02' 1, 'ss03' 1; */
-	font-variant-numeric: lining-nums proportional-nums slashed-zero;
+	font-feature-settings: 'ss01', 'ss03', 'zero';
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -138,21 +137,21 @@ a {
 	color: var(--accent-color);
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;
+
+	&:hover {
+		color: var(--text-color);
+	}
+
+	&:focus {
+		outline-color: var(--accent-color);
+		color: var(--text-color);
+	}
 }
 
 @media (prefers-reduced-motion: no-preference) {
 	a {
 		transition: color var(--hover-transition);
 	}
-}
-
-a:hover {
-	color: var(--text-color);
-}
-
-a:focus {
-	outline-color: var(--accent-color);
-	color: var(--text-color);
 }
 
 .sr-only {
