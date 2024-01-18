@@ -1,25 +1,25 @@
 [
 	{
 		"name": "forum.mendix.com",
-		"description": "The place for Makers to connect, get answers to questions from the community, and post ideas for product managers",
+		"description": "The place for Makers to connect, get answers to questions from the community, and post ideas for product managers.",
 		"url": "https://forum.mendix.com/p/community",
 		"tags": ["code", "low-code"]
 	},
 	{
 		"name": "SVG Grabber",
-		"description": "A Google Chrome extension to quickly preview and get all the svg assets from a website",
+		"description": "A Google Chrome extension to quickly preview and get all the svg assets from a website.",
 		"url": "https://chrome.google.com/webstore/detail/svg-grabber-get-all-the-s/ndakggdliegnegeclmfgodmgemdokdmg?hl=en",
 		"tags": ["design", "code"]
 	},
 	{
 		"name": "myCloud App –– Swisscom",
-		"description": "A service to store and share photos and files securely and access them from any device",
+		"description": "A service to store and share photos and files securely and access them from any device.",
 		"url": "https://www.swisscom.ch/en/residential/additional-services/mycloud.html",
 		"tags": ["design"]
 	},
 	{
 		"name": "lloronarecords.com",
-		"description": "Llorona Records is a label and a platform for creative projects around music based in Bogotá, Colombia. Since 2007 it documents, promotes and represents unique and authentic artists",
+		"description": "Llorona Records is a label and a platform for creative projects around music based in Bogotá, Colombia. Since 2007 it documents, promotes and represents unique and authentic artists.",
 		"url": "https://lloronarecords.com",
 		"tags": ["design", "code"]
 	}
