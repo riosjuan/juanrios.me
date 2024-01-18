@@ -58,8 +58,7 @@
 		transition: outline-color var(--hover-transition);
 		width: 2.5rem;
 
-		&:hover,
-		&:focus {
+		&:is(:hover, :focus) {
 			outline: 0.125rem solid var(--accent-color);
 		}
 	}
