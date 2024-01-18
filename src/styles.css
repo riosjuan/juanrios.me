@@ -8,24 +8,25 @@
 
 :root {
 	/* Colors */
-	--dark-grape: hsl(280, 10%, 7%);
+	/* --dark-grape: hsl(280, 10%, 7%); */
+	--dark-grape: color(display-p3 0.07 0.06 0.08);
 	--neon-green: color(display-p3 0 1 0.53);
 	--deep-blue: color(display-p3 0 0.23 0.98);
 
 	/* Dark mode  */
 	--bg-color-dark: var(--dark-grape);
-	--bg-color-dark-2: color-mix(in hsl, var(--dark-grape) 95%, white);
+	--bg-color-dark-2: color-mix(in srgb, var(--dark-grape) 95%, white);
 	--text-color-dark: color-mix(in srgb, var(--neon-green) 8%, white);
-	--text-color-dark-2: color-mix(in hsl, var(--dark-grape) 30%, white);
+	--text-color-dark-2: color-mix(in srgb, var(--dark-grape) 30%, white);
 	--accent-color-dark: var(--neon-green);
 	--font-weight-dark: 300;
 	--letter-spacing-dark: unset;
 
 	/* Light mode  */
-	--bg-color-light: color-mix(in hsl, var(--dark-grape) 3%, white);
-	--bg-color-light-2: color-mix(in hsl, var(--dark-grape) 6%, white);
-	--text-color-light: color-mix(in hsl, var(--dark-grape) 90%, white);
-	--text-color-light-2: color-mix(in hsl, var(--dark-grape) 68%, white);
+	--bg-color-light: color-mix(in srgb, var(--dark-grape) 3%, white);
+	--bg-color-light-2: color-mix(in srgb, var(--dark-grape) 6%, white);
+	--text-color-light: color-mix(in srgb, var(--dark-grape) 90%, white);
+	--text-color-light-2: color-mix(in srgb, var(--dark-grape) 68%, white);
 	--accent-color-light: var(--deep-blue);
 	--font-weight-light: 320;
 	--letter-spacing-light: -0.075px;
