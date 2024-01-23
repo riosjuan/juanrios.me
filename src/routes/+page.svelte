@@ -49,24 +49,12 @@
 		margin-block: 0 2.5rem;
 	}
 
-	h2 {
-		color: var(--text-color-2);
-		font-size: clamp(0.75rem, 3.5vw, 1rem);
-		font-style: normal;
-		font-weight: 400;
-		letter-spacing: 0.125em;
-		line-height: 1;
-		margin-block-end: 1.5em;
-		margin-block-start: 0;
-		text-transform: uppercase;
-	}
-
 	a {
 		color: inherit;
-	}
 
-	a:hover {
-		color: var(--accent-color);
+		&:hover {
+			color: var(--accent-color);
+		}
 	}
 
 	p + p {
@@ -77,5 +65,17 @@
 		grid-column: 1/7;
 		margin-block-start: clamp(4.5rem, 10vw, 9rem);
 		scroll-margin-top: 8rem;
+
+		& > h2 {
+			color: var(--text-color-2);
+			font-size: clamp(0.75rem, 3.5vw, 1rem);
+			font-style: normal;
+			font-weight: 400;
+			letter-spacing: 0.125em;
+			line-height: 1;
+			margin-block-end: 1.5em;
+			margin-block-start: 0;
+			text-transform: uppercase;
+		}
 	}
 </style>
