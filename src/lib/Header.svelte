@@ -1,5 +1,5 @@
 <script>
-	import { slideIn, removeNoJSClass } from '../utilities';
+	import { slideIn, removeClass } from '../utilities';
 	import { onMount } from 'svelte';
 	import ThemeSelect from './ThemeSelect.svelte';
 
@@ -20,14 +20,16 @@
 		}
 	}
 
+	const noJSClass = 'no-js';
+
 	onMount(() => {
-		removeNoJSClass();
+		removeClass(noJSClass);
 	});
 </script>
 
 <svelte:window bind:scrollY={y} />
 
-<header class="no-js" style={slideIn(1)}>
+<header class={noJSClass} style={slideIn(1)}>
 	<nav style={`height: ${navHeight}rem`} class="container">
 		<ul>
 			{#each links as link}

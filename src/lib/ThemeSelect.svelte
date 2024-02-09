@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { removeNoJSClass } from '../utilities';
+	import { removeClass } from '../utilities';
 	import IconThemeToggle from './IconThemeToggle.svelte';
 
 	const storageKey = 'theme-preference';
@@ -21,14 +21,21 @@
 		localStorage.setItem(storageKey, theme);
 	};
 
+	const noJSClass = 'no-js';
+
 	// Set the initial theme on component mount
 	onMount(() => {
-		removeNoJSClass();
+		removeClass(noJSClass);
 		theme = getColorPreference();
 	});
 </script>
 
-<button class="no-js" on:click={themeToggleHandler} title="Toggles light & dark" aria-label={theme}>
+<button
+	class={noJSClass}
+	on:click={themeToggleHandler}
+	title="Toggles light & dark"
+	aria-label={theme}
+>
 	<IconThemeToggle />
 </button>
 
