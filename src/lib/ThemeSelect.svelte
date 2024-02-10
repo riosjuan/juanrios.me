@@ -6,19 +6,26 @@
 	const storageKey = 'theme-preference';
 	const THEME = { DARK: 'dark', LIGHT: 'light' };
 
-	let theme;
+	let userTheme;
 
-	// Function to get the color preference
+	// Memoized function to get the color preference
 	const getColorPreference = () => {
-		return localStorage.getItem(storageKey);
+		if (!userTheme) {
+			userTheme = localStorage.getItem(storageKey);
+		}
+		return userTheme;
 	};
 
 	// Function to set the theme and update the preferences
 	const themeToggleHandler = () => {
-		theme = theme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT;
+		const newTheme =
+			document.documentElement.getAttribute('data-theme') === THEME.LIGHT
+				? THEME.DARK
+				: THEME.LIGHT;
 
-		document.documentElement.setAttribute('data-theme', theme);
-		localStorage.setItem(storageKey, theme);
+		document.documentElement.setAttribute('data-theme', newTheme);
+		localStorage.setItem(storageKey, newTheme);
+		userTheme = newTheme;
 	};
 
 	const noJSClass = 'no-js';
@@ -26,7 +33,10 @@
 	// Set the initial theme on component mount
 	onMount(() => {
 		removeClass(noJSClass);
-		theme = getColorPreference();
+		userTheme = getColorPreference();
+		if (userTheme) {
+			document.documentElement.setAttribute('data-theme', userTheme);
+		}
 	});
 </script>
 
@@ -34,7 +44,7 @@
 	class={noJSClass}
 	on:click={themeToggleHandler}
 	title="Toggles light & dark"
-	aria-label={theme}
+	aria-label={userTheme}
 >
 	<IconThemeToggle />
 </button>
