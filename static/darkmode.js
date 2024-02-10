@@ -1,6 +1,12 @@
-const savedTheme = localStorage.getItem('theme-preference');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+// Retrieve saved theme preference from localStorage
+const savedTheme =
+	localStorage.getItem('theme-preference') ||
+	(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
-document.documentElement.setAttribute('data-theme', theme);
-localStorage.setItem('theme-preference', theme);
+// Apply the selected theme to the document
+document.documentElement.setAttribute('data-theme', savedTheme);
+
+// Save the determined theme preference to localStorage if it's not already saved
+if (!localStorage.getItem('theme-preference')) {
+	localStorage.setItem('theme-preference', savedTheme);
+}
