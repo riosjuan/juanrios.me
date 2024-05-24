@@ -13,24 +13,47 @@
 	let opacity;
 	let navHeight;
 
-	$: {
-		if (y >= 0 || y > 200) {
-			opacity = Math.min(y / 64, 1).toFixed(1);
-			navHeight = Math.max(8 - y * 0.025, 4).toFixed(1);
-		}
-	}
-
 	const noJSClass = 'no-js';
 
 	onMount(() => {
 		removeClass(noJSClass);
+
+		let ticking = false;
+
+		const handleScroll = () => {
+			y = window.scrollY;
+
+			if (!ticking) {
+				window.requestAnimationFrame(() => {
+					updateStyles(y);
+					ticking = false;
+				});
+
+				ticking = true;
+			}
+		};
+
+		const updateStyles = (scrollY) => {
+			opacity = Math.min(scrollY / 64, 1).toFixed(1);
+			navHeight = Math.max(8 - scrollY * 0.025, 4).toFixed(1);
+
+			const nav = document.querySelector('nav');
+			const headerBackground = document.querySelector('.header-background');
+
+			if (nav) nav.style.height = `${navHeight}rem`;
+			if (headerBackground) headerBackground.style.opacity = opacity;
+		};
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
 	});
 </script>
 
-<svelte:window bind:scrollY={y} />
-
 <header class={noJSClass} style={slideIn(1)}>
-	<nav style={`height: ${navHeight}rem`} class="container">
+	<nav style="height: 8rem;" class="container">
 		<ul>
 			{#each links as link}
 				<li>
@@ -40,7 +63,7 @@
 		</ul>
 		<ThemeSelect />
 	</nav>
-	<div class="header-background" style={`opacity: ${opacity}`} aria-hidden="true" />
+	<div class="header-background" style="opacity: 0;" aria-hidden="true" />
 </header>
 
 <style>
