@@ -9,39 +9,27 @@
 		{ name: 'Contact', url: '#contact' }
 	];
 
-	let y = 0;
-	let opacity;
-	let navHeight;
-
 	const noJSClass = 'no-js';
+	let headerBackground;
+	let nav;
 
 	onMount(() => {
 		removeClass(noJSClass);
 
-		let ticking = false;
-
 		const handleScroll = () => {
-			y = window.scrollY;
+			const scrollY = window.scrollY / 9;
+			const scaleValue = Math.max(0.5, 1 - scrollY * 0.025);
+			const opacity = Math.min(scrollY / 2, 1);
+			const translateY = 0 - Math.min(scrollY, 25);
 
-			if (!ticking) {
-				window.requestAnimationFrame(() => {
-					updateStyles(y);
-					ticking = false;
-				});
-
-				ticking = true;
+			if (headerBackground) {
+				headerBackground.style.transform = `scaleY(${scaleValue})`;
+				headerBackground.style.opacity = opacity;
 			}
-		};
 
-		const updateStyles = (scrollY) => {
-			opacity = Math.min(scrollY / 64, 1).toFixed(1);
-			navHeight = Math.max(8 - scrollY * 0.025, 4).toFixed(1);
-
-			const nav = document.querySelector('nav');
-			const headerBackground = document.querySelector('.header-background');
-
-			if (nav) nav.style.height = `${navHeight}rem`;
-			if (headerBackground) headerBackground.style.opacity = opacity;
+			if (nav) {
+				nav.style.transform = `translateY(${translateY}%)`;
+			}
 		};
 
 		window.addEventListener('scroll', handleScroll);
@@ -53,7 +41,8 @@
 </script>
 
 <header class={noJSClass} style={slideIn(1)}>
-	<nav style="height: 8rem;" class="container">
+	<div bind:this={headerBackground} class="header-background" aria-hidden="true"></div>
+	<nav bind:this={nav} class="container" style="transform: translateY(0);">
 		<ul>
 			{#each links as link}
 				<li>
@@ -63,7 +52,6 @@
 		</ul>
 		<ThemeSelect />
 	</nav>
-	<div class="header-background" style="opacity: 0;" aria-hidden="true" />
 </header>
 
 <style>
@@ -77,9 +65,17 @@
 		backdrop-filter: saturate(120%) blur(40px);
 		background: transparent;
 		display: block;
+		width: 100%;
+		height: 8rem;
+		will-change: opacity, transform;
+		position: absolute;
 		inset: 0;
 		opacity: 0;
-		position: absolute;
+		transform: scaleY(1);
+		transform-origin: top;
+		transition:
+			transform 100ms ease-out,
+			opacity 100ms ease-out;
 		z-index: -1;
 	}
 
@@ -93,27 +89,40 @@
 		content: '';
 		display: block;
 		height: 1px;
-		inset: auto 0 0;
-		opacity: 0.025;
 		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		opacity: 0.025;
 	}
 
 	nav {
 		font-weight: 500;
-		grid-column: 1/7;
 		font-size: 1rem;
 		display: flex;
 		align-items: center;
+		position: relative;
+		width: 100%;
+		height: 8rem;
+		transform-origin: top;
+		transition: transform 0.1s ease-out;
+		z-index: 1;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
+		.header-background {
+			transform: scaleY(0.5) !important;
+		}
 		nav {
-			height: 4rem !important;
+			transform: translateY(-25%) !important;
 		}
 	}
 
+	.no-js .header-background {
+		transform: scaleY(0.5) !important;
+	}
 	.no-js nav {
-		height: 4rem !important;
+		transform: translateY(-25%) !important;
 	}
 
 	ul {
@@ -121,6 +130,9 @@
 		display: flex;
 		flex-wrap: wrap;
 		row-gap: var(--spacing);
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
 
 	a {
