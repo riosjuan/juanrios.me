@@ -1,48 +1,70 @@
 <script>
 	import { slideIn, removeClass } from '../utilities';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate } from 'svelte';
 	import ThemeSelect from './ThemeSelect.svelte';
 
-	let links = [
+	// Navigation links
+	const links = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Projects', url: '#projects' },
 		{ name: 'Contact', url: '#contact' }
 	];
 
-	const noJSClass = 'no-js';
+	// Constants
+	const NO_JS_CLASS = 'no-js';
+	const SCALE_FACTOR = 0.00277; // 0.025 / 9
+	const OPACITY_FACTOR = 1 / 18;
+	const TRANSLATE_FACTOR = 1 / 9;
+
+	// DOM elements
 	let headerBackground;
 	let nav;
 
+	// Scroll position
+	let scrollY;
+
+	// Update header styles based on scroll position
+	$: if (typeof scrollY !== 'undefined') {
+		updateHeaderStyles(scrollY);
+	}
+
+	const updateHeaderStyles = (scroll) => {
+		const scaleValue = Math.max(0.5, 1 - scroll * SCALE_FACTOR);
+		const opacity = Math.min(scroll * OPACITY_FACTOR, 1);
+		const translateY = -Math.min(scroll * TRANSLATE_FACTOR, 25);
+
+		if (headerBackground) {
+			headerBackground.style.transform = `scaleY(${scaleValue})`;
+			headerBackground.style.opacity = opacity;
+		}
+
+		if (nav) {
+			nav.style.transform = `translateY(${translateY}%)`;
+		}
+	};
+
 	onMount(() => {
-		removeClass(noJSClass);
+		removeClass(NO_JS_CLASS);
+	});
 
-		const handleScroll = () => {
-			const scrollY = window.scrollY / 9;
-			const scaleValue = Math.max(0.5, 1 - scrollY * 0.025);
-			const opacity = Math.min(scrollY / 2, 1);
-			const translateY = 0 - Math.min(scrollY, 25);
-
-			if (headerBackground) {
-				headerBackground.style.transform = `scaleY(${scaleValue})`;
-				headerBackground.style.opacity = opacity;
-			}
-
-			if (nav) {
-				nav.style.transform = `translateY(${translateY}%)`;
-			}
-		};
-
-		window.addEventListener('scroll', handleScroll);
-
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
+	afterUpdate(() => {
+		if (typeof window !== 'undefined') {
+			window.addEventListener(
+				'scroll',
+				() => {
+					scrollY = window.scrollY;
+				},
+				{ passive: true }
+			);
+		}
 	});
 </script>
 
-<header class={noJSClass} style={slideIn(1)}>
+<svelte:window bind:scrollY />
+
+<header class={NO_JS_CLASS} style={slideIn(1)}>
 	<div bind:this={headerBackground} class="header-background" aria-hidden="true"></div>
-	<nav bind:this={nav} class="container" style="transform: translateY(0);">
+	<nav bind:this={nav} class="container">
 		<ul>
 			{#each links as link}
 				<li>
