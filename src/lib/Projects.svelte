@@ -4,10 +4,10 @@
 </script>
 
 <ul>
-	{#each projects as { name, url, description, tags }}
+	{#each projects as { name, url, description, tags }, index (name)}
 		<li>
 			<article>
-				<h3><a href={url}>{name}</a></h3>
+				<h3><a href={url} aria-label="Project {name}">{name}</a></h3>
 				<p>{description}</p>
 				<Tags {tags} />
 			</article>

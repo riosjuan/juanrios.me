@@ -8,7 +8,6 @@
 
 :root {
 	/* Colors */
-	/* --dark-grape: hsl(280, 10%, 7%); */
 	--dark-grape: color(display-p3 0.07 0.06 0.08);
 	--neon-green: color(display-p3 0 1 0.53);
 	--deep-blue: color(display-p3 0 0.23 0.98);

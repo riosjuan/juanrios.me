@@ -1,12 +1,12 @@
 <script>
-	import contactData from '../data/contact.json';
+	import socialLinks from '../data/social-links.json';
 </script>
 
 <p>
-	Feel free to reach out to me at <a href={contactData.email.url}>{contactData.email.text}</a>, or
-	find me elsewhere on <a href={contactData.xcom.url}>{contactData.xcom.text}</a>,
-	<a href={contactData.github.url}>{contactData.github.text}</a>, and
-	<a href={contactData.linkedin.url}>{contactData.linkedin.text}</a>.
+	Feel free to reach out to me at <a href={socialLinks.email.url}>{socialLinks.email.text}</a>, or
+	find me elsewhere on <a href={socialLinks.x.url}>{socialLinks.x.text}</a>,
+	<a href={socialLinks.github.url}>{socialLinks.github.text}</a>, and
+	<a href={socialLinks.linkedin.url}>{socialLinks.linkedin.text}</a>.
 </p>
 
 <style>

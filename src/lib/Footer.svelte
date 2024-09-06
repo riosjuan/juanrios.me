@@ -1,10 +1,10 @@
 <script>
-	let year = new Date().getFullYear();
+	const year = new Date().getFullYear();
 </script>
 
 <footer class="container">
 	<p>
-		&#169 {year} Juan Rios
+		&copy; {year} Juan Rios
 	</p>
 </footer>
 
@@ -17,10 +17,10 @@
 		height: var(--spacing3x);
 		margin-block-end: 3rem;
 		text-transform: uppercase;
-	}
 
-	p {
-		font-size: inherit;
-		margin: 0;
+		& p {
+			font-size: inherit;
+			margin: 0;
+		}
 	}
 </style>
