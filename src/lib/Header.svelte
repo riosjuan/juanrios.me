@@ -1,7 +1,7 @@
 <script>
 	import { slideIn, removeClass } from '../utilities';
 	import { onMount, afterUpdate } from 'svelte';
-	import ThemeSelect from './ThemeSelect.svelte';
+	import ThemeToggle from './ThemeToggle.svelte';
 
 	// Navigation links
 	const links = [
@@ -72,7 +72,7 @@
 				</li>
 			{/each}
 		</ul>
-		<ThemeSelect />
+		<ThemeToggle />
 	</nav>
 </header>
 
