@@ -8,40 +8,27 @@
 
 	let userTheme;
 
-	// Memoized function to get the color preference
-	const getColorPreference = () => {
-		if (!userTheme) {
-			userTheme = localStorage.getItem(storageKey);
-		}
-		return userTheme;
-	};
-
-	// Function to set the theme and update the preferences
-	const themeToggleHandler = () => {
-		const newTheme =
-			document.documentElement.getAttribute('data-theme') === THEME.LIGHT
-				? THEME.DARK
-				: THEME.LIGHT;
-
-		document.documentElement.setAttribute('data-theme', newTheme);
-		localStorage.setItem(storageKey, newTheme);
-		userTheme = newTheme;
-	};
-
-	const noJSClass = 'no-js';
-
-	// Set the initial theme on component mount
-	onMount(() => {
-		removeClass(noJSClass);
-		userTheme = getColorPreference();
+	$: {
 		if (userTheme) {
 			document.documentElement.setAttribute('data-theme', userTheme);
+			localStorage.setItem(storageKey, userTheme);
 		}
+	}
+
+	const themeToggleHandler = () => {
+		userTheme = userTheme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT;
+	};
+
+	onMount(() => {
+		removeClass('no-js');
+		userTheme =
+			localStorage.getItem(storageKey) ||
+			(window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME.DARK : THEME.LIGHT);
 	});
 </script>
 
 <button
-	class={noJSClass}
+	class:no-js={false}
 	on:click={themeToggleHandler}
 	title="Toggles light & dark"
 	aria-label={userTheme}
@@ -71,8 +58,10 @@
 		outline: 0.125rem solid transparent;
 		padding: 0;
 		text-transform: capitalize;
-		transition: opacity var(--hover-transition);
-		transition: outline-color var(--hover-transition);
+		transition:
+			opacity var(--hover-transition),
+			outline-color var(--hover-transition),
+			background-color 0.3s ease;
 		width: 2.5rem;
 
 		&:is(:hover, :focus) {
