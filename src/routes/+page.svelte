@@ -4,6 +4,9 @@
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
 
+	export let data;
+	const { projects } = data;
+
 	let openGraphData = {
 		title: 'Juan Rios - Product Designer and Developer',
 		description:
@@ -28,7 +31,7 @@
 </div>
 <section id="projects" style={slideIn(5)}>
 	<h2>Selected Projects</h2>
-	<Projects />
+	<Projects {projects} />
 </section>
 
 <section id="contact" style={slideIn(6)}>

@@ -1,10 +1,11 @@
 <script>
-	import projects from '../data/projects.json';
 	import Tags from './Tags.svelte';
+
+	export let projects;
 </script>
 
 <ul>
-	{#each projects as { name, url, description, tags }, index (name)}
+	{#each projects as { name, url, description, tags, content }, index (name)}
 		<li>
 			<article>
 				<h3><a href={url} aria-label="Project {name}">{name}</a></h3>
