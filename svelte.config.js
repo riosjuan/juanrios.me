@@ -2,11 +2,20 @@
 import adapter from '@sveltejs/adapter-static';
 import sveltePreprocess from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer';
+import { mdsvex } from 'mdsvex';
+
+const mdsvexOptions = {
+	extensions: ['.md']
+};
 
 const config = {
-	preprocess: sveltePreprocess({
-		postcss: { plugins: [autoprefixer] }
-	}),
+	extensions: ['.svelte', '.md'],
+	preprocess: [
+		sveltePreprocess({
+			postcss: { plugins: [autoprefixer] }
+		}),
+		mdsvex(mdsvexOptions)
+	],
 	kit: {
 		adapter: adapter({
 			pages: 'build',
