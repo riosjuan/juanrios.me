@@ -40,6 +40,10 @@
 			margin-block: 0;
 		}
 
+		& p:has(a) {
+			margin-block-start: 1rem;
+		}
+
 		& a {
 			font-size: clamp(1rem, 3.5vw, 1.5rem);
 			text-decoration: none;
