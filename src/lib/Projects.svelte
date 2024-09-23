@@ -5,14 +5,11 @@
 </script>
 
 <ul>
-	{#each projects as { name, url, description, tags, content }, index (name)}
+	{#each projects as { name, url, tags, content }, index (name)}
 		<li>
 			<article>
 				<h3><a href={url} aria-label="Project {name}">{name}</a></h3>
-				<p>{description}</p>
-				{#if content}
-					{@html content}
-				{/if}
+				<div class="content">{@html content}</div>
 				<Tags {tags} />
 			</article>
 		</li>
@@ -38,7 +35,20 @@
 		font-weight: 400;
 	}
 
-	p {
-		margin: 0;
+	.content {
+		& p {
+			margin-block: 0;
+		}
+
+		& a {
+			font-size: clamp(1rem, 3.5vw, 1.5rem);
+			text-decoration: none;
+			font-weight: 350;
+		}
+
+		& .link-divider {
+			font-size: 1rem;
+			opacity: 0.5;
+		}
 	}
 </style>
