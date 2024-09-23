@@ -10,6 +10,9 @@
 			<article>
 				<h3><a href={url} aria-label="Project {name}">{name}</a></h3>
 				<p>{description}</p>
+				{#if content}
+					{@html content}
+				{/if}
 				<Tags {tags} />
 			</article>
 		</li>

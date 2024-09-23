@@ -8,3 +8,5 @@ tags:
 description: A Google Chrome extension I designed and developed to quickly preview and get all the svg assets from a website.
 published: true
 ---
+
+A Google Chrome extension I designed and developed to quickly preview and get all the svg assets from any website.

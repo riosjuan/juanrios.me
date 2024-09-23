@@ -137,6 +137,7 @@ a {
 	color: var(--accent-color);
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;
+	text-decoration-thickness: from-font;
 
 	&:hover {
 		color: var(--text-color);
