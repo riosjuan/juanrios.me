@@ -8,7 +8,9 @@
 	{#each projects as { name, url, tags, content }, index (name)}
 		<li>
 			<article>
-				<h3><a href={url} aria-label="Project {name}">{name}</a></h3>
+				<h3>
+					<a href={url} aria-label={`View project ${name}`}>{name}</a>
+				</h3>
 				<div class="content">{@html content}</div>
 				<Tags {tags} />
 			</article>
