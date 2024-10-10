@@ -12,7 +12,7 @@
 	let header;
 
 	onMount(async () => {
-		await import('https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js');
+		await import('./scroll-timeline.js');
 
 		header = document.querySelector('header');
 
