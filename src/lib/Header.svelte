@@ -16,9 +16,6 @@
 
 		header = document.querySelector('header');
 
-		header.style.position = 'fixed';
-		header.style.top = 0;
-
 		header.animate(
 			{
 				backgroundColor: ['var(--bg-color)', 'transparent'],
@@ -26,6 +23,7 @@
 			},
 			{
 				fill: 'both',
+				easing: 'linear',
 				timeline: new ScrollTimeline({
 					source: document.documentElement
 				}),
@@ -52,8 +50,8 @@
 <style>
 	header {
 		align-items: center;
-		animation: header-size-and-opacity cubic-bezier(0.5, 0, 0.75, 0) forwards;
-		animation-timeline: scroll();
+		animation: header-size-and-opacity cubic-bezier(0, 1.1, 1, 1) forwards;
+		animation-timeline: scroll(root block);
 		animation-range: 0rem 16rem;
 		backdrop-filter: saturate(120%) blur(40px);
 		display: flex;
