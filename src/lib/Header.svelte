@@ -1,6 +1,5 @@
 <script>
-	import { slideIn, removeClass } from '../utilities';
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount } from 'svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	// Navigation links
@@ -10,61 +9,35 @@
 		{ name: 'Contact', url: '#contact' }
 	];
 
-	// Constants
-	const NO_JS_CLASS = 'no-js';
-	const SCALE_FACTOR = 0.00277; // 0.025 / 9
-	const OPACITY_FACTOR = 1 / 18;
-	const TRANSLATE_FACTOR = 1 / 9;
+	let header;
 
-	// DOM elements
-	let headerBackground;
-	let nav;
+	onMount(async () => {
+		await import('https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js');
 
-	// Scroll position
-	let scrollY;
+		header = document.querySelector('header');
 
-	// Update header styles based on scroll position
-	$: if (typeof scrollY !== 'undefined') {
-		updateHeaderStyles(scrollY);
-	}
+		header.style.position = 'fixed';
+		header.style.top = 0;
 
-	const updateHeaderStyles = (scroll) => {
-		const scaleValue = Math.max(0.5, 1 - scroll * SCALE_FACTOR);
-		const opacity = Math.min(scroll * OPACITY_FACTOR, 1);
-		const translateY = -Math.min(scroll * TRANSLATE_FACTOR, 25);
-
-		if (headerBackground) {
-			headerBackground.style.transform = `scaleY(${scaleValue})`;
-			headerBackground.style.opacity = opacity;
-		}
-
-		if (nav) {
-			nav.style.transform = `translateY(${translateY}%)`;
-		}
-	};
-
-	onMount(() => {
-		removeClass(NO_JS_CLASS);
-	});
-
-	afterUpdate(() => {
-		if (typeof window !== 'undefined') {
-			window.addEventListener(
-				'scroll',
-				() => {
-					scrollY = window.scrollY;
-				},
-				{ passive: true }
-			);
-		}
+		header.animate(
+			{
+				backgroundColor: ['var(--bg-color)', 'transparent'],
+				height: ['8rem', '4rem']
+			},
+			{
+				fill: 'both',
+				timeline: new ScrollTimeline({
+					source: document.documentElement
+				}),
+				rangeStart: new CSSUnitValue(0, 'px'),
+				rangeEnd: new CSSUnitValue(256, 'px')
+			}
+		);
 	});
 </script>
 
-<svelte:window bind:scrollY />
-
-<header class={NO_JS_CLASS} style={slideIn(1)}>
-	<div bind:this={headerBackground} class="header-background" aria-hidden="true"></div>
-	<nav bind:this={nav} class="container">
+<header bind:this={header}>
+	<nav class="container">
 		<ul>
 			{#each links as link}
 				<li>
@@ -78,73 +51,40 @@
 
 <style>
 	header {
-		position: sticky;
-		top: 0;
-		z-index: 10;
-	}
-
-	.header-background {
+		align-items: center;
+		animation: header-size-and-opacity cubic-bezier(0.5, 0, 0.75, 0) forwards;
+		animation-timeline: scroll();
+		animation-range: 0rem 16rem;
 		backdrop-filter: saturate(120%) blur(40px);
-		background: transparent;
-		display: block;
+		display: flex;
+		position: fixed;
+		top: 0;
 		width: 100%;
-		height: 8rem;
-		will-change: opacity, transform;
-		position: absolute;
-		inset: 0;
-		opacity: 0;
-		transform: scaleY(1);
-		transform-origin: top;
-		transition:
-			transform 100ms ease-out,
-			opacity 100ms ease-out;
-		z-index: -1;
-	}
+		z-index: 10;
 
-	.no-js .header-background {
-		opacity: 1 !important;
-	}
-
-	.header-background::after {
-		backdrop-filter: saturate(180%);
-		background-color: var(--text-color);
-		content: '';
-		display: block;
-		height: 1px;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		opacity: 0.025;
+		&::after {
+			backdrop-filter: saturate(180%);
+			background-color: var(--text-color);
+			content: '';
+			display: block;
+			height: 1px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0.025;
+		}
 	}
 
 	nav {
-		font-weight: 500;
-		font-size: 1rem;
-		display: flex;
 		align-items: center;
+		animation: slide-in 300ms cubic-bezier(0.5, 0, 0.75, 0) 200ms 1 backwards;
+		display: flex;
+		font-size: 1rem;
+		font-weight: 500;
 		position: relative;
 		width: 100%;
-		height: 8rem;
-		transform-origin: top;
-		transition: transform 0.1s ease-out;
 		z-index: 1;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.header-background {
-			transform: scaleY(0.5) !important;
-		}
-		nav {
-			transform: translateY(-25%) !important;
-		}
-	}
-
-	.no-js .header-background {
-		transform: scaleY(0.5) !important;
-	}
-	.no-js nav {
-		transform: translateY(-25%) !important;
 	}
 
 	ul {
@@ -160,5 +100,18 @@
 	a {
 		text-decoration: none;
 		font-weight: 550;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		@keyframes header-size-and-opacity {
+			from {
+				background-color: var(--bg-color);
+				height: 8rem;
+			}
+			to {
+				background-color: transparent;
+				height: 4rem;
+			}
+		}
 	}
 </style>

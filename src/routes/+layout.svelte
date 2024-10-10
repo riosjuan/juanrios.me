@@ -5,7 +5,7 @@
 </script>
 
 <Header />
-<main class="container">
+<main class="container" style="margin-top: 8rem;">
 	<slot />
 </main>
 <Footer />
