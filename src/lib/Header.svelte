@@ -1,22 +1,20 @@
 <script>
 	import { onMount } from 'svelte';
 	import ThemeToggle from './ThemeToggle.svelte';
+	import { isSafariOrFirefox, loadScrollTimelinePolyfillIfNeeded } from '../utilities';
 
 	// Navigation links
-	const links = [
+	const navigationLinks = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Projects', url: '#projects' },
 		{ name: 'Contact', url: '#contact' }
 	];
 
-	let header;
+	let headerElement;
 
-	onMount(async () => {
-		await import('./scroll-timeline.js');
-
-		header = document.querySelector('header');
-
-		header.animate(
+	const applyScrollAnimation = () => {
+		headerElement = document.querySelector('header');
+		headerElement.animate(
 			{
 				backgroundColor: ['var(--bg-color)', 'transparent'],
 				height: ['8rem', '4rem']
@@ -31,13 +29,20 @@
 				rangeEnd: new CSSUnitValue(256, 'px')
 			}
 		);
+	};
+
+	onMount(async () => {
+		await loadScrollTimelinePolyfillIfNeeded();
+		if (isSafariOrFirefox) {
+			applyScrollAnimation();
+		}
 	});
 </script>
 
-<header bind:this={header}>
+<header>
 	<nav class="container">
 		<ul>
-			{#each links as link}
+			{#each navigationLinks as link}
 				<li>
 					<a href={link.url}>{link.name}</a>
 				</li>
