@@ -1,19 +1,17 @@
 <script>
 	import { onMount } from 'svelte';
-	import ThemeToggle from './ThemeToggle.svelte';
 	import { isSafariOrFirefox, loadScrollTimelinePolyfillIfNeeded } from '../utilities';
+	import ThemeToggle from './ThemeToggle.svelte';
 
-	// Navigation links
 	const navigationLinks = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Projects', url: '#projects' },
 		{ name: 'Contact', url: '#contact' }
 	];
 
-	let headerElement;
-
 	const applyScrollAnimation = () => {
-		headerElement = document.querySelector('header');
+		const headerElement = document.querySelector('header');
+
 		headerElement.animate(
 			{
 				backgroundColor: ['var(--bg-color)', 'transparent'],
