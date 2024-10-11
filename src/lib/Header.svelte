@@ -69,7 +69,7 @@
 
 <style>
 	header {
-		--animation-range: 0rem 16rem;
+		--animation-range: 0px 256px;
 		--animation-timeline: scroll();
 		--animation-parameters: cubic-bezier(0, 1.1, 1, 1) forwards;
 		--header-size-start: 8rem;
