@@ -11,11 +11,27 @@
 
 	const applyScrollAnimation = () => {
 		const headerElement = document.querySelector('header');
+		const headerDivider = document.querySelector('.divider');
 
 		headerElement.animate(
 			{
 				backgroundColor: ['var(--bg-color)', 'transparent'],
-				height: ['8rem', '4rem']
+				height: ['var(--header-size-start)', 'var(--header-size-end)']
+			},
+			{
+				fill: 'both',
+				easing: 'linear',
+				timeline: new ScrollTimeline({
+					source: document.documentElement
+				}),
+				rangeStart: new CSSUnitValue(0, 'px'),
+				rangeEnd: new CSSUnitValue(256, 'px')
+			}
+		);
+
+		headerDivider.animate(
+			{
+				opacity: ['var(--divider-opacity-start)', 'var(--divider-opacity-end)']
 			},
 			{
 				fill: 'both',
@@ -38,6 +54,7 @@
 </script>
 
 <header>
+	<div class="divider" aria-hidden="true" />
 	<nav class="container">
 		<ul>
 			{#each navigationLinks as link}
@@ -52,29 +69,37 @@
 
 <style>
 	header {
+		--animation-range: 0rem 16rem;
+		--animation-timeline: scroll();
+		--animation-parameters: cubic-bezier(0, 1.1, 1, 1) forwards;
+		--header-size-start: 8rem;
+		--header-size-end: 4rem;
+		--divider-opacity-start: 0;
+		--divider-opacity-end: 0.025;
+
 		align-items: center;
-		animation: header-size-and-opacity cubic-bezier(0, 1.1, 1, 1) forwards;
-		animation-timeline: scroll(root block);
-		animation-range: 0rem 16rem;
+		animation: header-size-and-opacity var(--animation-parameters);
+		animation-range: var(--animation-range);
+		animation-timeline: var(--animation-timeline);
 		backdrop-filter: saturate(120%) blur(40px);
 		display: flex;
 		position: fixed;
 		top: 0;
 		width: 100%;
 		z-index: 10;
+	}
 
-		&::after {
-			backdrop-filter: saturate(180%);
-			background-color: var(--text-color);
-			content: '';
-			display: block;
-			height: 1px;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			opacity: 0.025;
-		}
+	.divider {
+		animation: divider-opacity var(--animation-parameters);
+		animation-range: var(--animation-range);
+		animation-timeline: var(--animation-timeline);
+		backdrop-filter: saturate(180%);
+		background-color: var(--text-color);
+		bottom: 0;
+		height: 2px;
+		left: 0;
+		position: absolute;
+		right: 0;
 	}
 
 	nav {
@@ -107,11 +132,20 @@
 		@keyframes header-size-and-opacity {
 			from {
 				background-color: var(--bg-color);
-				height: 8rem;
+				height: var(--header-size-start);
 			}
 			to {
 				background-color: transparent;
-				height: 4rem;
+				height: var(--header-size-end);
+			}
+		}
+
+		@keyframes divider-opacity {
+			from {
+				opacity: var(--divider-opacity-start);
+			}
+			to {
+				opacity: var(--divider-opacity-end);
 			}
 		}
 	}
