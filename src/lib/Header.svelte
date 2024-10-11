@@ -24,8 +24,8 @@
 				timeline: new ScrollTimeline({
 					source: document.documentElement
 				}),
-				rangeStart: new CSSUnitValue(0, 'px'),
-				rangeEnd: new CSSUnitValue(256, 'px')
+				rangeStart: '0px',
+				rangeEnd: '256px'
 			}
 		);
 
@@ -39,8 +39,8 @@
 				timeline: new ScrollTimeline({
 					source: document.documentElement
 				}),
-				rangeStart: new CSSUnitValue(0, 'px'),
-				rangeEnd: new CSSUnitValue(256, 'px')
+				rangeStart: '0px',
+				rangeEnd: '256px'
 			}
 		);
 	};
