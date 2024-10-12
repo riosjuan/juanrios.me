@@ -28,7 +28,7 @@
 </script>
 
 <button
-	class:no-js={false}
+	class="no-js"
 	on:click={themeToggleHandler}
 	title="Toggles light & dark"
 	aria-label={userTheme}

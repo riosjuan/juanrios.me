@@ -1,72 +1,62 @@
 <script>
-	import { slideIn, removeClass } from '../utilities';
-	import { onMount, afterUpdate } from 'svelte';
+	import { onMount } from 'svelte';
+	import { isSafariOrFirefox, loadScrollTimelinePolyfillIfNeeded } from '../utilities';
 	import ThemeToggle from './ThemeToggle.svelte';
 
-	// Navigation links
-	const links = [
+	const navigationLinks = [
 		{ name: 'Home', url: '/' },
 		{ name: 'Projects', url: '#projects' },
 		{ name: 'Contact', url: '#contact' }
 	];
 
-	// Constants
-	const NO_JS_CLASS = 'no-js';
-	const SCALE_FACTOR = 0.00277; // 0.025 / 9
-	const OPACITY_FACTOR = 1 / 18;
-	const TRANSLATE_FACTOR = 1 / 9;
+	const applyScrollAnimation = () => {
+		const headerElement = document.querySelector('header');
+		const headerDivider = document.querySelector('.divider');
 
-	// DOM elements
-	let headerBackground;
-	let nav;
+		headerElement.animate(
+			{
+				height: ['var(--header-size-start)', 'var(--header-size-end)']
+			},
+			{
+				fill: 'both',
+				easing: 'linear',
+				timeline: new ScrollTimeline({
+					source: document.documentElement
+				}),
+				rangeStart: '0px',
+				rangeEnd: '256px'
+			}
+		);
 
-	// Scroll position
-	let scrollY;
-
-	// Update header styles based on scroll position
-	$: if (typeof scrollY !== 'undefined') {
-		updateHeaderStyles(scrollY);
-	}
-
-	const updateHeaderStyles = (scroll) => {
-		const scaleValue = Math.max(0.5, 1 - scroll * SCALE_FACTOR);
-		const opacity = Math.min(scroll * OPACITY_FACTOR, 1);
-		const translateY = -Math.min(scroll * TRANSLATE_FACTOR, 25);
-
-		if (headerBackground) {
-			headerBackground.style.transform = `scaleY(${scaleValue})`;
-			headerBackground.style.opacity = opacity;
-		}
-
-		if (nav) {
-			nav.style.transform = `translateY(${translateY}%)`;
-		}
+		headerDivider.animate(
+			{
+				opacity: ['var(--divider-opacity-start)', 'var(--divider-opacity-end)']
+			},
+			{
+				fill: 'both',
+				easing: 'linear',
+				timeline: new ScrollTimeline({
+					source: document.documentElement
+				}),
+				rangeStart: '0px',
+				rangeEnd: '256px'
+			}
+		);
 	};
 
-	onMount(() => {
-		removeClass(NO_JS_CLASS);
-	});
-
-	afterUpdate(() => {
-		if (typeof window !== 'undefined') {
-			window.addEventListener(
-				'scroll',
-				() => {
-					scrollY = window.scrollY;
-				},
-				{ passive: true }
-			);
+	onMount(async () => {
+		await loadScrollTimelinePolyfillIfNeeded();
+		if (isSafariOrFirefox) {
+			applyScrollAnimation();
 		}
 	});
 </script>
 
-<svelte:window bind:scrollY />
-
-<header class={NO_JS_CLASS} style={slideIn(1)}>
-	<div bind:this={headerBackground} class="header-background" aria-hidden="true"></div>
-	<nav bind:this={nav} class="container">
+<header>
+	<div class="divider" aria-hidden="true" />
+	<nav class="container">
 		<ul>
-			{#each links as link}
+			{#each navigationLinks as link}
 				<li>
 					<a href={link.url}>{link.name}</a>
 				</li>
@@ -78,87 +68,86 @@
 
 <style>
 	header {
-		position: sticky;
+		--animation-range: 0px 256px;
+		--animation-timeline: scroll();
+		--animation-parameters: cubic-bezier(0, 1.1, 1, 1) forwards;
+		--header-size-start: 8rem;
+		--header-size-end: 4rem;
+		--divider-opacity-start: 0;
+		--divider-opacity-end: 0.025;
+
+		align-items: center;
+		animation: header-size-and-opacity var(--animation-parameters);
+		animation-range: var(--animation-range);
+		animation-timeline: var(--animation-timeline);
+		backdrop-filter: saturate(1) blur(2rem);
+		display: flex;
+		position: fixed;
 		top: 0;
+		width: 100%;
+		will-change: height;
 		z-index: 10;
 	}
 
-	.header-background {
-		backdrop-filter: saturate(120%) blur(40px);
-		background: transparent;
-		display: block;
-		width: 100%;
-		height: 8rem;
-		will-change: opacity, transform;
-		position: absolute;
-		inset: 0;
-		opacity: 0;
-		transform: scaleY(1);
-		transform-origin: top;
-		transition:
-			transform 100ms ease-out,
-			opacity 100ms ease-out;
-		z-index: -1;
-	}
-
-	.no-js .header-background {
-		opacity: 1 !important;
-	}
-
-	.header-background::after {
-		backdrop-filter: saturate(180%);
+	.divider {
+		animation: divider-opacity var(--animation-parameters);
+		animation-range: var(--animation-range);
+		animation-timeline: var(--animation-timeline);
+		backdrop-filter: saturate(2) blur(3rem);
 		background-color: var(--text-color);
-		content: '';
-		display: block;
-		height: 1px;
-		position: absolute;
 		bottom: 0;
+		height: 2px;
 		left: 0;
+		opacity: var(--divider-opacity-end);
+		position: absolute;
 		right: 0;
-		opacity: 0.025;
+		will-change: opacity;
 	}
 
 	nav {
-		font-weight: 500;
-		font-size: 1rem;
-		display: flex;
 		align-items: center;
+		animation: slide-in 300ms cubic-bezier(0.5, 0, 0.75, 0) 200ms 1 backwards;
+		display: flex;
+		font-size: 1rem;
+		font-weight: 500;
+		height: var(--header-size-end);
 		position: relative;
 		width: 100%;
-		height: 8rem;
-		transform-origin: top;
-		transition: transform 0.1s ease-out;
 		z-index: 1;
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.header-background {
-			transform: scaleY(0.5) !important;
-		}
-		nav {
-			transform: translateY(-25%) !important;
-		}
-	}
-
-	.no-js .header-background {
-		transform: scaleY(0.5) !important;
-	}
-	.no-js nav {
-		transform: translateY(-25%) !important;
 	}
 
 	ul {
 		column-gap: clamp(1.5rem, 3.5vw, 3rem);
 		display: flex;
 		flex-wrap: wrap;
-		row-gap: var(--spacing);
+		list-style: none;
 		margin: 0;
 		padding: 0;
-		list-style: none;
+		row-gap: var(--spacing);
 	}
 
 	a {
-		text-decoration: none;
 		font-weight: 550;
+		text-decoration: none;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		@keyframes header-size-and-opacity {
+			from {
+				height: var(--header-size-start);
+			}
+			to {
+				height: var(--header-size-end);
+			}
+		}
+
+		@keyframes divider-opacity {
+			from {
+				opacity: var(--divider-opacity-start);
+			}
+			to {
+				opacity: var(--divider-opacity-end);
+			}
+		}
 	}
 </style>
