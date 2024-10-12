@@ -15,7 +15,6 @@
 
 		headerElement.animate(
 			{
-				backgroundColor: ['var(--bg-color)', 'transparent'],
 				height: ['var(--header-size-start)', 'var(--header-size-end)']
 			},
 			{
@@ -81,11 +80,12 @@
 		animation: header-size-and-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
 		animation-timeline: var(--animation-timeline);
-		backdrop-filter: saturate(120%) blur(40px);
+		backdrop-filter: saturate(1) blur(2rem);
 		display: flex;
 		position: fixed;
 		top: 0;
 		width: 100%;
+		will-change: height;
 		z-index: 10;
 	}
 
@@ -93,13 +93,15 @@
 		animation: divider-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
 		animation-timeline: var(--animation-timeline);
-		backdrop-filter: saturate(180%);
+		backdrop-filter: saturate(2) blur(3rem);
 		background-color: var(--text-color);
 		bottom: 0;
 		height: 2px;
 		left: 0;
+		opacity: var(--divider-opacity-end);
 		position: absolute;
 		right: 0;
+		will-change: opacity;
 	}
 
 	nav {
@@ -108,6 +110,7 @@
 		display: flex;
 		font-size: 1rem;
 		font-weight: 500;
+		height: var(--header-size-end);
 		position: relative;
 		width: 100%;
 		z-index: 1;
@@ -117,25 +120,23 @@
 		column-gap: clamp(1.5rem, 3.5vw, 3rem);
 		display: flex;
 		flex-wrap: wrap;
-		row-gap: var(--spacing);
+		list-style: none;
 		margin: 0;
 		padding: 0;
-		list-style: none;
+		row-gap: var(--spacing);
 	}
 
 	a {
-		text-decoration: none;
 		font-weight: 550;
+		text-decoration: none;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
 		@keyframes header-size-and-opacity {
 			from {
-				background-color: var(--bg-color);
 				height: var(--header-size-start);
 			}
 			to {
-				background-color: transparent;
 				height: var(--header-size-end);
 			}
 		}

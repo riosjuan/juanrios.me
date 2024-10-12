@@ -5,7 +5,7 @@
 </script>
 
 <Header />
-<main class="container" style="margin-top: 8rem;">
+<main class="container">
 	<slot />
 </main>
 <Footer />
@@ -14,6 +14,7 @@
 	main {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
+		margin-block-start: 8rem;
 	}
 
 	:global(.container) {
