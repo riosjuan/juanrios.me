@@ -80,7 +80,7 @@
 		animation: header-size-and-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
 		animation-timeline: var(--animation-timeline);
-		backdrop-filter: saturate(1) blur(2rem);
+		backdrop-filter: saturate(1.2) blur(1.5rem);
 		display: flex;
 		position: fixed;
 		top: 0;
