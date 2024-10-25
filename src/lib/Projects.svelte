@@ -1,7 +1,7 @@
 <script>
 	import Tags from './Tags.svelte';
 
-	export let projects;
+	let { projects } = $props();
 </script>
 
 <ul>

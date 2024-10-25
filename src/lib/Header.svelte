@@ -53,7 +53,7 @@
 </script>
 
 <header>
-	<div class="divider" aria-hidden="true" />
+	<div class="divider" aria-hidden="true"></div>
 	<nav class="container">
 		<ul>
 			{#each navigationLinks as link}
