@@ -19,8 +19,9 @@ export const removeClass = (className) => {
 
 // Function to check if browser is safari or firefox
 export const isSafariOrFirefox =
-	/^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
-	/firefox/i.test(navigator.userAgent);
+	typeof navigator !== 'undefined' &&
+	(/^((?!chrome|android).)*safari/i.test(navigator.userAgent) ||
+		/firefox/i.test(navigator.userAgent));
 
 // Function to load scroll timeline polyfill
 export const loadScrollTimelinePolyfillIfNeeded = async () => {

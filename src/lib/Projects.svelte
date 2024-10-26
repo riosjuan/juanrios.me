@@ -5,13 +5,13 @@
 </script>
 
 <ul>
-	{#each projects as { name, url, tags, content }, index (name)}
+	{#each projects as { name, url, tags, description }, index (name)}
 		<li>
 			<article>
 				<h3>
 					<a href={url} aria-label={`View project ${name}`}>{name}</a>
 				</h3>
-				<div class="content">{@html content}</div>
+				<p>{description}</p>
 				<Tags {tags} />
 			</article>
 		</li>
@@ -37,7 +37,11 @@
 		font-weight: 400;
 	}
 
-	.content {
+	p {
+		margin-block: 0;
+	}
+
+	/* .content {
 		& p {
 			margin-block: 0;
 		}
@@ -56,5 +60,5 @@
 			font-size: 1rem;
 			opacity: 0.5;
 		}
-	}
+	} */
 </style>
