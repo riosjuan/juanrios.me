@@ -1,5 +1,6 @@
 <script>
 	import Tags from './Tags.svelte';
+	import SvgGrabber from '../projects/svg-grabber.md';
 
 	let { projects } = $props();
 </script>
@@ -11,7 +12,13 @@
 				<h3>
 					<a href={url} aria-label={`View project ${name}`}>{name}</a>
 				</h3>
-				<p>{description}</p>
+				{#if name === 'svg-grabber'}
+					<div class="content">
+						<SvgGrabber />
+					</div>
+				{:else}
+					<p>{description}</p>
+				{/if}
 				<Tags {tags} />
 			</article>
 		</li>
@@ -40,25 +47,4 @@
 	p {
 		margin-block: 0;
 	}
-
-	/* .content {
-		& p {
-			margin-block: 0;
-		}
-
-		& p:has(a) {
-			margin-block-start: 1rem;
-		}
-
-		& a {
-			font-size: clamp(1rem, 3.5vw, 1.5rem);
-			text-decoration: none;
-			font-weight: 350;
-		}
-
-		& .link-divider {
-			font-size: 1rem;
-			opacity: 0.5;
-		}
-	} */
 </style>

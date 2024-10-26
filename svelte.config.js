@@ -5,13 +5,13 @@ import autoprefixer from 'autoprefixer';
 import { mdsvex } from 'mdsvex';
 
 const config = {
-	extensions: ['.svelte', '.md'],
+	extensions: ['.svelte', '.svx', '.md'],
 	preprocess: [
 		sveltePreprocess({
 			postcss: { plugins: [autoprefixer] }
 		}),
 		mdsvex({
-			extensions: ['.md']
+			extensions: ['.svx', '.md']
 		})
 	],
 	kit: {
