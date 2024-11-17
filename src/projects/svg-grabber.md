@@ -5,12 +5,16 @@ date: '2018-02-05'
 tags:
   - design
   - front-end
-description: A Google Chrome extension I designed and developed to quickly preview and get all the svg assets from a website.
+description: A Google Chrome extension I designed and developed to quickly preview and get all the svg assets from any website.
 published: true
 ---
 
 A Google Chrome extension I designed and developed to quickly preview and get all the svg assets from any website.
 
-[Get the extension](https://chromewebstore.google.com/detail/svg-grabber-get-all-the-s/eafjmnaiohflfhelegodfedimibnjpgp) <span class="link-divider">|</span>
-[Github repo](https://github.com/riosjuan/svg-grabber) <span class="link-divider">|</span>
-[svg-grabber.com](https://svg-grabber.com)
+<div>
+  <a href="https://chromewebstore.google.com/detail/svg-grabber-get-all-the-s/eafjmnaiohflfhelegodfedimibnjpgp">Get the extension</a>
+  <span class="link-divider">|</span>
+  <a href="https://github.com/riosjuan/svg-grabber">Github repo</a>
+  <span class="link-divider">|</span>
+  <a href="https://svg-grabber.com">svg-grabber.com</a>
+</div>

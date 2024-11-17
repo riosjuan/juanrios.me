@@ -1,20 +1,18 @@
 /** @type {import('@sveltejs/kit').Config} */
 import adapter from '@sveltejs/adapter-static';
-import sveltePreprocess from 'svelte-preprocess';
+import { sveltePreprocess } from 'svelte-preprocess';
 import autoprefixer from 'autoprefixer';
 import { mdsvex } from 'mdsvex';
 
-const mdsvexOptions = {
-	extensions: ['.md']
-};
-
 const config = {
-	extensions: ['.svelte', '.md'],
+	extensions: ['.svelte', '.svx', '.md'],
 	preprocess: [
 		sveltePreprocess({
 			postcss: { plugins: [autoprefixer] }
 		}),
-		mdsvex(mdsvexOptions)
+		mdsvex({
+			extensions: ['.svx', '.md']
+		})
 	],
 	kit: {
 		adapter: adapter({

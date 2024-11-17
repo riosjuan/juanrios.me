@@ -4,7 +4,7 @@
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
 
-	export let data;
+	let { data } = $props();
 	const { projects } = data;
 
 	let openGraphData = {

@@ -1,5 +1,5 @@
 <script>
-	export let tags = [];
+	let { tags = [] } = $props();
 </script>
 
 <ul aria-label="Tags">

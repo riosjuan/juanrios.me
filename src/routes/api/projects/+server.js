@@ -11,13 +11,10 @@ const getProjects = async () => {
 		const slug = path.split('/').at(-1)?.replace('.md', '');
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const {
-				metadata,
-				default: { render }
-			} = file; // Destructure for clarity
-			const renderedContent = render(); // Call the render function
-			const content = renderedContent.html || renderedContent; // Access the 'html' property or fallback
-			const project = { ...metadata, slug, content }; // Include content in the project object
+			const { metadata } = file;
+
+			const project = { ...metadata, slug };
+
 			if (project.published) projects.push(project); // Add published projects to the list
 		}
 	}

@@ -1,4 +1,6 @@
 <script>
+	import { run } from 'svelte/legacy';
+
 	import { onMount } from 'svelte';
 	import { removeClass } from '../utilities';
 	import IconThemeToggle from './IconThemeToggle.svelte';
@@ -6,14 +8,14 @@
 	const storageKey = 'theme-preference';
 	const THEME = { DARK: 'dark', LIGHT: 'light' };
 
-	let userTheme;
+	let userTheme = $state();
 
-	$: {
+	run(() => {
 		if (userTheme) {
 			document.documentElement.setAttribute('data-theme', userTheme);
 			localStorage.setItem(storageKey, userTheme);
 		}
-	}
+	});
 
 	const themeToggleHandler = () => {
 		userTheme = userTheme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT;
@@ -29,7 +31,7 @@
 
 <button
 	class="no-js"
-	on:click={themeToggleHandler}
+	onclick={themeToggleHandler}
 	title="Toggles light & dark"
 	aria-label={userTheme}
 >

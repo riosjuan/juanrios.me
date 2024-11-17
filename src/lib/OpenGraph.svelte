@@ -1,10 +1,21 @@
 <script>
-	export let title = '';
-	export let description = '';
-	export let url = '';
-	export let ogImage = '';
+	/**
+	 * @typedef {Object} Props
+	 * @property {string} [title]
+	 * @property {string} [description]
+	 * @property {string} [url]
+	 * @property {string} [ogImage]
+	 */
 
-	$: fullImageUrl = `${url}/${ogImage}`;
+	/** @type {Props} */
+	let {
+		title = '',
+		description = '',
+		url = '',
+		ogImage = ''
+	} = $props();
+
+	let fullImageUrl = $derived(`${url}/${ogImage}`);
 </script>
 
 <svelte:head>

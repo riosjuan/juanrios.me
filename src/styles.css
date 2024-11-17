@@ -177,3 +177,28 @@ a {
 		}
 	}
 }
+
+.content {
+	& > div {
+		margin-block-start: 1rem;
+	}
+
+	& p {
+		margin-block: 0;
+	}
+
+	& p:has(a) {
+		margin-block-start: 1rem;
+	}
+
+	& a {
+		font-size: clamp(1rem, 3.5vw, 1.5rem);
+		text-decoration: none;
+		font-weight: 350;
+	}
+
+	& .link-divider {
+		font-size: 1rem;
+		opacity: 0.5;
+	}
+}
