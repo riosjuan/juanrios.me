@@ -179,6 +179,10 @@ a {
 }
 
 .content {
+	& > div {
+		margin-block-start: 1rem;
+	}
+
 	& p {
 		margin-block: 0;
 	}
