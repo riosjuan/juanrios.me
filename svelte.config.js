@@ -22,10 +22,10 @@ const config = {
 			precompress: false,
 			strict: true
 		}),
-		files: {
-			lib: 'src/lib',
-			params: 'src/params',
-			routes: 'src/routes'
+		alias: {
+			$lib: 'src/lib',
+			$params: 'src/params',
+			$routes: 'src/routes'
 		}
 	}
 };
