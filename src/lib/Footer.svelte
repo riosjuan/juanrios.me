@@ -11,7 +11,7 @@
 <style>
 	footer {
 		align-items: center;
-		color: var(--text-secondary);
+		color: light-dark(var(--text-color-light), var(--text-color-dark));
 		display: flex;
 		font-size: clamp(0.75rem, 1.5vw, 0.875rem);
 		height: var(--spacing3x);

@@ -21,7 +21,7 @@
 		font-weight: inherit;
 
 		&:hover {
-			color: var(--accent-color);
+			color: light-dark(var(--accent-color-light), var(--accent-color-dark));
 		}
 	}
 </style>
