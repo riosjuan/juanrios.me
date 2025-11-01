@@ -1,6 +1,7 @@
 <script>
+	/* global ScrollTimeline */
 	import { onMount } from 'svelte';
-	import { isSafariOrFirefox, loadScrollTimelinePolyfillIfNeeded } from '../utilities';
+	import { isFirefox, loadScrollTimelinePolyfillIfNeeded } from '../utilities';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	const navigationLinks = [
@@ -21,10 +22,9 @@
 				fill: 'both',
 				easing: 'linear',
 				timeline: new ScrollTimeline({
-					source: document.documentElement
-				}),
-				rangeStart: '0px',
-				rangeEnd: '256px'
+					source: document.documentElement,
+					axis: 'block'
+				})
 			}
 		);
 
@@ -36,17 +36,16 @@
 				fill: 'both',
 				easing: 'linear',
 				timeline: new ScrollTimeline({
-					source: document.documentElement
-				}),
-				rangeStart: '0px',
-				rangeEnd: '256px'
+					source: document.documentElement,
+					axis: 'block'
+				})
 			}
 		);
 	};
 
 	onMount(async () => {
 		await loadScrollTimelinePolyfillIfNeeded();
-		if (isSafariOrFirefox) {
+		if (isFirefox) {
 			applyScrollAnimation();
 		}
 	});
@@ -68,8 +67,8 @@
 
 <style>
 	header {
-		--animation-range: 0px 256px;
-		--animation-timeline: scroll();
+		--animation-range: entry 0% exit 100%;
+		--scroll-timeline-name: --page-scroll;
 		--animation-parameters: cubic-bezier(0, 1.1, 1, 1) forwards;
 		--header-size-start: 8rem;
 		--header-size-end: 4rem;
@@ -79,7 +78,8 @@
 		align-items: center;
 		animation: header-size-and-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
-		animation-timeline: var(--animation-timeline);
+		animation-timeline: scroll(block);
+		view-timeline: --page-scroll block;
 		backdrop-filter: saturate(1.2) blur(1.5rem);
 		display: flex;
 		position: fixed;
@@ -92,7 +92,8 @@
 	.divider {
 		animation: divider-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
-		animation-timeline: var(--animation-timeline);
+		animation-timeline: scroll(block);
+		view-timeline: --page-scroll block;
 		backdrop-filter: saturate(2) blur(3rem);
 		background-color: var(--content-primary);
 		bottom: 0;
