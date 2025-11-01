@@ -7,6 +7,8 @@
 }
 
 :root {
+	color-scheme: light dark;
+
 	/* Colors */
 	--dark-grape: color(display-p3 0.07 0.06 0.08);
 	--neon-green: color(display-p3 0 1 0.53);
@@ -14,18 +16,14 @@
 
 	/* Dark mode  */
 	--bg-color-dark: var(--dark-grape);
-	--bg-color-dark-2: color-mix(in srgb, var(--dark-grape) 95%, white);
 	--text-color-dark: color-mix(in srgb, var(--neon-green) 8%, white);
-	--text-color-dark-2: color-mix(in srgb, var(--dark-grape) 30%, white);
 	--accent-color-dark: var(--neon-green);
 	--font-weight-dark: 300;
 	--letter-spacing-dark: unset;
 
 	/* Light mode  */
 	--bg-color-light: color-mix(in srgb, var(--dark-grape) 3%, white);
-	--bg-color-light-2: color-mix(in srgb, var(--dark-grape) 6%, white);
 	--text-color-light: color-mix(in srgb, var(--dark-grape) 90%, white);
-	--text-color-light-2: color-mix(in srgb, var(--dark-grape) 68%, white);
 	--accent-color-light: var(--deep-blue);
 	--font-weight-light: 320;
 	--letter-spacing-light: -0.075px;
@@ -36,57 +34,23 @@
 	--font-family: 'InterVariable', 'Helvetica', sans-serif;
 }
 
-:root[data-theme='dark'] {
-	--bg-color: var(--bg-color-dark);
-	--bg-color-2: var(--bg-color-dark-2);
-	--text-color: var(--text-color-dark);
-	--text-color-2: var(--text-color-dark-2);
-	--accent-color: var(--accent-color-dark);
-	--font-weight: var(--font-weight-dark);
-	--letter-spacing: var(--letter-spacing-dark);
-	color-scheme: dark;
-}
+[data-theme='light'] {
+	color-scheme: light;
 
-:root[data-theme='light'] {
-	--bg-color: var(--bg-color-light);
-	--bg-color-2: var(--bg-color-light-2);
-	--text-color: var(--text-color-light);
-	--text-color-2: var(--text-color-light-2);
-	--accent-color: var(--accent-color-light);
 	--font-weight: var(--font-weight-light);
 	--letter-spacing: var(--letter-spacing-light);
-	color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg-color: var(--bg-color-dark);
-		--bg-color-2: var(--bg-color-dark-2);
-		--text-color: var(--text-color-dark);
-		--text-color-2: var(--text-color-dark-2);
-		--accent-color: var(--accent-color-dark);
-		--font-weight: var(--font-weight-dark);
-		--letter-spacing: var(--letter-spacing-dark);
-		color-scheme: dark;
-	}
-}
+[data-theme='dark'] {
+	color-scheme: dark;
 
-@media (prefers-color-scheme: light) {
-	:root {
-		--bg-color: var(--bg-color-light);
-		--bg-color-2: var(--bg-color-light-2);
-		--text-color: var(--text-color-light);
-		--text-color-2: var(--text-color-light-2);
-		--accent-color: var(--accent-color-light);
-		--font-weight: var(--font-weight-light);
-		--letter-spacing: var(--letter-spacing-light);
-		color-scheme: light;
-	}
+	--font-weight: var(--font-weight-dark);
+	--letter-spacing: var(--letter-spacing-dark);
 }
 
 html {
-	background: var(--bg-color);
-	color: var(--text-color);
+	background: light-dark(var(--bg-color-light), var(--bg-color-dark));
+	color: light-dark(var(--text-color-light), var(--text-color-dark));
 	font-family: var(--font-family);
 	font-weight: var(--font-weight);
 	font-feature-settings: 'ss01', 'ss03', 'zero';
@@ -134,7 +98,7 @@ p {
 
 a {
 	border-radius: 0.25rem;
-	color: var(--accent-color);
+	color: light-dark(var(--accent-color-light), var(--accent-color-dark));
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;
 	text-decoration-thickness: from-font;
@@ -144,7 +108,7 @@ a {
 	}
 
 	&:focus {
-		outline-color: var(--accent-color);
+		outline-color: light-dark(var(--accent-color-light), var(--accent-color-dark));
 		color: var(--text-color);
 	}
 }
