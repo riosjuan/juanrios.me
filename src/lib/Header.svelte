@@ -94,7 +94,7 @@
 		animation-range: var(--animation-range);
 		animation-timeline: var(--animation-timeline);
 		backdrop-filter: saturate(2) blur(3rem);
-		background-color: var(--text-color);
+		background-color: var(--content-primary);
 		bottom: 0;
 		height: 2px;
 		left: 0;

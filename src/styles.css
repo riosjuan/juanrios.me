@@ -9,28 +9,32 @@
 :root {
 	color-scheme: light dark;
 
-	/* Colors */
+	/* Base palette */
 	--dark-grape: color(display-p3 0.07 0.06 0.08);
 	--neon-green: color(display-p3 0 1 0.53);
 	--deep-blue: color(display-p3 0 0.23 0.98);
 
-	/* Dark mode  */
-	--bg-color-dark: var(--dark-grape);
-	--bg-color-dark-2: color-mix(in srgb, var(--dark-grape) 95%, white);
-	--text-color-dark: color-mix(in srgb, var(--neon-green) 8%, white);
-	--text-color-dark-2: color-mix(in srgb, var(--dark-grape) 30%, white);
-	--accent-color-dark: var(--neon-green);
-	--font-weight-dark: 300;
-	--letter-spacing-dark: unset;
+	/* Surface colors (backgrounds) */
+	--surface-primary-dark: var(--dark-grape);
+	--surface-primary-light: color-mix(in srgb, var(--dark-grape) 3%, white);
+	--surface-secondary-dark: color-mix(in srgb, var(--dark-grape) 95%, white);
+	--surface-secondary-light: color-mix(in srgb, var(--dark-grape) 6%, white);
 
-	/* Light mode  */
-	--bg-color-light: color-mix(in srgb, var(--dark-grape) 3%, white);
-	--bg-color-light-2: color-mix(in srgb, var(--dark-grape) 6%, white);
-	--text-color-light: color-mix(in srgb, var(--dark-grape) 90%, white);
-	--text-color-light-2: color-mix(in srgb, var(--dark-grape) 68%, white);
-	--accent-color-light: var(--deep-blue);
-	--font-weight-light: 320;
-	--letter-spacing-light: -0.075px;
+	/* Content colors (text) */
+	--content-primary-dark: color-mix(in srgb, var(--neon-green) 8%, white);
+	--content-primary-light: color-mix(in srgb, var(--dark-grape) 90%, white);
+	--content-secondary-dark: color-mix(in srgb, var(--dark-grape) 30%, white);
+	--content-secondary-light: color-mix(in srgb, var(--dark-grape) 68%, white);
+
+	/* Accent colors */
+	--accent-dark: var(--neon-green);
+	--accent-light: var(--deep-blue);
+
+	/* Typography */
+	--type-weight-dark: 300;
+	--type-weight-light: 320;
+	--type-spacing-dark: unset;
+	--type-spacing-light: -0.075px;
 
 	/* General */
 	--hover-transition: 150ms ease-in-out;
@@ -41,20 +45,20 @@
 [data-theme='light'] {
 	color-scheme: light;
 
-	--font-weight: var(--font-weight-light);
-	--letter-spacing: var(--letter-spacing-light);
+	--font-weight: var(--type-weight-light);
+	--letter-spacing: var(--type-spacing-light);
 }
 
 [data-theme='dark'] {
 	color-scheme: dark;
 
-	--font-weight: var(--font-weight-dark);
-	--letter-spacing: var(--letter-spacing-dark);
+	--font-weight: var(--type-weight-dark);
+	--letter-spacing: var(--type-spacing-dark);
 }
 
 html {
-	background: light-dark(var(--bg-color-light), var(--bg-color-dark));
-	color: light-dark(var(--text-color-light), var(--text-color-dark));
+	background: light-dark(var(--surface-primary-light), var(--surface-primary-dark));
+	color: light-dark(var(--content-primary-light), var(--content-primary-dark));
 	font-family: var(--font-family);
 	font-weight: var(--font-weight);
 	font-feature-settings: 'ss01', 'ss03', 'zero';
@@ -102,7 +106,7 @@ p {
 
 a {
 	border-radius: 0.25rem;
-	color: light-dark(var(--accent-color-light), var(--accent-color-dark));
+	color: light-dark(var(--accent-light), var(--accent-dark));
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;
 	text-decoration-thickness: from-font;
@@ -112,8 +116,8 @@ a {
 	}
 
 	&:focus {
-		outline-color: light-dark(var(--accent-color-light), var(--accent-color-dark));
-		color: light-dark(var(--text-color-light), var(--text-color-dark));
+		outline-color: light-dark(var(--accent-light), var(--accent-dark));
+		color: light-dark(var(--content-primary-light), var(--content-primary-dark));
 	}
 }
 

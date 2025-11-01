@@ -49,7 +49,7 @@
 		background: transparent;
 		border-radius: 100%;
 		border: 0;
-		color: light-dark(var(--text-color-light), var(--text-color-dark));
+		color: light-dark(var(--content-primary-light), var(--content-primary-dark));
 		cursor: pointer;
 		display: flex;
 		font-size: 1rem;
@@ -67,7 +67,7 @@
 		width: 2.5rem;
 
 		&:is(:hover, :focus) {
-			outline: 0.125rem solid light-dark(var(--accent-color-light), var(--accent-color-dark));
+			outline: 0.125rem solid light-dark(var(--accent-light), var(--accent-dark));
 		}
 	}
 </style>

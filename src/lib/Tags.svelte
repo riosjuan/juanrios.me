@@ -17,9 +17,9 @@
 		padding: 0;
 
 		& li {
-			background-color: light-dark(var(--bg-color-light-2), var(--bg-color-dark-2));
+			background-color: light-dark(var(--surface-secondary-light), var(--surface-secondary-dark));
 			border-radius: 0.25rem;
-			color: light-dark(var(--text-color-light-2), var(--text-color-dark-2));
+			color: light-dark(var(--content-secondary-light), var(--content-secondary-dark));
 			font-size: 1rem;
 			padding: 0.25rem 0.5rem;
 			text-transform: lowercase;
