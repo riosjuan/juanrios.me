@@ -9,56 +9,70 @@
 :root {
 	color-scheme: light dark;
 
-	/* Base palette */
+	/* Base colors - Display P3 color space */
 	--dark-grape: color(display-p3 0.07 0.06 0.08);
 	--neon-green: color(display-p3 0 1 0.53);
 	--deep-blue: color(display-p3 0 0.23 0.98);
 
-	/* Surface colors (backgrounds) */
-	--surface-primary-dark: var(--dark-grape);
-	--surface-primary-light: color-mix(in srgb, var(--dark-grape) 3%, white);
-	--surface-secondary-dark: color-mix(in srgb, var(--dark-grape) 95%, white);
-	--surface-secondary-light: color-mix(in srgb, var(--dark-grape) 6%, white);
+	/* Background colors */
+	--background-primary-light: color-mix(in srgb, var(--dark-grape) 3%, white);
+	--background-primary-dark: var(--dark-grape);
+	--background-primary: light-dark(var(--background-primary-light), var(--background-primary-dark));
 
-	/* Content colors (text) */
-	--content-primary-dark: color-mix(in srgb, var(--neon-green) 8%, white);
-	--content-primary-light: color-mix(in srgb, var(--dark-grape) 90%, white);
-	--content-secondary-dark: color-mix(in srgb, var(--dark-grape) 30%, white);
-	--content-secondary-light: color-mix(in srgb, var(--dark-grape) 68%, white);
+	--background-secondary-light: color-mix(in srgb, var(--dark-grape) 6%, white);
+	--background-secondary-dark: color-mix(in srgb, var(--dark-grape) 95%, white);
+	--background-secondary: light-dark(
+		var(--background-secondary-light),
+		var(--background-secondary-dark)
+	);
 
-	/* Accent colors */
-	--accent-dark: var(--neon-green);
+	/* Text colors */
+	--text-primary-light: color-mix(in srgb, var(--dark-grape) 90%, white);
+	--text-primary-dark: color-mix(in srgb, var(--neon-green) 8%, white);
+	--text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
+
+	--text-secondary-light: color-mix(in srgb, var(--dark-grape) 68%, white);
+	--text-secondary-dark: color-mix(in srgb, var(--dark-grape) 30%, white);
+	--text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
+
+	/* Interactive colors */
 	--accent-light: var(--deep-blue);
+	--accent-dark: var(--neon-green);
+	--accent: light-dark(var(--accent-light), var(--accent-dark));
 
-	/* Typography */
-	--type-weight-dark: 300;
-	--type-weight-light: 320;
-	--type-spacing-dark: unset;
-	--type-spacing-light: -0.075px;
-
-	/* General */
-	--hover-transition: 150ms ease-in-out;
-	--font-body: clamp(1.25rem, 3.5vw, 2.5rem);
+	/* Font settings */
 	--font-family: 'InterVariable', 'Helvetica', sans-serif;
+	--font-body: clamp(1.25rem, 3.5vw, 2.5rem);
+
+	/* Font weight */
+	--font-weight-light: 320;
+	--font-weight-dark: 300;
+
+	/* Letter spacing */
+	--font-spacing-light: -0.075px;
+	--font-spacing-dark: unset;
+
+	/* Animation */
+	--hover-transition: 150ms ease-in-out;
 }
 
 [data-theme='light'] {
 	color-scheme: light;
 
-	--font-weight: var(--type-weight-light);
-	--letter-spacing: var(--type-spacing-light);
+	--font-weight: var(--font-weight-light);
+	--letter-spacing: var(--font-spacing-light);
 }
 
 [data-theme='dark'] {
 	color-scheme: dark;
 
-	--font-weight: var(--type-weight-dark);
-	--letter-spacing: var(--type-spacing-dark);
+	--font-weight: var(--font-weight-dark);
+	--letter-spacing: var(--font-spacing-dark);
 }
 
 html {
-	background: light-dark(var(--surface-primary-light), var(--surface-primary-dark));
-	color: light-dark(var(--content-primary-light), var(--content-primary-dark));
+	background: var(--background-primary);
+	color: var(--text-primary);
 	font-family: var(--font-family);
 	font-weight: var(--font-weight);
 	font-feature-settings: 'ss01', 'ss03', 'zero';
@@ -106,18 +120,18 @@ p {
 
 a {
 	border-radius: 0.25rem;
-	color: light-dark(var(--accent-light), var(--accent-dark));
+	color: var(--accent);
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;
 	text-decoration-thickness: from-font;
 
 	&:hover {
-		color: light-dark(var(--text-color-light), var(--text-color-dark));
+		color: var(--text-primary);
 	}
 
 	&:focus {
-		outline-color: light-dark(var(--accent-light), var(--accent-dark));
-		color: light-dark(var(--content-primary-light), var(--content-primary-dark));
+		outline-color: var(--accent);
+		color: var(--text-primary);
 	}
 }
 
@@ -164,7 +178,7 @@ a {
 	}
 
 	& a {
-		font-size: clamp(1rem, 3.5vw, 1.5rem);
+		font-size: clamp(0.875rem, 3.5vw, 1.5rem);
 		text-decoration: none;
 		font-weight: 350;
 	}

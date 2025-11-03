@@ -95,7 +95,7 @@
 		animation-timeline: scroll(block);
 		view-timeline: --page-scroll block;
 		backdrop-filter: saturate(2) blur(3rem);
-		background-color: var(--content-primary);
+		background-color: var(--text-primary);
 		bottom: 0;
 		height: 2px;
 		left: 0;
@@ -124,7 +124,7 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		row-gap: var(--spacing);
+		row-gap: 0.5rem;
 	}
 
 	a {

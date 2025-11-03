@@ -56,7 +56,7 @@
 		color: inherit;
 
 		&:hover {
-			color: light-dark(var(--accent-light), var(--accent-dark));
+			color: var(--accent);
 		}
 	}
 
@@ -70,7 +70,7 @@
 		scroll-margin-top: 8rem;
 
 		& > h2 {
-			color: light-dark(var(--content-secondary-light), var(--content-secondary-dark));
+			color: var(--text-secondary);
 			font-size: clamp(0.75rem, 3.5vw, 1rem);
 			font-style: normal;
 			font-weight: 400;
