@@ -18,7 +18,7 @@
 
 		& li {
 			background-color: var(--background-secondary);
-			border-radius: 0.25rem;
+			border-radius: var(--border-radius);
 			color: var(--text-secondary);
 			font-size: 1rem;
 			padding: 0.25rem 0.5rem;

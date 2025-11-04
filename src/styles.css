@@ -42,7 +42,7 @@
 
 	/* Font settings */
 	--font-family: 'InterVariable', 'Helvetica', sans-serif;
-	--font-body: clamp(1.25rem, 3.5vw, 2.5rem);
+	--font-size-body: clamp(1.25rem, 3.5vw, 2.5rem);
 
 	/* Font weight */
 	--font-weight-light: 320;
@@ -54,6 +54,8 @@
 
 	/* Animation */
 	--hover-transition: 150ms ease-in-out;
+
+	--border-radius: var(--border-radius);
 }
 
 [data-theme='light'] {
@@ -113,13 +115,13 @@ ul {
 }
 
 p {
-	font-size: var(--font-body);
+	font-size: var(--font-size-body);
 	line-height: 1.4;
 	letter-spacing: var(--letter-spacing);
 }
 
 a {
-	border-radius: 0.25rem;
+	border-radius: var(--border-radius);
 	color: var(--accent);
 	outline-offset: 0.125rem;
 	outline: 0.125rem solid transparent;
@@ -135,12 +137,6 @@ a {
 	}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	a {
-		transition: color var(--hover-transition);
-	}
-}
-
 .sr-only {
 	clip: rect(0 0 0 0);
 	clip-path: inset(100%);
@@ -149,6 +145,12 @@ a {
 	position: absolute;
 	white-space: nowrap;
 	width: 1px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	a {
+		transition: color var(--hover-transition);
+	}
 }
 
 @media (prefers-reduced-motion: no-preference) {
