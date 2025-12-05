@@ -11,7 +11,7 @@
 
 	--blue-hue: 262;
 	--lch-blue: 50% 0.29 var(--blue-hue);
-	--lch-blue-dark: 2% 0.25 var(--blue-hue);
+	--lch-blue-dark: 2% 0.22 var(--blue-hue);
 
 	--green-hue: 156;
 	--lch-green: 86% 0.29 var(--green-hue);
@@ -19,7 +19,7 @@
 
 	--purple-hue: 312;
 	--lch-purple: 11% 0.06 var(--purple-hue);
-	--lch-purple-light: 100% 0.06 var(--purple-hue);
+	--lch-purple-light: 95% 0.05 var(--purple-hue);
 
 	/* Background colors */
 	--background-primary-light: oklch(var(--lch-purple-light));
@@ -95,6 +95,7 @@ html {
 }
 
 body {
+	background: var(--background-primary);
 	margin: 0;
 	padding: 0;
 	-webkit-font-smoothing: antialiased;
