@@ -118,7 +118,7 @@
 	}
 
 	ul {
-		column-gap: clamp(1.5rem, 3.5vw, 3rem);
+		column-gap: calc(var(--inline-spacing) * 2);
 		display: flex;
 		flex-wrap: wrap;
 		list-style: none;

@@ -1,23 +1,20 @@
 <script>
 	import Tags from './Tags.svelte';
-	import SvgGrabber from '../projects/svg-grabber.md';
+	import ProjectLinks from './ProjectLinks.svelte';
 
 	let { projects } = $props();
 </script>
 
 <ul>
-	{#each projects as { name, url, tags, description }}
+	{#each projects as { name, url, tags, description, links }}
 		<li>
 			<article>
 				<h3>
-					<a href={url} aria-label={`View project ${name}`}>{name}</a>
+					<a href={url}>{name}</a>
 				</h3>
-				{#if name === 'svg-grabber'}
-					<div class="content">
-						<SvgGrabber />
-					</div>
-				{:else}
-					<p>{description}</p>
+				<p>{description}</p>
+				{#if links}
+					<ProjectLinks {links} />
 				{/if}
 				<Tags {tags} />
 			</article>
@@ -26,25 +23,18 @@
 </ul>
 
 <style>
-	article,
 	ul {
 		display: grid;
-		grid-template-rows: 1fr;
+		gap: calc(var(--line-height) * 2);
 	}
 
 	article {
-		row-gap: clamp(0.5rem, 3.5vw, 1.5rem);
-	}
-
-	ul {
-		row-gap: clamp(3rem, 6.5vw, 6rem);
-	}
-
-	h3 {
-		font-weight: 400;
+		display: flex;
+		flex-direction: column;
+		gap: 0.6em;
 	}
 
 	p {
-		margin-block: 0;
+		margin: 0;
 	}
 </style>

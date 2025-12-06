@@ -11,8 +11,8 @@
 
 <style>
 	p {
-		font-size: clamp(1rem, 3.5vw, 1.5rem);
-		margin-block: 0 clamp(3rem, 7vw, 6rem);
+		font-size: var(--font-size-small);
+		margin-block: 0 calc(var(--line-height) * 2);
 		max-width: 48ch;
 	}
 

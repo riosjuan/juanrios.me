@@ -12,16 +12,17 @@
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		gap: clamp(0.5rem, 3vw, 1rem);
+		gap: var(--inline-spacing);
 		list-style-type: none;
 		padding: 0;
 
 		& li {
 			background-color: var(--background-secondary);
+			border: 1px solid var(--border-color);
 			border-radius: var(--border-radius);
 			color: var(--text-secondary);
 			font-size: 1rem;
-			padding: 0.25rem 0.5rem;
+			padding: calc(var(--block-spacing) / 4) var(--inline-spacing);
 			text-transform: lowercase;
 		}
 	}

@@ -44,30 +44,28 @@
 	}
 
 	button {
+		--button-size: 2.5rem;
+
 		align-items: center;
 		appearance: none;
 		background: transparent;
+		block-size: var(--button-size);
 		border-radius: 100%;
 		border: 0;
 		color: var(--text-primary);
 		cursor: pointer;
 		display: flex;
 		font-size: 1rem;
-		height: 2.5rem;
+		inline-size: var(--button-size);
 		justify-content: center;
 		margin-inline-start: auto;
 		outline-offset: -0.5rem;
-		outline: 0.125rem solid transparent;
 		padding: 0;
-		text-transform: capitalize;
-		transition:
-			opacity var(--hover-transition),
-			outline-color var(--hover-transition),
-			background-color 0.3s ease;
-		width: 2.5rem;
 
-		&:is(:hover, :focus) {
-			outline: 0.125rem solid var(--accent);
+		@media (any-hover: hover) {
+			&:hover {
+				filter: brightness(0.7);
+			}
 		}
 	}
 </style>

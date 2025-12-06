@@ -13,8 +13,8 @@
 		align-items: center;
 		color: var(--text-primary);
 		display: flex;
-		font-size: clamp(0.75rem, 1.5vw, 0.875rem);
-		margin-block-end: 3rem;
+		font-size: 1rem;
+		margin-block-end: calc(var(--line-height) * 2);
 		text-transform: uppercase;
 
 		& p {

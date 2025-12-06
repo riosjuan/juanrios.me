@@ -46,10 +46,10 @@
 	}
 
 	h1 {
-		font-size: clamp(2rem, 3.5vw, 3rem);
+		font-size: var(--font-size-xx-large);
 		font-weight: 700;
 		line-height: 1.3;
-		margin-block: 0 2.5rem;
+		margin-block: 0 0.6em;
 	}
 
 	a {
