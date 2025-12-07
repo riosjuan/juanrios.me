@@ -18,12 +18,6 @@
 <Footer />
 
 <style>
-	main {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		margin-block-start: 8rem;
-	}
-
 	:global(.container) {
 		padding-inline: 1.5rem;
 		max-width: 72rem;

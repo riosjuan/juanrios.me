@@ -23,12 +23,12 @@
 		flex-wrap: wrap;
 		list-style-type: none;
 		padding: 0;
-		row-gap: 0.4em;
-	}
+		row-gap: calc(var(--line-height) / 4);
 
-	li {
-		display: flex;
-		align-items: center;
+		li {
+			display: flex;
+			align-items: center;
+		}
 	}
 
 	a {
@@ -39,14 +39,14 @@
 	@container (width > 280px) {
 		ul {
 			flex-direction: row;
-		}
 
-		li:not(:first-child)::before {
-			content: '•';
-			display: inline-flex;
-			padding-inline: var(--inline-spacing);
-			font-size: 40%;
-			color: var(--text-secondary);
+			li:not(:first-child)::before {
+				content: '|';
+				display: inline-flex;
+				padding-inline: var(--inline-spacing);
+				font-size: 60%;
+				color: var(--text-secondary);
+			}
 		}
 	}
 </style>

@@ -67,33 +67,33 @@
 
 <style>
 	header {
-		--animation-range: entry 0% exit 100%;
+		--animation-range: normal 30%;
 		--scroll-timeline-name: --page-scroll;
 		--animation-parameters: cubic-bezier(0, 1.1, 1, 1) forwards;
 		--header-size-start: 8rem;
-		--header-size-end: 4rem;
+		--header-size-end: calc(var(--header-size-start) / 2);
 		--divider-opacity-start: 0;
-		--divider-opacity-end: 0.025;
+		--divider-opacity-end: 0.05;
+		--filter-saturation-start: 1;
+		--filter-saturation-end: 1.2;
 
 		align-items: center;
 		animation: header-size-and-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
 		animation-timeline: scroll(block);
-		view-timeline: --page-scroll block;
-		backdrop-filter: saturate(1.2) blur(1.5rem);
+		backdrop-filter: saturate(var(--filter-saturation-end)) blur(1.5rem);
 		display: flex;
+		inline-size: 100%;
 		position: fixed;
 		top: 0;
-		width: 100%;
 		will-change: height;
-		z-index: 10;
+		z-index: 1;
 	}
 
 	.divider {
 		animation: divider-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
 		animation-timeline: scroll(block);
-		view-timeline: --page-scroll block;
 		backdrop-filter: saturate(2) blur(3rem);
 		background-color: var(--text-primary);
 		bottom: 0;
@@ -108,12 +108,11 @@
 	nav {
 		align-items: center;
 		animation: slide-in 300ms cubic-bezier(0.5, 0, 0.75, 0) 200ms 1 backwards;
+		block-size: var(--header-size-end);
 		display: flex;
-		font-size: 1rem;
-		font-weight: 500;
-		height: var(--header-size-end);
+		font-size: var(--font-size-fixed);
+		inline-size: 100%;
 		position: relative;
-		width: 100%;
 		z-index: 1;
 	}
 
@@ -124,7 +123,7 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		row-gap: 0.5rem;
+		row-gap: calc(var(--block-spacing) / 2);
 	}
 
 	a {
@@ -136,9 +135,11 @@
 		@keyframes header-size-and-opacity {
 			from {
 				height: var(--header-size-start);
+				backdrop-filter: saturate(var(--filter-saturation-start)) blur(1.5rem);
 			}
 			to {
 				height: var(--header-size-end);
+				backdrop-filter: saturate(var(--filter-saturation-end)) blur(1.5rem);
 			}
 		}
 

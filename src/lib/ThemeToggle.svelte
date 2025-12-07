@@ -55,7 +55,7 @@
 		color: var(--text-primary);
 		cursor: pointer;
 		display: flex;
-		font-size: 1rem;
+		font-size: var(--font-size-fixed);
 		inline-size: var(--button-size);
 		justify-content: center;
 		margin-inline-start: auto;

@@ -56,14 +56,15 @@
 	--font-family: 'InterVariable', 'Helvetica', sans-serif;
 
 	--font-size: calc(1em + 1vw);
+	--font-size-fixed: 1rem;
 	--font-size-small: 85%;
-	--font-size-large: 105%;
+	--font-size-large: 100%;
 	--font-size-x-large: 125%;
 	--font-size-xx-large: 160%;
 
 	/* Font weight */
-	--font-weight-light: 400;
-	--font-weight-dark: 300;
+	--font-weight: 400;
+	--font-weight-bold: 700;
 
 	/* Letter spacing */
 	--font-spacing: -0.01em;
@@ -91,7 +92,7 @@
 html {
 	color: var(--text-primary);
 	font-family: var(--font-family);
-	font-weight: 360;
+	font-weight: var(--font-weight);
 	font-feature-settings: 'ss01', 'ss03';
 	font-optical-sizing: auto;
 	font-size: 16px;
@@ -129,6 +130,7 @@ p {
 	line-height: var(--line-height);
 	letter-spacing: var(--letter-spacing);
 	margin-block: 0 var(--line-height);
+	max-inline-size: 44ch;
 }
 
 a {

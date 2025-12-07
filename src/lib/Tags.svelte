@@ -18,10 +18,10 @@
 
 		& li {
 			background-color: var(--background-secondary);
-			border: 1px solid var(--border-color);
 			border-radius: var(--border-radius);
+			border: 1px solid var(--border-color);
 			color: var(--text-secondary);
-			font-size: 1rem;
+			font-size: var(--font-size-fixed);
 			padding: calc(var(--block-spacing) / 4) var(--inline-spacing);
 			text-transform: lowercase;
 		}

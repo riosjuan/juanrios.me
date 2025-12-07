@@ -41,8 +41,7 @@
 
 <style>
 	div {
-		grid-column: 1/7;
-		margin-block-start: clamp(4rem, 9vw, 8rem);
+		margin-block-start: calc(var(--line-height) * 6);
 	}
 
 	h1 {
@@ -65,15 +64,14 @@
 	}
 
 	section {
-		grid-column: 1/7;
 		margin-block-start: clamp(4.5rem, 10vw, 9rem);
 		scroll-margin-top: 8rem;
 
-		& > h2 {
+		> h2 {
 			color: var(--text-secondary);
 			font-size: clamp(0.75rem, 3.5vw, 1rem);
 			font-style: normal;
-			font-weight: 400;
+			font-weight: var(--font-weight);
 			letter-spacing: 0.125em;
 			line-height: 1;
 			margin-block-end: 1.5em;

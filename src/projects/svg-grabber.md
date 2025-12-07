@@ -10,7 +10,7 @@ published: true
 links:
   - name: Get the extension
     url: https://chromewebstore.google.com/detail/svg-grabber-get-all-the-s/eafjmnaiohflfhelegodfedimibnjpgp
-  - name: Github repository
+  - name: GitHub repository
     url: https://github.com/riosjuan/svg-grabber
 ---
 
