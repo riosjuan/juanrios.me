@@ -17,7 +17,7 @@
 		margin-block-end: calc(var(--line-height) * 2);
 		text-transform: uppercase;
 
-		& p {
+		p {
 			font-size: inherit;
 			margin: 0;
 		}

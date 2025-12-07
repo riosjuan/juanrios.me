@@ -38,8 +38,8 @@
 	--text-primary-dark: oklch(var(--lch-green-light));
 	--text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
 
-	--text-secondary-light: oklch(var(--lch-blue-dark) / 0.6);
-	--text-secondary-dark: oklch(var(--lch-green-light) / 0.8);
+	--text-secondary-light: oklch(var(--lch-blue-dark) / 0.5);
+	--text-secondary-dark: oklch(var(--lch-green-light) / 0.5);
 	--text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
 
 	/* Interactive colors */
