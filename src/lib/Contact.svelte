@@ -1,12 +1,13 @@
 <script>
-	import socialLinks from '../data/social-links.json';
+	import links from '../data/contact-links.json';
 </script>
 
 <p>
-	Feel free to reach out to me at <a href={socialLinks.email.url}>{socialLinks.email.text}</a>, or
-	find me elsewhere on <a href={socialLinks.x.url}>{socialLinks.x.text}</a>,
-	<a href={socialLinks.github.url}>{socialLinks.github.text}</a>, and
-	<a href={socialLinks.linkedin.url}>{socialLinks.linkedin.text}</a>.
+	Feel free to reach out to me at
+	<a href={`mailto:${links.email}`}>{links.email}</a>, or find me elsewhere on
+	<a href={links.x}>X</a>,
+	<a href={links.github}>GitHub</a> and
+	<a href={links.linkedin}>LinkedIn</a>.
 </p>
 
 <style>
