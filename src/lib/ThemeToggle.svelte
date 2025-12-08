@@ -64,7 +64,7 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				filter: brightness(0.7);
+				color: var(--accent);
 			}
 		}
 	}

@@ -25,13 +25,13 @@
 <style>
 	ul {
 		display: grid;
-		gap: calc(var(--line-height) * 2);
+		row-gap: calc(var(--line-height) * 2);
 	}
 
 	article {
 		display: flex;
 		flex-direction: column;
-		gap: 0.6em;
+		row-gap: calc(var(--line-height) / 2);
 	}
 
 	p {

@@ -36,16 +36,16 @@
 		font-size: var(--font-size-small);
 	}
 
-	@container (width > 280px) {
+	@container (width > 24ch) {
 		ul {
 			flex-direction: row;
 
 			li:not(:first-child)::before {
+				color: var(--text-secondary);
 				content: '|';
 				display: inline-flex;
-				padding-inline: var(--inline-spacing);
 				font-size: 60%;
-				color: var(--text-secondary);
+				padding-inline: var(--inline-spacing);
 			}
 		}
 	}

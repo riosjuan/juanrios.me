@@ -67,15 +67,17 @@
 
 <style>
 	header {
-		--animation-range: normal 30%;
-		--scroll-timeline-name: --page-scroll;
 		--animation-parameters: cubic-bezier(0, 1.1, 1, 1) forwards;
-		--header-size-start: 8rem;
-		--header-size-end: calc(var(--header-size-start) / 2);
-		--divider-opacity-start: 0;
+		--animation-range: normal 30%;
 		--divider-opacity-end: 0.05;
-		--filter-saturation-start: 1;
+		--divider-opacity-start: 0;
+		--divider-size: 2px;
 		--filter-saturation-end: 1.2;
+		--filter-saturation-start: 1;
+		--header-size: 4rem;
+		--header-size-end: calc(var(--header-size));
+		--header-size-start: calc(var(--header-size) * 2);
+		--scroll-timeline-name: --page-scroll;
 
 		align-items: center;
 		animation: header-size-and-opacity var(--animation-parameters);
@@ -97,7 +99,7 @@
 		backdrop-filter: saturate(2) blur(3rem);
 		background-color: var(--text-primary);
 		bottom: 0;
-		height: 2px;
+		block-size: var(--divider-size);
 		left: 0;
 		opacity: var(--divider-opacity-end);
 		position: absolute;
