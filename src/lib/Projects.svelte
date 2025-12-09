@@ -25,6 +25,9 @@
 <style>
 	ul {
 		display: grid;
+		list-style: none;
+		margin: 0;
+		padding: 0;
 		row-gap: calc(var(--line-height) * 2);
 	}
 

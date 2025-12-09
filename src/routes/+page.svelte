@@ -69,6 +69,7 @@
 			font-style: normal;
 			font-weight: var(--font-weight);
 			letter-spacing: calc(var(--letter-spacing) * -12);
+			line-height: 1;
 			margin-block-end: var(--line-height);
 			margin-block-start: 0;
 			text-transform: uppercase;

@@ -14,6 +14,7 @@
 		flex-wrap: wrap;
 		gap: var(--inline-spacing);
 		list-style-type: none;
+		margin: 0;
 		padding: 0;
 
 		& li {
@@ -24,6 +25,7 @@
 			font-size: var(--font-size-fixed);
 			padding: calc(var(--block-spacing) / 4) var(--inline-spacing);
 			text-transform: lowercase;
+			line-height: var(--line-height);
 		}
 	}
 </style>
