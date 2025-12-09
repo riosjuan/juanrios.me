@@ -45,18 +45,14 @@
 	}
 
 	h1 {
-		font-size: var(--font-size-xx-large);
-		font-weight: 700;
-		line-height: 1.3;
-		margin-block: 0 0.6em;
+		font-size: var(--font-size-x-large);
+		font-weight: var(--font-weight-bold);
+		margin-block: 0 calc(var(--line-height) / 2);
 	}
 
 	a {
 		color: inherit;
-
-		&:hover {
-			color: var(--accent);
-		}
+		transition: none;
 	}
 
 	p + p {
@@ -64,17 +60,16 @@
 	}
 
 	section {
-		margin-block-start: clamp(4.5rem, 10vw, 9rem);
+		margin-block-start: calc(var(--line-height) * 3);
 		scroll-margin-top: 8rem;
 
 		> h2 {
 			color: var(--text-secondary);
-			font-size: clamp(0.75rem, 3.5vw, 1rem);
+			font-size: var(--font-size-fixed);
 			font-style: normal;
 			font-weight: var(--font-weight);
-			letter-spacing: 0.125em;
-			line-height: 1;
-			margin-block-end: 1.5em;
+			letter-spacing: calc(var(--letter-spacing) * -12);
+			margin-block-end: var(--line-height);
 			margin-block-start: 0;
 			text-transform: uppercase;
 		}

@@ -129,8 +129,13 @@
 	}
 
 	a {
-		font-weight: 550;
+		font-weight: var(--font-weight-medium);
 		text-decoration: none;
+
+		&:hover {
+			color: var(--accent);
+			text-decoration: underline;
+		}
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
