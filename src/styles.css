@@ -1,12 +1,5 @@
 @import url('./stylesheets/reset.css') layer(reset);
-
-@font-face {
-	font-family: InterVariable;
-	font-style: normal;
-	font-weight: 100 900;
-	font-display: swap;
-	src: url('/InterVariable.woff2') format('woff2');
-}
+@import url('./stylesheets/fonts.css') layer(fonts);
 
 :root {
 	color-scheme: light dark;
@@ -118,7 +111,7 @@ h3 {
 
 p {
 	line-height: var(--line-height);
-	margin-block: 0 var(--line-height);
+	margin-block-end: var(--line-height);
 	max-inline-size: 44ch;
 }
 
