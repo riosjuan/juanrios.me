@@ -1,0 +1,55 @@
+@layer base {
+	html {
+		color: var(--text-primary);
+		font-weight: var(--font-weight);
+		font-feature-settings: 'ss01', 'ss03';
+		font-optical-sizing: auto;
+		font-size: 100%;
+	}
+
+	body {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		background: var(--background-primary);
+		font-size: var(--font-size-base);
+		font-family: var(--font-family);
+		line-height: var(--line-height);
+		letter-spacing: var(--letter-spacing);
+		margin: 0;
+		padding: 0;
+	}
+
+	h3 {
+		font-size: var(--font-size-large);
+		font-weight: var(--font-weight-medium);
+	}
+
+	p {
+		line-height: var(--line-height);
+		margin-block-end: var(--line-height);
+		max-inline-size: 44ch;
+	}
+
+	a {
+		color: var(--accent);
+		text-decoration-thickness: from-font;
+		text-decoration-skip-ink: auto;
+
+		&:hover {
+			color: var(--text-primary);
+		}
+	}
+
+	:is(a, button) {
+		touch-action: manipulation;
+		transition-property: background-color, border-color, box-shadow, filter, outline;
+		transition: 100ms ease-out;
+
+		/* Keyboard navigation */
+		&:where(:focus-visible) {
+			border-radius: var(--border-radius);
+			outline: var(--focus-ring-size, 2px) solid var(--accent);
+			outline-offset: var(--focus-ring-offset, 1px);
+		}
+	}
+}

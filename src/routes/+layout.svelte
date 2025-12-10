@@ -16,11 +16,3 @@
 	{@render children?.()}
 </main>
 <Footer />
-
-<style>
-	:global(.container) {
-		padding-inline: 1.5rem;
-		max-width: 72rem;
-		margin-inline: auto;
-	}
-</style>

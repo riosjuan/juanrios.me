@@ -22,7 +22,7 @@
 	};
 
 	onMount(() => {
-		removeClass('no-js');
+		removeClass('js-disabled');
 		userTheme =
 			localStorage.getItem(storageKey) ||
 			(window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME.DARK : THEME.LIGHT);
@@ -30,7 +30,7 @@
 </script>
 
 <button
-	class="no-js"
+	class="js-disabled"
 	onclick={themeToggleHandler}
 	title="Toggles light & dark"
 	aria-label={userTheme}
@@ -39,10 +39,6 @@
 </button>
 
 <style>
-	.no-js {
-		display: none;
-	}
-
 	button {
 		--button-size: 2.5rem;
 
