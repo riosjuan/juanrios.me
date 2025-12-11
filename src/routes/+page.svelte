@@ -5,7 +5,7 @@
 	import Contact from '$lib/Contact.svelte';
 
 	let { data } = $props();
-	const { projects } = data;
+	const projects = $derived(data.projects);
 
 	let openGraphData = {
 		title: 'Juan Rios - Product Designer and Developer',
