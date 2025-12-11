@@ -17,7 +17,7 @@
 		margin: 0;
 		padding: 0;
 
-		& li {
+		li {
 			background-color: var(--background-secondary);
 			border-radius: var(--border-radius);
 			border: 1px solid var(--border-color);

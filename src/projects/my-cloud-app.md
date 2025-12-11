@@ -1,5 +1,5 @@
 ---
-name: myCloud App –– Swisscom
+name: Swisscom myCloud
 url: https://www.swisscom.ch/en/residential/additional-services/mycloud.html
 date: '2017-06-27'
 tags:

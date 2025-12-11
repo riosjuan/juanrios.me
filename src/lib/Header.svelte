@@ -72,18 +72,19 @@
 		--divider-opacity-end: 0.05;
 		--divider-opacity-start: 0;
 		--divider-size: 2px;
+		--filter-blur-end: 1.5rem;
+		--filter-blur-start: 0;
 		--filter-saturation-end: 1.2;
 		--filter-saturation-start: 1;
 		--header-size: 4rem;
 		--header-size-end: calc(var(--header-size));
 		--header-size-start: calc(var(--header-size) * 2);
-		--scroll-timeline-name: --page-scroll;
 
 		align-items: center;
 		animation: header-size-and-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
 		animation-timeline: scroll(block);
-		backdrop-filter: saturate(var(--filter-saturation-end)) blur(1.5rem);
+		backdrop-filter: saturate(var(--filter-saturation-end)) blur(var(--filter-blur-end));
 		display: flex;
 		inline-size: 100%;
 		position: fixed;
@@ -135,28 +136,6 @@
 		&:hover {
 			color: var(--accent);
 			text-decoration: underline;
-		}
-	}
-
-	@media (prefers-reduced-motion: no-preference) {
-		@keyframes header-size-and-opacity {
-			from {
-				height: var(--header-size-start);
-				backdrop-filter: saturate(var(--filter-saturation-start)) blur(1.5rem);
-			}
-			to {
-				height: var(--header-size-end);
-				backdrop-filter: saturate(var(--filter-saturation-end)) blur(1.5rem);
-			}
-		}
-
-		@keyframes divider-opacity {
-			from {
-				opacity: var(--divider-opacity-start);
-			}
-			to {
-				opacity: var(--divider-opacity-end);
-			}
 		}
 	}
 </style>

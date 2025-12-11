@@ -10,5 +10,25 @@
 				transform: translateY(0);
 			}
 		}
+
+		@keyframes header-size-and-opacity {
+			from {
+				height: var(--header-size-start);
+				backdrop-filter: saturate(var(--filter-saturation-start)) blur(var(--filter-blur-start));
+			}
+			to {
+				height: var(--header-size-end);
+				backdrop-filter: saturate(var(--filter-saturation-end)) blur(var(--filter-blur-end));
+			}
+		}
+
+		@keyframes divider-opacity {
+			from {
+				opacity: var(--divider-opacity-start);
+			}
+			to {
+				opacity: var(--divider-opacity-end);
+			}
+		}
 	}
 }
