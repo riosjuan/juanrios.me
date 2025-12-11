@@ -1,5 +1,4 @@
 <script>
-	import { slideIn } from '../utilities';
 	import OpenGraph from '$lib/OpenGraph.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
@@ -19,22 +18,22 @@
 <OpenGraph {...openGraphData} />
 
 <div>
-	<h1 style={slideIn(2)}>Hi, I'm Juan Rios</h1>
-	<p style={slideIn(3)}>
+	<h1>Hi, I'm Juan Rios</h1>
+	<p>
 		I'm a Product Designer and Developer based in Rotterdam, The Netherlands. I have 10+ years of
 		experience building digital products and services.
 	</p>
-	<p style={slideIn(4)}>
+	<p>
 		Currently, I'm a Team Lead and UX Engineer at <a href="https://www.mendix.com">Mendix</a>,
 		making apps that enable community and collaboration.
 	</p>
 </div>
-<section id="projects" style={slideIn(5)}>
+<section id="projects">
 	<h2>Selected Projects</h2>
 	<Projects {projects} />
 </section>
 
-<section id="contact" style={slideIn(6)}>
+<section id="contact">
 	<h2>Get in touch</h2>
 	<Contact />
 </section>

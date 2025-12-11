@@ -110,7 +110,6 @@
 
 	nav {
 		align-items: center;
-		animation: slide-in 300ms cubic-bezier(0.5, 0, 0.75, 0) 200ms 1 backwards;
 		block-size: var(--header-size-end);
 		display: flex;
 		font-size: var(--font-size-fixed);

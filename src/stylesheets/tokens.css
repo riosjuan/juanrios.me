@@ -49,7 +49,8 @@
 		--border-color: light-dark(var(--border-color-light), var(--border-color-dark));
 
 		/* Font settings */
-		--font-family: 'InterVariable', 'Helvetica', sans-serif;
+		--font-family: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+			sans-serif;
 
 		--font-size-base: calc(1em + 1vw);
 		--font-size-fixed: 1rem;
