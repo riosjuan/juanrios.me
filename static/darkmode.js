@@ -19,6 +19,3 @@ document.documentElement.style.setProperty(
 	savedTheme === 'dark' ? '--hue-on-dark' : '--hue-on-light',
 	hue
 );
-
-// Expose the hue to prevent Svelte from re-randomizing on hydration
-window.__INITIAL_THEME_HUE__ = hue;

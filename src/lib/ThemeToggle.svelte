@@ -28,11 +28,7 @@
 			localStorage.getItem(storageKey) ||
 			(window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME.DARK : THEME.LIGHT);
 
-		const initialHue = window.__INITIAL_THEME_HUE__;
-
-		if (initialHue !== undefined) {
-			applyThemeHue(userTheme, initialHue);
-		}
+		applyThemeHue(userTheme, randomHue());
 	});
 </script>
 
