@@ -2,50 +2,48 @@
 	:root {
 		color-scheme: light dark;
 
-		--blue-hue: 262;
-		--lch-blue: 50% 0.29 var(--blue-hue);
-		--lch-blue-dark: 2% 0.22 var(--blue-hue);
+		--hue-on-light: 262;
+		--lch-base-on-light: 50% 0.29 var(--hue-on-light);
+		--lch-ink-on-light: 2% 0.22 var(--hue-on-light);
+		--lch-complement-light: 95% 0.01 calc(var(--hue-on-light) + 180);
 
-		--green-hue: 156;
-		--lch-green: 86% 0.29 var(--green-hue);
-		--lch-green-light: 100% 0.07 var(--green-hue);
-
-		--purple-hue: 312;
-		--lch-purple: 11% 0.06 var(--purple-hue);
-		--lch-purple-light: 95% 0.04 var(--purple-hue);
+		--hue-on-dark: 156;
+		--lch-base-on-dark: 86% 0.29 var(--hue-on-dark);
+		--lch-ink-on-dark: 100% 0.06 var(--hue-on-dark);
+		--lch-complement-on-dark: 11% 0.06 calc(var(--hue-on-dark) + 180);
 
 		/* Background colors */
-		--background-primary-light: oklch(var(--lch-purple-light));
-		--background-primary-dark: oklch(var(--lch-purple));
+		--background-primary-light: oklch(var(--lch-complement-light));
+		--background-primary-dark: oklch(var(--lch-complement-on-dark));
 		--background-primary: light-dark(
 			var(--background-primary-light),
 			var(--background-primary-dark)
 		);
 
-		--background-secondary-light: oklch(var(--lch-blue-dark) / 0.05);
-		--background-secondary-dark: oklch(var(--lch-green-light) / 0.1);
+		--background-secondary-light: oklch(var(--lch-ink-on-light) / 0.05);
+		--background-secondary-dark: oklch(var(--lch-ink-on-dark) / 0.1);
 		--background-secondary: light-dark(
 			var(--background-secondary-light),
 			var(--background-secondary-dark)
 		);
 
 		/* Text colors */
-		--text-primary-light: oklch(var(--lch-blue-dark));
-		--text-primary-dark: oklch(var(--lch-green-light));
+		--text-primary-light: oklch(var(--lch-ink-on-light));
+		--text-primary-dark: oklch(var(--lch-ink-on-dark));
 		--text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
 
-		--text-secondary-light: oklch(var(--lch-blue-dark) / 0.5);
-		--text-secondary-dark: oklch(var(--lch-green-light) / 0.5);
+		--text-secondary-light: oklch(var(--lch-ink-on-light) / 0.5);
+		--text-secondary-dark: oklch(var(--lch-ink-on-dark) / 0.5);
 		--text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
 
 		/* Interactive colors */
-		--accent-light: oklch(var(--lch-blue));
-		--accent-dark: oklch(var(--lch-green));
+		--accent-light: oklch(var(--lch-base-on-light));
+		--accent-dark: oklch(var(--lch-base-on-dark));
 		--accent: light-dark(var(--accent-light), var(--accent-dark));
 
 		/*Border colors*/
-		--border-color-light: oklch(var(--lch-blue-dark) / 0.04);
-		--border-color-dark: oklch(var(--lch-green-light) / 0.04);
+		--border-color-light: oklch(var(--lch-ink-on-light) / 0.04);
+		--border-color-dark: oklch(var(--lch-ink-on-dark) / 0.04);
 		--border-color: light-dark(var(--border-color-light), var(--border-color-dark));
 
 		/* Font settings */

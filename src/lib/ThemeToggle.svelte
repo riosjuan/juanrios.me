@@ -2,7 +2,7 @@
 	import { run } from 'svelte/legacy';
 
 	import { onMount } from 'svelte';
-	import { removeClass } from '../utilities';
+	import { applyThemeHue, randomHue, removeClass } from '../utilities';
 	import IconThemeToggle from './IconThemeToggle.svelte';
 
 	const storageKey = 'theme-preference';
@@ -19,6 +19,7 @@
 
 	const themeToggleHandler = () => {
 		userTheme = userTheme === THEME.LIGHT ? THEME.DARK : THEME.LIGHT;
+		applyThemeHue(userTheme, randomHue());
 	};
 
 	onMount(() => {
@@ -26,6 +27,12 @@
 		userTheme =
 			localStorage.getItem(storageKey) ||
 			(window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME.DARK : THEME.LIGHT);
+
+		const initialHue = window.__INITIAL_THEME_HUE__;
+
+		if (initialHue !== undefined) {
+			applyThemeHue(userTheme, initialHue);
+		}
 	});
 </script>
 
@@ -63,5 +70,9 @@
 				color: var(--accent);
 			}
 		}
+	}
+
+	.js-disabled {
+		display: none;
 	}
 </style>
