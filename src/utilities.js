@@ -24,8 +24,13 @@ export const randomHue = () => Math.floor(Math.random() * 360);
 
 // Sets the theme hue based on the theme type.
 export const applyThemeHue = (theme, hue) => {
-	document.documentElement.style.setProperty(
-		theme === 'dark' ? '--hue-on-dark' : '--hue-on-light',
-		hue
-	);
+	const root = document.documentElement;
+
+	if (theme === 'dark') {
+		root.style.setProperty('--hue-on-dark', hue);
+		root.style.removeProperty('--hue-on-light');
+	} else {
+		root.style.setProperty('--hue-on-light', hue);
+		root.style.removeProperty('--hue-on-dark');
+	}
 };
