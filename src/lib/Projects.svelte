@@ -6,13 +6,15 @@
 </script>
 
 <ul>
-	{#each projects as { name, url, tags, description, links }}
+	{#each projects as { name, url, tags, links, body }}
 		<li>
 			<article>
 				<h3>
 					<a href={url}>{name}</a>
 				</h3>
-				<p>{description}</p>
+				{#if body}
+					<div class="project-body">{@html body}</div>
+				{/if}
 				{#if links}
 					<ProjectLinks {links} />
 				{/if}
@@ -35,9 +37,5 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: calc(var(--line-height) / 2);
-	}
-
-	p {
-		margin: 0;
 	}
 </style>

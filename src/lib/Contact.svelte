@@ -3,10 +3,9 @@
 </script>
 
 <p>
-	Feel free to reach out to me at
-	<a href={`mailto:${links.email}`}>{links.email}</a>, or find me elsewhere on
-	<a href={links.x}>X</a>,
-	<a href={links.github}>GitHub</a> and
+	If you’d like to collaborate, discuss a project, or simply get in touch, feel free to reach out.
+	You can contact me at <a href={`mailto:${links.email}`}>{links.email}</a> or find me on
+	<a href={links.x}>X</a>, <a href={links.github}>GitHub</a>, and
 	<a href={links.linkedin}>LinkedIn</a>.
 </p>
 

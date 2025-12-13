@@ -20,16 +20,35 @@
 <div>
 	<h1>Hi, I'm Juan Rios</h1>
 	<p>
-		I'm a Product Designer and Developer based in Rotterdam, The Netherlands. I have 10+ years of
-		experience building digital products and services.
+		I lead teams and build platforms that make digital products easier to design, build, and scale.
 	</p>
 	<p>
-		Currently, I'm a Team Lead and UX Engineer at <a href="https://www.mendix.com">Mendix</a>,
-		making apps that enable community and collaboration.
+		I’m a Team Manager and UX Engineer at <a href="https://www.mendix.com">Mendix</a>, where I work
+		on design systems and platform UI used across the organization. With a background in product
+		design and front-end development, I combine strategic leadership with hands-on experience.
 	</p>
 </div>
-<section id="projects">
-	<h2>Selected Projects</h2>
+<section>
+	<h2>What I do</h2>
+	<p>I work at the intersection of leadership, design, and engineering.</p>
+	<p>Today, my focus is on:</p>
+	<ul>
+		<li>Leading and growing cross-functional teams</li>
+		<li>Owning and evolving design systems and platform UI</li>
+		<li>Ensuring quality, accessibility, and scalability across products</li>
+		<li>Translating strategy into clear roadmaps and shipped outcomes</li>
+	</ul>
+	<p>
+		I still enjoy getting hands-on when it adds value, particularly around UX, front-end
+		architecture, and system-level design decisions.
+	</p>
+</section>
+<section id="work">
+	<h2>Selected Work</h2>
+	<p>
+		These projects reflect my background as a designer, developer, and maker. This hands-on
+		experience helps how I lead teams and make product decisions today.
+	</p>
 	<Projects {projects} />
 </section>
 
@@ -52,6 +71,10 @@
 	a {
 		color: inherit;
 		transition: none;
+	}
+
+	p {
+		margin-block: 0 var(--line-height);
 	}
 
 	p + p {

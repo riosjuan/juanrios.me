@@ -5,8 +5,8 @@
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	const navigationLinks = [
-		{ name: 'Home', url: '/' },
-		{ name: 'Projects', url: '#projects' },
+		{ name: 'Juan Rios', url: '/' },
+		{ name: 'Work', url: '#work' },
 		{ name: 'Contact', url: '#contact' }
 	];
 

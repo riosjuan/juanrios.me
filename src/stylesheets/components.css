@@ -4,4 +4,13 @@
 		max-width: 72rem;
 		padding-inline: 1.5rem;
 	}
+
+	.project-body {
+		p {
+			margin: 0;
+		}
+		p + p {
+			margin-block-start: var(--line-height);
+		}
+	}
 }

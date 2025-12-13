@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit';
+import { render } from 'svelte/server';
 
 export const prerender = true;
 
@@ -11,9 +12,9 @@ const getProjects = async () => {
 		const slug = path.split('/').at(-1)?.replace('.md', '');
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const { metadata } = file;
+			const { metadata, default: body } = file;
 
-			const project = { ...metadata, slug };
+			const project = { ...metadata, slug, body: render(body).html };
 
 			if (project.published) projects.push(project); // Add published projects to the list
 		}
