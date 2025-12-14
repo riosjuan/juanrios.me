@@ -11,7 +11,6 @@
 
 <style>
 	p {
-		font-size: var(--font-size-small);
 		margin-block: 0 calc(var(--line-height) * 2);
 	}
 

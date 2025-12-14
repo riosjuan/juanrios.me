@@ -52,10 +52,9 @@
 
 		--font-size-base: calc(1em + 1vw);
 		--font-size-fixed: 1rem;
-		--font-size-x-small: 70%;
-		--font-size-small: 85%;
+		--font-size-small: 50%;
 		--font-size-large: 125%;
-		--font-size-x-large: 160%;
+		--font-size-x-large: 150%;
 
 		/* Font weight */
 		--font-weight: 400;

@@ -13,7 +13,7 @@
 		align-items: center;
 		color: var(--text-primary);
 		display: flex;
-		font-size: var(--font-size-fixed);
+		font-size: var(--font-size-small);
 		margin-block-end: calc(var(--line-height) * 2);
 		text-transform: uppercase;
 

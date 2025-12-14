@@ -33,7 +33,6 @@
 
 	a {
 		color: var(--text-primary);
-		font-size: var(--font-size-small);
 	}
 
 	@container (width > 24ch) {

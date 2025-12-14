@@ -81,13 +81,20 @@
 		margin-block-end: 0;
 	}
 
+	ul {
+		list-style: disc;
+		padding-inline-start: calc(var(--inline-spacing) * 2);
+		margin-inline-start: var(--inline-spacing);
+		margin-block-end: var(--line-height);
+	}
+
 	section {
 		margin-block-start: calc(var(--line-height) * 3);
 		scroll-margin-top: 8rem;
 
 		> h2 {
 			color: var(--text-secondary);
-			font-size: var(--font-size-fixed);
+			font-size: var(--font-size-small);
 			font-style: normal;
 			font-weight: var(--font-weight);
 			letter-spacing: calc(var(--letter-spacing) * -12);

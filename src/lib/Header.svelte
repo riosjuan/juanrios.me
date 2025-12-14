@@ -112,7 +112,7 @@
 		align-items: center;
 		block-size: var(--header-size-end);
 		display: flex;
-		font-size: var(--font-size-fixed);
+		font-size: var(--font-size-small);
 		inline-size: 100%;
 		position: relative;
 		z-index: 1;

@@ -22,7 +22,7 @@
 			border-radius: var(--border-radius);
 			border: 1px solid var(--border-color);
 			color: var(--text-secondary);
-			font-size: var(--font-size-fixed);
+			font-size: var(--font-size-small);
 			padding: calc(var(--block-spacing) / 4) var(--inline-spacing);
 			text-transform: lowercase;
 			line-height: var(--line-height);
