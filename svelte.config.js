@@ -11,7 +11,7 @@ const config = {
 			postcss: { plugins: [autoprefixer] }
 		}),
 		mdsvex({
-			extensions: ['.svx', '.md']
+			extensions: ['.md']
 		})
 	],
 	kit: {
@@ -23,9 +23,9 @@ const config = {
 			strict: true
 		}),
 		alias: {
-			$lib: 'src/lib',
-			$params: 'src/params',
-			$routes: 'src/routes'
+			$lib: './lib',
+			$params: './params',
+			$routes: './routes'
 		}
 	}
 };
