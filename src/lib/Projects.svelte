@@ -13,6 +13,7 @@
 					<a href={url}>{name}</a>
 				</h3>
 				{#if body}
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 					<div class="project-body">{@html body}</div>
 				{/if}
 				{#if links}
