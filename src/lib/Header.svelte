@@ -129,11 +129,11 @@
 	}
 
 	a {
+		color: var(--accent);
 		font-weight: var(--font-weight-medium);
 		text-decoration: none;
 
 		&:hover {
-			color: var(--accent);
 			text-decoration: underline;
 		}
 	}

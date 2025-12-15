@@ -31,10 +31,6 @@
 		}
 	}
 
-	a {
-		color: var(--text-primary);
-	}
-
 	@container (width > 24ch) {
 		ul {
 			flex-direction: row;

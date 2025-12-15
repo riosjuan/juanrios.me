@@ -32,7 +32,7 @@
 	}
 
 	a {
-		color: var(--accent);
+		color: var(--text-primary);
 		text-decoration-thickness: from-font;
 		text-decoration-skip-ink: auto;
 

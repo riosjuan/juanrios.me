@@ -39,4 +39,12 @@
 		flex-direction: column;
 		row-gap: calc(var(--line-height) / 2);
 	}
+
+	a {
+		color: var(--accent);
+
+		&:hover {
+			color: var(--text-bright);
+		}
+	}
 </style>

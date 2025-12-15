@@ -68,11 +68,6 @@
 		margin-block: 0 calc(var(--line-height) / 2);
 	}
 
-	a {
-		color: inherit;
-		transition: none;
-	}
-
 	p {
 		margin-block: 0 var(--line-height);
 	}
