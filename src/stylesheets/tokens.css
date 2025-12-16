@@ -55,6 +55,10 @@
 		--accent-dark: oklch(var(--lch-base-on-dark));
 		--accent: light-dark(var(--accent-light), var(--accent-dark));
 
+		--selection-light: oklch(var(--lch-base-on-light) / 0.2);
+		--selection-dark: oklch(var(--lch-base-on-dark) / 0.2);
+		--selection: light-dark(var(--selection-light), var(--selection-dark));
+
 		/*Border colors*/
 		--border-color-light: oklch(var(--lch-ink-strong-on-light) / 0.04);
 		--border-color-dark: oklch(var(--lch-ink-strong-on-dark) / 0.04);

@@ -58,4 +58,8 @@
 			outline-offset: var(--focus-ring-offset, 1px);
 		}
 	}
+
+	::selection {
+		background: var(--selection);
+	}
 }
