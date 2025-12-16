@@ -50,11 +50,11 @@
 		--font-family: 'InterVariable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 			sans-serif;
 
-		--font-size-base: calc(1em + 1vw);
-		--font-size-fixed: 1rem;
-		--font-size-small: 50%;
+		--font-size: calc(1em + 1vw);
+		--font-size-small: 80%;
+		--font-size-medium: 90%;
 		--font-size-large: 125%;
-		--font-size-x-large: 150%;
+		--font-size-x-large: 175%;
 
 		/* Font weight */
 		--font-weight: 400;
@@ -63,7 +63,7 @@
 
 		/* Letter spacing */
 		--letter-spacing: -0.01em;
-		--line-height: 1.3em;
+		--line-height: calc(1.3em + 1vw);
 
 		/* Animation */
 		--hover-transition: 150ms ease-in-out;
@@ -73,6 +73,17 @@
 		/*Spacing*/
 		--inline-spacing: 1ch;
 		--block-spacing: 1rem;
+	}
+
+	@media (min-width: 64em) and (hover: hover) and (pointer: fine) {
+		:root {
+			--font-size: calc(1.25em + 1vw);
+			--font-size-small: 50%;
+			--font-size-medium: 75%;
+			--font-size-large: 110%;
+			--font-size-x-large: 160%;
+			--line-height: 1.3em;
+		}
 	}
 
 	[data-theme='light'] {

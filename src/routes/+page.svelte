@@ -77,10 +77,12 @@
 	}
 
 	ul {
+		font-size: var(--font-size-medium);
 		list-style: disc;
 		padding-inline-start: calc(var(--inline-spacing) * 2);
 		margin-inline-start: var(--inline-spacing);
-		margin-block-end: var(--line-height);
+		margin-block: var(--line-height);
+		line-height: var(--line-height);
 	}
 
 	section {
