@@ -10,7 +10,7 @@
 
 		--hue-on-dark: 156;
 		--lch-base-on-dark: 86% 0.29 var(--hue-on-dark);
-		--lch-ink-strong-on-dark: 100% 0.06 var(--hue-on-dark);
+		--lch-ink-strong-on-dark: 100% 0.02 var(--hue-on-dark);
 		--lch-ink-on-dark: 80% 0.02 var(--hue-on-dark);
 		--lch-complement-on-dark: 11% 0.06 calc(var(--hue-on-dark) + 180);
 
@@ -38,6 +38,11 @@
 		--text-secondary-dark: oklch(var(--lch-ink-strong-on-dark) / 0.5);
 		--text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
 
+		--text-strong-light: oklch(var(--lch-ink-strong-on-light));
+		--text-strong-dark: oklch(var(--lch-ink-strong-on-dark));
+		--text-strong: light-dark(var(--text-strong-light), var(--text-strong-dark));
+
+		/* Interactive colors */
 		--text-link-light: oklch(var(--lch-ink-strong-on-light));
 		--text-link-dark: oklch(var(--lch-ink-strong-on-dark));
 		--text-link: light-dark(var(--text-link-light), var(--text-link-dark));
@@ -46,7 +51,6 @@
 		--text-link-hover-dark: oklch(var(--lch-ink-strong-on-dark) / 0.5);
 		--text-link-hover: light-dark(var(--text-link-hover-light), var(--text-link-hover-dark));
 
-		/* Interactive colors */
 		--accent-light: oklch(var(--lch-base-on-light));
 		--accent-dark: oklch(var(--lch-base-on-dark));
 		--accent: light-dark(var(--accent-light), var(--accent-dark));
