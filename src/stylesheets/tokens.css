@@ -73,7 +73,7 @@
 
 		/* Letter spacing */
 		--letter-spacing: -0.01em;
-		--line-height: calc(1.3em + 1vw);
+		--line-height: calc(1.3em + 0.5vw);
 
 		/* Animation */
 		--hover-transition: 150ms ease-in-out;
@@ -89,8 +89,8 @@
 		:root {
 			--font-size: calc(1.25em + 1vw);
 			--font-size-small: 50%;
-			--font-size-medium: 75%;
-			--font-size-large: 110%;
+			--font-size-medium: 65%;
+			--font-size-large: 105%;
 			--font-size-x-large: 160%;
 			--line-height: 1.3em;
 		}

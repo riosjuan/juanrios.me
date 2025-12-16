@@ -18,13 +18,14 @@
 <OpenGraph {...openGraphData} />
 
 <div>
-	<h1>Hi, I'm Juan Rios</h1>
+	<h1>Hi, I’m Juan Rios</h1>
 	<p>
 		I lead teams and build platforms that make digital products easier to design, build, and scale.
 	</p>
+
 	<p>
 		I’m a Team Manager and UX Engineer at <a href="https://www.mendix.com">Mendix</a>, where I work
-		on design systems and platform UI used across the organization. With a background in product
+		on design systems and platform UI across the developer portal. With a background in product
 		design and front-end development, I combine strategic leadership with hands-on experience.
 	</p>
 </div>
@@ -59,7 +60,7 @@
 
 <style>
 	div {
-		margin-block-start: calc(var(--line-height) * 6);
+		margin-block-start: calc(var(--line-height) * 5);
 	}
 
 	h1 {
@@ -86,15 +87,15 @@
 	}
 
 	section {
-		margin-block-start: calc(var(--line-height) * 3);
-		scroll-margin-top: 8rem;
+		margin-block-start: calc(var(--line-height) * 2.5);
+		scroll-margin-top: calc(var(--line-height) * 3);
 
 		> h2 {
 			color: var(--text-secondary);
 			font-size: var(--font-size-small);
 			font-style: normal;
 			font-weight: var(--font-weight);
-			letter-spacing: calc(var(--letter-spacing) * -12);
+			letter-spacing: normal;
 			line-height: 1;
 			margin-block-end: var(--line-height);
 			margin-block-start: 0;

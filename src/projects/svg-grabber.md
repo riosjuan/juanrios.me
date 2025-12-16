@@ -5,7 +5,7 @@ date: '2018-02-05'
 tags:
 - Side Project
 - Tooling
-- Frontend Development
+- Front-end Development
 description: A Google Chrome extension I designed and developed to quickly preview and get all the svg assets from any website.
 published: true
 links:
@@ -15,4 +15,6 @@ links:
     url: https://github.com/riosjuan/svg-grabber
 ---
 
-Chrome extension built and maintained as a side project, allowing designers and developers to preview and extract SVGs from any website.
+Chrome extension built and maintained as a side project.
+
+Designed and built a tool for instantly previewing, exporting, and copying SVG assets from websites, improving designers’ and developers’ workflow.

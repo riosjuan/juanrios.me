@@ -24,6 +24,7 @@
 		list-style-type: none;
 		padding: 0;
 		row-gap: calc(var(--line-height) / 4);
+		font-size: var(--font-size-small);
 
 		li {
 			display: flex;

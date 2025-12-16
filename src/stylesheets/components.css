@@ -1,7 +1,7 @@
 @layer components {
 	.container {
 		margin-inline: auto;
-		max-width: 48rem;
+		max-width: 56rem;
 		padding-inline: 1.5rem;
 	}
 
