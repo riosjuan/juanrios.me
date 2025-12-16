@@ -33,12 +33,12 @@
 	}
 
 	a {
-		color: var(--text-primary);
+		color: var(--text-link);
 		text-decoration-thickness: from-font;
 		text-decoration-skip-ink: auto;
 
 		&:hover {
-			color: var(--text-primary);
+			color: var(--text-link-hover);
 		}
 	}
 
