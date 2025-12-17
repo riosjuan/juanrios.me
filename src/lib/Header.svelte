@@ -80,12 +80,11 @@
 		--header-size-end: calc(var(--header-size));
 		--header-size-start: calc(var(--header-size) * 2);
 
-		align-items: center;
+		align-content: center;
 		animation: header-size-and-opacity var(--animation-parameters);
 		animation-range: var(--animation-range);
 		animation-timeline: scroll(block);
 		backdrop-filter: saturate(var(--filter-saturation-end)) blur(var(--filter-blur-end));
-		display: flex;
 		inline-size: 100%;
 		position: fixed;
 		top: 0;
@@ -111,21 +110,22 @@
 	nav {
 		align-items: center;
 		block-size: var(--header-size-end);
+		column-gap: calc(var(--inline-spacing) * 2);
 		display: flex;
 		font-size: var(--font-size-small);
 		inline-size: 100%;
+		justify-content: space-between;
 		position: relative;
 		z-index: 1;
 	}
 
 	ul {
-		column-gap: calc(var(--inline-spacing) * 2);
 		display: flex;
 		flex-wrap: wrap;
+		gap: 0 calc(var(--inline-spacing) * 2);
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		row-gap: calc(var(--block-spacing) / 2);
 	}
 
 	a {

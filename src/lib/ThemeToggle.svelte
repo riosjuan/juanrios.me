@@ -56,7 +56,6 @@
 		display: flex;
 		inline-size: var(--button-size);
 		justify-content: center;
-		margin-inline-start: auto;
 		outline-offset: -0.5rem;
 		padding: 0;
 
