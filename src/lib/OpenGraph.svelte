@@ -1,15 +1,5 @@
 <script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {string} [title]
-	 * @property {string} [description]
-	 * @property {string} [url]
-	 * @property {string} [ogImage]
-	 */
-
-	/** @type {Props} */
-	let { title = '', description = '', url = '', ogImage = '' } = $props();
-
+	let { title = '', description = '', url = '', ogImage = '', twitterHandle = '' } = $props();
 	let fullImageUrl = $derived(`${url}/${ogImage}`);
 </script>
 
@@ -28,5 +18,5 @@
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={fullImageUrl} />
-	<meta name="twitter:site" content="@juanriosnl" />
+	<meta name="twitter:site" content={twitterHandle} />
 </svelte:head>

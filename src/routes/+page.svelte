@@ -11,7 +11,8 @@
 		description:
 			'Product Designer and Developer with over 10 years of experience building digital products and services.',
 		url: 'https://juanrios.me',
-		ogImage: 'og-image.png'
+		ogImage: 'og-image.png',
+		twitterHandle: '@juanriosnl'
 	};
 </script>
 
