@@ -10,16 +10,12 @@
 
 <style>
 	footer {
-		align-items: center;
-		color: var(--text-primary);
-		display: flex;
-		font-size: var(--font-size-small);
-		margin-block-end: calc(var(--line-height) * 2);
-		text-transform: uppercase;
+		margin-block-end: calc(var(--line-height));
 
 		p {
-			font-size: inherit;
+			font-size: var(--font-size-small);
 			margin: 0;
+			text-transform: uppercase;
 		}
 	}
 </style>
