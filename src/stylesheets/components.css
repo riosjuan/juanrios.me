@@ -5,6 +5,12 @@
 		padding-inline: 1.5rem;
 	}
 
+	.main {
+		display: flex;
+		flex-direction: column;
+		row-gap: calc(var(--line-height) * 2);
+	}
+
 	.project-body {
 		p {
 			margin: 0;

@@ -86,7 +86,6 @@
 	}
 
 	section {
-		margin-block-start: calc(var(--line-height) * 2.5);
 		scroll-margin-top: calc(var(--line-height) * 3);
 
 		> h2 {
