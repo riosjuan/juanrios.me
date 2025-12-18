@@ -44,7 +44,7 @@
 		color: var(--accent);
 
 		&:hover {
-			color: var(--text-bright);
+			color: var(--text-strong);
 		}
 	}
 </style>

@@ -40,7 +40,7 @@
 				color: var(--text-secondary);
 				content: '|';
 				display: inline-flex;
-				font-size: 60%;
+				opacity: 50%;
 				padding-inline: var(--inline-spacing);
 			}
 		}
