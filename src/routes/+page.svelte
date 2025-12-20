@@ -9,7 +9,7 @@
 	let openGraphData = {
 		title: 'Juan Rios – Design Systems & Platform UX',
 		description:
-			'Team Manager and UX Engineer focused on design systems and platform UI, combining product design and front-end experience to build scalable digital platforms.',
+			'Team Manager and UX Engineer working on design systems and platform UX, with a background in product design and front-end development.',
 		url: 'https://juanrios.me',
 		ogImage: 'og-image.png',
 		twitterHandle: '@juanriosnl'
@@ -23,11 +23,11 @@
 		I lead teams and build platforms that make digital products easier to design, develop, and
 		scale.
 	</h1>
-
 	<p>
-		I’m a Team Manager and UX Engineer at <a href="https://www.mendix.com">Mendix</a>, working on
-		design systems and platform UI across the developer portal. With a background in product design
-		and front-end development, I combine strategic leadership with hands-on experience.
+		Currently, I’m a Team Manager and UX Engineer at <a href="https://www.mendix.com">Mendix</a>,
+		working on design systems and platform UI across the developer portal. With a background in
+		product design and front-end development, I combine strategic leadership with hands-on
+		experience.
 	</p>
 </div>
 <section>
