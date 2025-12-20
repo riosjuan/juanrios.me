@@ -22,8 +22,8 @@
 			var(--background-primary-dark)
 		);
 
-		--background-secondary-light: oklch(var(--lch-ink-strong-on-light) / 0.05);
-		--background-secondary-dark: oklch(var(--lch-ink-strong-on-dark) / 0.1);
+		--background-secondary-light: lch(from oklch(var(--lch-complement-light)) calc(l - 3) c h);
+		--background-secondary-dark: lch(from oklch(var(--lch-complement-on-dark)) calc(l + 6) c h);
 		--background-secondary: light-dark(
 			var(--background-secondary-light),
 			var(--background-secondary-dark)
@@ -34,8 +34,8 @@
 		--text-primary-dark: oklch(var(--lch-ink-on-dark));
 		--text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
 
-		--text-secondary-light: oklch(var(--lch-ink-strong-on-light) / 0.5);
-		--text-secondary-dark: oklch(var(--lch-ink-strong-on-dark) / 0.5);
+		--text-secondary-light: lch(from oklch(var(--lch-ink-on-light)) calc(l + 50) c h);
+		--text-secondary-dark: lch(from oklch(var(--lch-ink-on-dark)) calc(l - 25) c h);
 		--text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
 
 		--text-strong-light: oklch(var(--lch-ink-strong-on-light));
@@ -47,8 +47,8 @@
 		--text-link-dark: oklch(var(--lch-ink-strong-on-dark));
 		--text-link: light-dark(var(--text-link-light), var(--text-link-dark));
 
-		--text-link-hover-light: oklch(var(--lch-ink-strong-on-light) / 0.5);
-		--text-link-hover-dark: oklch(var(--lch-ink-strong-on-dark) / 0.5);
+		--text-link-hover-light: lch(from oklch(var(--lch-ink-strong-on-light)) calc(l + 40) c h);
+		--text-link-hover-dark: lch(from oklch(var(--lch-ink-strong-on-dark)) calc(l - 40) c h);
 		--text-link-hover: light-dark(var(--text-link-hover-light), var(--text-link-hover-dark));
 
 		--accent-light: oklch(var(--lch-base-on-light));
@@ -60,8 +60,8 @@
 		--selection: light-dark(var(--selection-light), var(--selection-dark));
 
 		/*Border colors*/
-		--border-color-light: oklch(var(--lch-ink-strong-on-light) / 0.04);
-		--border-color-dark: oklch(var(--lch-ink-strong-on-dark) / 0.04);
+		--border-color-light: lch(from oklch(var(--lch-complement-light)) calc(l - 7.5) c h);
+		--border-color-dark: lch(from oklch(var(--lch-complement-on-dark)) calc(l + 15) c h);
 		--border-color: light-dark(var(--border-color-light), var(--border-color-dark));
 
 		/* Font settings */

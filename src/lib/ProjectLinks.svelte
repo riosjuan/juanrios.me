@@ -37,10 +37,9 @@
 			flex-direction: row;
 
 			li:not(:first-child)::before {
-				color: var(--text-secondary);
+				color: var(--border-color);
 				content: '|';
 				display: inline-flex;
-				opacity: 50%;
 				padding-inline: var(--inline-spacing);
 			}
 		}
