@@ -51,7 +51,7 @@
 		block-size: var(--button-size);
 		border-radius: 100%;
 		border: 0;
-		color: var(--text-primary);
+		color: var(--accent);
 		cursor: pointer;
 		display: flex;
 		inline-size: var(--button-size);
@@ -61,7 +61,7 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				color: var(--accent);
+				color: var(--text-strong);
 			}
 		}
 	}
