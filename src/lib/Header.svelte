@@ -5,7 +5,7 @@
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	const navigationLinks = [
-		{ name: 'Juan Rios', url: '/' },
+		{ name: 'Juan Rios', url: '/', brand: true },
 		{ name: 'Work', url: '#work' },
 		{ name: 'Contact', url: '#contact' }
 	];
@@ -57,7 +57,7 @@
 		<ul>
 			{#each navigationLinks as link}
 				<li>
-					<a href={link.url}>{link.name}</a>
+					<a class:brand={link.brand} href={link.url}>{link.name}</a>
 				</li>
 			{/each}
 		</ul>
@@ -130,11 +130,21 @@
 
 	a {
 		color: var(--accent);
-		font-weight: var(--font-weight-medium);
 		text-decoration: none;
 
 		&:hover {
 			text-decoration: underline;
+		}
+	}
+
+	.brand {
+		color: var(--text-strong);
+		font-weight: var(--font-weight-medium);
+		letter-spacing: calc(var(--letter-spacing) * 3);
+
+		&:hover {
+			color: var(--text-primary);
+			text-decoration: none;
 		}
 	}
 </style>
