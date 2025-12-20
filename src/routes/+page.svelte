@@ -7,9 +7,9 @@
 	const projects = $derived(data.projects);
 
 	let openGraphData = {
-		title: 'Juan Rios - Product Designer and Developer',
+		title: 'Juan Rios – Design Systems & Platform UX',
 		description:
-			'Product Designer and Developer with over 10 years of experience building digital products and services.',
+			'Team Manager and UX Engineer focused on design systems and platform UI, combining product design and front-end experience to build scalable digital platforms.',
 		url: 'https://juanrios.me',
 		ogImage: 'og-image.png',
 		twitterHandle: '@juanriosnl'
@@ -19,15 +19,15 @@
 <OpenGraph {...openGraphData} />
 
 <div>
-	<h1>Hi, I’m Juan Rios</h1>
-	<p>
-		I lead teams and build platforms that make digital products easier to design, build, and scale.
-	</p>
+	<h1>
+		I lead teams and build platforms that make digital products easier to design, develop, and
+		scale.
+	</h1>
 
 	<p>
-		I’m a Team Manager and UX Engineer at <a href="https://www.mendix.com">Mendix</a>, where I work
-		on design systems and platform UI across the developer portal. With a background in product
-		design and front-end development, I combine strategic leadership with hands-on experience.
+		I’m a Team Manager and UX Engineer at <a href="https://www.mendix.com">Mendix</a>, working on
+		design systems and platform UI across the developer portal. With a background in product design
+		and front-end development, I combine strategic leadership with hands-on experience.
 	</p>
 </div>
 <section>
@@ -68,6 +68,7 @@
 		font-size: var(--font-size-x-large);
 		font-weight: var(--font-weight-bold);
 		margin-block: 0 calc(var(--line-height) / 2);
+		line-height: calc(var(--line-height) / 1.4);
 	}
 
 	p {
