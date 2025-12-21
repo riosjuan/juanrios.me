@@ -22,6 +22,7 @@
 
 	h1 {
 		color: var(--text-strong);
+		text-wrap: balance;
 	}
 
 	h3 {
@@ -34,6 +35,11 @@
 		line-height: var(--line-height);
 		margin-block-end: var(--line-height);
 		max-inline-size: 44ch;
+		text-wrap: pretty;
+	}
+
+	li {
+		text-wrap: balance;
 	}
 
 	a {

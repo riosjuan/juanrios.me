@@ -85,6 +85,10 @@
 		padding-inline-start: calc(var(--inline-spacing) * 2);
 		margin-block: var(--line-height);
 		line-height: var(--line-height);
+
+		li {
+			text-wrap: pretty;
+		}
 	}
 
 	section {
