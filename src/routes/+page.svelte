@@ -68,7 +68,7 @@
 		font-size: var(--font-size-x-large);
 		font-weight: var(--font-weight-bold);
 		margin-block: 0 calc(var(--line-height) / 2);
-		line-height: calc(var(--line-height) / 1.4);
+		line-height: calc(var(--line-height) / 1.3);
 	}
 
 	p {
