@@ -12,7 +12,7 @@
 	ul {
 		display: flex;
 		flex-wrap: wrap;
-		gap: var(--inline-spacing);
+		gap: calc(var(--inline-spacing) / 1.5);
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
