@@ -1,6 +1,4 @@
 <script>
-	import { run } from 'svelte/legacy';
-
 	import { onMount } from 'svelte';
 	import { applyThemeHue, randomHue, removeClass } from '../utilities';
 	import IconThemeToggle from './IconThemeToggle.svelte';
@@ -10,7 +8,7 @@
 
 	let userTheme = $state();
 
-	run(() => {
+	$effect(() => {
 		if (userTheme) {
 			document.documentElement.setAttribute('data-theme', userTheme);
 			localStorage.setItem(storageKey, userTheme);
@@ -35,8 +33,7 @@
 <button
 	class="js-disabled"
 	onclick={themeToggleHandler}
-	title="Toggles light & dark"
-	aria-label={userTheme}
+	aria-label={userTheme === THEME.DARK ? 'Switch to light theme' : 'Switch to dark theme'}
 >
 	<IconThemeToggle />
 </button>
