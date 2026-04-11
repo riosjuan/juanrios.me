@@ -12,6 +12,12 @@ export const removeClass = (className) => {
 // Checks if the browser is Firefox.
 export const isFirefox = typeof navigator !== 'undefined' && /firefox/i.test(navigator.userAgent);
 
+// Checks if the browser is Safari (excluding Chromium-based browsers).
+export const isSafari =
+	typeof navigator !== 'undefined' &&
+	/safari/i.test(navigator.userAgent) &&
+	!/chrome|chromium|android|crios|fxios|edgios/i.test(navigator.userAgent);
+
 // Loads the scroll timeline polyfill if needed.
 export const loadScrollTimelinePolyfillIfNeeded = async () => {
 	if (isFirefox) {

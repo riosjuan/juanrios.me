@@ -1,7 +1,7 @@
 <script>
 	/* global ScrollTimeline */
 	import { onMount } from 'svelte';
-	import { isFirefox, loadScrollTimelinePolyfillIfNeeded } from '../utilities';
+	import { isFirefox, isSafari, loadScrollTimelinePolyfillIfNeeded } from '../utilities';
 	import ThemeToggle from './ThemeToggle.svelte';
 
 	const navigationLinks = [
@@ -43,8 +43,55 @@
 		);
 	};
 
+	const applySafariBackdropFallback = () => {
+		const headerElement = document.querySelector('header');
+
+		if (!headerElement) {
+			return () => {};
+		}
+
+		const styles = getComputedStyle(headerElement);
+		const saturationStart =
+			Number(styles.getPropertyValue('--filter-saturation-start').trim()) || 1;
+		const saturationEnd = Number(styles.getPropertyValue('--filter-saturation-end').trim()) || 1.2;
+		const blurStart =
+			Number(styles.getPropertyValue('--filter-blur-start').replace('rem', '').trim()) || 0;
+		const blurEnd =
+			Number(styles.getPropertyValue('--filter-blur-end').replace('rem', '').trim()) || 1.5;
+
+		headerElement.classList.add('safari-blur-fallback');
+
+		const update = () => {
+			const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+			const progressRange = Math.max(maxScroll * 0.3, 1);
+			const progress = Math.min(window.scrollY / progressRange, 1);
+			const currentSaturation = saturationStart + (saturationEnd - saturationStart) * progress;
+			const currentBlur = blurStart + (blurEnd - blurStart) * progress;
+
+			headerElement.style.setProperty('--filter-saturation-current', `${currentSaturation}`);
+			headerElement.style.setProperty('--filter-blur-current', `${currentBlur}rem`);
+		};
+
+		window.addEventListener('scroll', update, { passive: true });
+		window.addEventListener('resize', update);
+		update();
+
+		return () => {
+			window.removeEventListener('scroll', update);
+			window.removeEventListener('resize', update);
+			headerElement.classList.remove('safari-blur-fallback');
+			headerElement.style.removeProperty('--filter-saturation-current');
+			headerElement.style.removeProperty('--filter-blur-current');
+		};
+	};
+
 	onMount(async () => {
 		await loadScrollTimelinePolyfillIfNeeded();
+
+		if (isSafari) {
+			return applySafariBackdropFallback();
+		}
+
 		if (isFirefox) {
 			applyScrollAnimation();
 		}
@@ -74,8 +121,10 @@
 		--divider-size: 2px;
 		--filter-blur-end: 1.5rem;
 		--filter-blur-start: 0;
+		--filter-blur-current: var(--filter-blur-end);
 		--filter-saturation-end: 1.2;
 		--filter-saturation-start: 1;
+		--filter-saturation-current: var(--filter-saturation-end);
 		--header-size: 4rem;
 		--header-size-end: calc(var(--header-size));
 		--header-size-start: calc(var(--header-size) * 2);
@@ -90,6 +139,13 @@
 		top: 0;
 		will-change: height;
 		z-index: 1;
+	}
+
+	:global(header.safari-blur-fallback) {
+		-webkit-backdrop-filter: saturate(var(--filter-saturation-current))
+			blur(var(--filter-blur-current));
+		backdrop-filter: saturate(var(--filter-saturation-current)) blur(var(--filter-blur-current));
+		animation-name: header-size-only;
 	}
 
 	.divider {
