@@ -3,9 +3,9 @@ name: svg-grabber
 url: https://svg-grabber.com
 date: '2018-02-05'
 tags:
-- Side Project
-- Tooling
-- Front-end Development
+  - Side Project
+  - Tooling
+  - Front-end Development
 description: A Google Chrome extension I designed and developed to quickly preview and get all the svg assets from any website.
 published: true
 links:
