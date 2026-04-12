@@ -3,11 +3,23 @@
 		@keyframes header-size-and-opacity {
 			from {
 				height: var(--header-size-start);
+				-webkit-backdrop-filter: saturate(var(--filter-saturation-start))
+					blur(var(--filter-blur-start));
 				backdrop-filter: saturate(var(--filter-saturation-start)) blur(var(--filter-blur-start));
 			}
 			to {
 				height: var(--header-size-end);
+				-webkit-backdrop-filter: saturate(var(--filter-saturation-end)) blur(var(--filter-blur-end));
 				backdrop-filter: saturate(var(--filter-saturation-end)) blur(var(--filter-blur-end));
+			}
+		}
+
+		@keyframes header-size-only {
+			from {
+				height: var(--header-size-start);
+			}
+			to {
+				height: var(--header-size-end);
 			}
 		}
 
