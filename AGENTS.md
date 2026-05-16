@@ -19,7 +19,7 @@ Guidance for autonomous coding agents working in this repository.
 
 ## Tooling Baseline
 
-- Package manager: npm (`package-lock.json` exists).
+- Package manager: pnpm (`pnpm-lock.yaml` exists).
 - ESM project (`"type": "module"` in `package.json`).
 - Engine policy: `engine-strict=true` in `.npmrc`.
 - Linting: ESLint (`eslint:recommended`, `plugin:svelte/recommended`, `prettier`).
@@ -29,22 +29,22 @@ Guidance for autonomous coding agents working in this repository.
 ## Core Commands
 
 ```bash
-npm install
-npm run dev
-npm run dev:m
-npm run build
-npm run preview
-npm run preview:m
-npm run check
-npm run check:watch
-npm run lint
-npm run format
+pnpm install
+pnpm run dev
+pnpm run dev:m
+pnpm run build
+pnpm run preview
+pnpm run preview:m
+pnpm run check
+pnpm run check:watch
+pnpm run lint
+pnpm run format
 ```
 
 ## Build/Lint/Test Guidance
 
-- Primary quality gate today: `npm run check && npm run lint`.
-- Build validation: `npm run build` for production-impacting changes.
+- Primary quality gate today: `pnpm run check && pnpm run lint`.
+- Build validation: `pnpm run build` for production-impacting changes.
 - No dedicated test script currently exists in `package.json`.
 - No Vitest/Playwright config files are present.
 - No `*.test.*` or `*.spec.*` files are present in this repo.
@@ -148,8 +148,8 @@ npx playwright test tests/example.spec.ts
 
 ## Pre-Submission Checklist
 
-- Formatting is clean (`npm run format` or targeted Prettier command).
-- Lint passes (`npm run lint`).
-- Static checks pass (`npm run check`).
-- Build passes when change impacts runtime output (`npm run build`).
+- Formatting is clean (`pnpm run format` or targeted Prettier command).
+- Lint passes (`pnpm run lint`).
+- Static checks pass (`pnpm run check`).
+- Build passes when change impacts runtime output (`pnpm run build`).
 - Any HTML injection path is sanitized.
