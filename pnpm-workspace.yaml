@@ -1,0 +1,4 @@
+allowBuilds:
+  svelte-preprocess: true
+minimumReleaseAgeExclude:
+  - cookie@0.7.0

@@ -9,68 +9,68 @@ var __defProp = Object.defineProperty,
 	class e {}
 	class t extends e {
 		constructor(e) {
-			super(), __publicField(this, 'value'), (this.value = e);
+			(super(), __publicField(this, 'value'), (this.value = e));
 		}
 	}
 	class n extends e {
 		constructor(e) {
-			super(), __publicField(this, 'value'), (this.value = e);
+			(super(), __publicField(this, 'value'), (this.value = e));
 		}
 	}
 	class i extends e {
 		constructor(e) {
-			super(), __publicField(this, 'value'), (this.value = e);
+			(super(), __publicField(this, 'value'), (this.value = e));
 		}
 	}
 	class r extends e {
 		constructor(e, t = 'unrestricted') {
-			super(),
+			(super(),
 				__publicField(this, 'type'),
 				__publicField(this, 'value'),
 				(this.value = e),
-				(this.type = t);
+				(this.type = t));
 		}
 	}
 	class o extends e {
 		constructor(e) {
-			super(), __publicField(this, 'value'), (this.value = e);
+			(super(), __publicField(this, 'value'), (this.value = e));
 		}
 	}
 	class s extends e {}
 	class a extends e {
 		constructor(e) {
-			super(), __publicField(this, 'value'), (this.value = e);
+			(super(), __publicField(this, 'value'), (this.value = e));
 		}
 	}
 	class l extends e {}
 	class c extends e {
 		constructor(e) {
-			super(), __publicField(this, 'value'), (this.value = e);
+			(super(), __publicField(this, 'value'), (this.value = e));
 		}
 	}
 	class u extends e {
 		constructor(e, t = 'integer') {
-			super(),
+			(super(),
 				__publicField(this, 'value'),
 				__publicField(this, 'type'),
 				(this.value = e),
-				(this.type = t);
+				(this.type = t));
 		}
 	}
 	class m extends e {
 		constructor(e) {
-			super(), __publicField(this, 'value'), (this.value = e);
+			(super(), __publicField(this, 'value'), (this.value = e));
 		}
 	}
 	class f extends e {
 		constructor(e, t, n) {
-			super(),
+			(super(),
 				__publicField(this, 'value'),
 				__publicField(this, 'type'),
 				__publicField(this, 'unit'),
 				(this.value = e),
 				(this.type = t),
-				(this.unit = n);
+				(this.unit = n));
 		}
 	}
 	class h extends e {}
@@ -87,11 +87,11 @@ var __defProp = Object.defineProperty,
 	class C extends e {}
 	class E {
 		constructor(e) {
-			__publicField(this, 'input'), __publicField(this, 'index', 0), (this.input = e);
+			(__publicField(this, 'input'), __publicField(this, 'index', 0), (this.input = e));
 		}
 		consume() {
 			const e = this.input.codePointAt(this.index);
-			return void 0 !== e && (this.index += String.fromCodePoint(e).length), e;
+			return (void 0 !== e && (this.index += String.fromCodePoint(e).length), e);
 		}
 		reconsume(e) {
 			void 0 !== e && (this.index -= String.fromCodePoint(e).length);
@@ -101,7 +101,7 @@ var __defProp = Object.defineProperty,
 			let t = this.index;
 			for (let n = 0; n < 3 && t < this.input.length; n++) {
 				const n = this.input.codePointAt(t);
-				e.push(n), (t += String.fromCodePoint(n).length);
+				(e.push(n), (t += String.fromCodePoint(n).length));
 			}
 			return e;
 		}
@@ -168,7 +168,7 @@ var __defProp = Object.defineProperty,
 			const i = e.consume();
 			if (i === t) return n;
 			if (void 0 === i) return n;
-			if (10 === i) return e.reconsume(i), new s();
+			if (10 === i) return (e.reconsume(i), new s());
 			if (92 === i) {
 				const t = e.peek()[0];
 				void 0 === t || (k(t) ? e.consume() : (n.value += String.fromCodePoint(O(e))));
@@ -181,7 +181,7 @@ var __defProp = Object.defineProperty,
 			const n = e.consume();
 			if (N(n)) t += String.fromCodePoint(n);
 			else {
-				if (!V(...e.peek())) return e.reconsume(n), t;
+				if (!V(...e.peek())) return (e.reconsume(n), t);
 				t += String.fromCodePoint(O(e));
 			}
 		}
@@ -193,7 +193,6 @@ var __defProp = Object.defineProperty,
 			for (
 				[43, 45].includes(e.peek()[0]) && (n += String.fromCodePoint(e.consume()));
 				P(...e.peek());
-
 			)
 				n += String.fromCodePoint(e.consume());
 			if (46 === e.peek()[0] && P(e.peek()[1]))
@@ -240,9 +239,9 @@ var __defProp = Object.defineProperty,
 									? (e.consume(), t)
 									: (F(e), new l());
 							}
-							if ([34, 39, 40].includes(n) || A(n)) return F(e), new l();
+							if ([34, 39, 40].includes(n) || A(n)) return (F(e), new l());
 							if (92 === n) {
-								if (!V(...e.peek())) return F(e), new l();
+								if (!V(...e.peek())) return (F(e), new l());
 								t.value += O(e);
 							} else t.value += String.fromCodePoint(n);
 						}
@@ -261,7 +260,7 @@ var __defProp = Object.defineProperty,
 		if (35 === t) {
 			if (N(n[0]) || V(...n)) {
 				const t = new r();
-				return _(...n) && (t.type = 'id'), (t.value = j(e)), t;
+				return (_(...n) && (t.type = 'id'), (t.value = j(e)), t);
 			}
 			return new c(String.fromCodePoint(t));
 		}
@@ -473,7 +472,7 @@ var __defProp = Object.defineProperty,
 				},
 				n = [];
 			for (const i of e.values) i instanceof CSSMathSum ? n.push(...i.values) : n.push(i);
-			return (n = t(n)), 1 === n.length ? n[0] : new CSSMathSum(...n);
+			return ((n = t(n)), 1 === n.length ? n[0] : new CSSMathSum(...n));
 		}
 		if (e instanceof CSSMathProduct) {
 			let t = [];
@@ -644,7 +643,7 @@ var __defProp = Object.defineProperty,
 			const n = t[0],
 				i = {};
 			for (const [e, r] of Object.entries(n[1])) i[e] = -1 * r;
-			return (t[0] = [1 / n[0], i]), t;
+			return ((t[0] = [1 / n[0], i]), t);
 		}
 		if (e instanceof CSSMathProduct) {
 			let t = [[1, {}]];
@@ -697,18 +696,18 @@ var __defProp = Object.defineProperty,
 	}
 	class CSSFunction {
 		constructor(e, t) {
-			__publicField(this, 'name'),
+			(__publicField(this, 'name'),
 				__publicField(this, 'values'),
 				(this.name = e),
-				(this.values = t);
+				(this.values = t));
 		}
 	}
 	class CSSSimpleBlock {
 		constructor(e, t) {
-			__publicField(this, 'value'),
+			(__publicField(this, 'value'),
 				__publicField(this, 'associatedToken'),
 				(this.value = e),
-				(this.associatedToken = t);
+				(this.associatedToken = t));
 		}
 	}
 	function le(e) {
@@ -741,7 +740,7 @@ var __defProp = Object.defineProperty,
 						const t = e.shift();
 						if (t instanceof n) return i;
 						if (void 0 === t) return i;
-						e.unshift(t), i.value.push(ce(e));
+						(e.unshift(t), i.value.push(ce(e)));
 					}
 				})(e, t)
 			: t instanceof n
@@ -751,7 +750,7 @@ var __defProp = Object.defineProperty,
 							const e = t.shift();
 							if (e instanceof b) return n;
 							if (void 0 === e) return n;
-							t.unshift(e), n.values.push(ce(t));
+							(t.unshift(e), n.values.push(ce(t)));
 						}
 					})(t, e)
 				: t;
@@ -909,7 +908,7 @@ var __defProp = Object.defineProperty,
 		}
 		class CSSMathValue extends CSSNumericValue2 {
 			constructor(n, i, r, o) {
-				super(), e.set(this, { values: t(n), operator: i, name: r || i, delimiter: o || ', ' });
+				(super(), e.set(this, { values: t(n), operator: i, name: r || i, delimiter: o || ', ' }));
 			}
 			get operator() {
 				return e.get(this).operator;
@@ -927,7 +926,7 @@ var __defProp = Object.defineProperty,
 			CSSMathValue: CSSMathValue,
 			CSSUnitValue: class extends CSSNumericValue2 {
 				constructor(t, n) {
-					super(), e.set(this, { value: t, unit: n });
+					(super(), e.set(this, { value: t, unit: n }));
 				}
 				get value() {
 					return e.get(this).value;
@@ -1085,7 +1084,7 @@ var __defProp = Object.defineProperty,
 		const n = Te.get(e).sourceMeasurements,
 			i = getComputedStyle(e);
 		let r = n.scrollTop;
-		return 'x' === q(t, i) && (r = Math.abs(n.scrollLeft)), r;
+		return ('x' === q(t, i) && (r = Math.abs(n.scrollLeft)), r);
 	}
 	function Ce(e, t) {
 		const n = Q(e, t);
@@ -1134,8 +1133,8 @@ var __defProp = Object.defineProperty,
 			i = 0,
 			r = t;
 		const o = e.offsetParent;
-		for (; r && r != o; ) (i += r.offsetLeft), (n += r.offsetTop), (r = r.offsetParent);
-		(i -= e.offsetLeft + e.clientLeft), (n -= e.offsetTop + e.clientTop);
+		for (; r && r != o; ) ((i += r.offsetLeft), (n += r.offsetTop), (r = r.offsetParent));
+		((i -= e.offsetLeft + e.clientLeft), (n -= e.offsetTop + e.clientTop));
 		const s = getComputedStyle(t);
 		return {
 			top: n,
@@ -1180,7 +1179,7 @@ var __defProp = Object.defineProperty,
 			if (((n.source = t), t)) {
 				let i = Te.get(t);
 				if (!i) {
-					(i = { timelineRefs: new Set(), sourceMeasurements: Me(t) }), Te.set(t, i);
+					((i = { timelineRefs: new Set(), sourceMeasurements: Me(t) }), Te.set(t, i));
 					const e = new ResizeObserver((e) => {
 						for (const t of e) Ie(n.source);
 					});
@@ -1191,17 +1190,17 @@ var __defProp = Object.defineProperty,
 					});
 					r.observe(t, { attributes: !0, attributeFilter: ['style', 'class'] });
 					const o = () => {
-						(i.sourceMeasurements.scrollLeft = t.scrollLeft),
-							(i.sourceMeasurements.scrollTop = t.scrollTop);
+						((i.sourceMeasurements.scrollLeft = t.scrollLeft),
+							(i.sourceMeasurements.scrollTop = t.scrollTop));
 						for (const e of i.timelineRefs) {
 							const t = e.deref();
 							t && be(t);
 						}
 					};
-					we(t).addEventListener('scroll', o),
+					(we(t).addEventListener('scroll', o),
 						(i.disconnect = () => {
-							e.disconnect(), r.disconnect(), we(t).removeEventListener('scroll', o);
-						});
+							(e.disconnect(), r.disconnect(), we(t).removeEventListener('scroll', o));
+						}));
 				}
 				i.timelineRefs.add(new WeakRef(e));
 			}
@@ -1214,10 +1213,10 @@ var __defProp = Object.defineProperty,
 	function Ae(e, t, n) {
 		let i = ve.get(e).animations;
 		for (let r = 0; r < i.length; r++) if (i[r].animation == t) return;
-		i.push({ animation: t, tickAnimation: n }),
+		(i.push({ animation: t, tickAnimation: n }),
 			queueMicrotask(() => {
 				be(e);
-			});
+			}));
 	}
 	class ScrollTimeline {
 		constructor(e) {
@@ -1241,14 +1240,14 @@ var __defProp = Object.defineProperty,
 			be(this);
 		}
 		set source(e) {
-			Re(this, e), be(this);
+			(Re(this, e), be(this));
 		}
 		get source() {
 			return ve.get(this).source;
 		}
 		set axis(e) {
 			if (!ke(e)) throw TypeError('Invalid axis');
-			(ve.get(this).axis = e), be(this);
+			((ve.get(this).axis = e), be(this));
 		}
 		get axis() {
 			return ve.get(this).axis;
@@ -1417,22 +1416,22 @@ var __defProp = Object.defineProperty,
 		const v = s > l.containerSize - c.start - c.end;
 		switch (e) {
 			case 'cover':
-				(S = u), (g = m);
+				((S = u), (g = m));
 				break;
 			case 'contain':
-				(S = p), (g = d);
+				((S = p), (g = d));
 				break;
 			case 'entry':
-				(S = u), (g = p);
+				((S = u), (g = p));
 				break;
 			case 'exit':
-				(S = d), (g = m);
+				((S = d), (g = m));
 				break;
 			case 'entry-crossing':
-				(S = u), (g = v ? d : p);
+				((S = u), (g = v ? d : p));
 				break;
 			case 'exit-crossing':
-				(S = v ? p : d), (g = m);
+				((S = v ? p : d), (g = m));
 		}
 		return { start: S, end: g };
 	}
@@ -1507,10 +1506,10 @@ var __defProp = Object.defineProperty,
 					Ie(t.source);
 				}).observe(t.subject, { attributes: !0, attributeFilter: ['class', 'style'] });
 			}
-			Ee(this), (t.subjectMeasurements = Pe(t.source, t.subject)), be(this);
+			(Ee(this), (t.subjectMeasurements = Pe(t.source, t.subject)), be(this));
 		}
 		get source() {
-			return Ee(this), ve.get(this).source;
+			return (Ee(this), ve.get(this).source);
 		}
 		set source(e) {
 			throw new Error('Cannot set the source of a view timeline');
@@ -1543,21 +1542,21 @@ var __defProp = Object.defineProperty,
 		Ge = window.Animation;
 	class Qe {
 		constructor() {
-			(this.state = 'pending'),
+			((this.state = 'pending'),
 				(this.nativeResolve = this.nativeReject = null),
 				(this.promise = new Promise((e, t) => {
-					(this.nativeResolve = e), (this.nativeReject = t);
-				}));
+					((this.nativeResolve = e), (this.nativeReject = t));
+				})));
 		}
 		resolve(e) {
-			(this.state = 'resolved'), this.nativeResolve(e);
+			((this.state = 'resolved'), this.nativeResolve(e));
 		}
 		reject(e) {
-			(this.state = 'rejected'), this.promise.catch(() => {}), this.nativeReject(e);
+			((this.state = 'rejected'), this.promise.catch(() => {}), this.nativeReject(e));
 		}
 	}
 	function Xe(e) {
-		(e.readyPromise = new Qe()),
+		((e.readyPromise = new Qe()),
 			requestAnimationFrame(() => {
 				var t;
 				null !== ((null == (t = e.timeline) ? void 0 : t.currentTime) ?? null) &&
@@ -1565,7 +1564,7 @@ var __defProp = Object.defineProperty,
 					'play' !== e.pendingTask || (null === e.startTime && null === e.holdTime)
 						? 'pause' === e.pendingTask && tt(e)
 						: et(e));
-			});
+			}));
 	}
 	function Ye() {
 		return new DOMException('The user aborted a request', 'AbortError');
@@ -1608,24 +1607,24 @@ var __defProp = Object.defineProperty,
 	function et(e) {
 		const t = Ze(e, e.timeline.currentTime);
 		if (null != e.holdTime)
-			rt(e),
+			(rt(e),
 				0 == e.animation.playbackRate
 					? (e.startTime = t)
-					: ((e.startTime = t - e.holdTime / e.animation.playbackRate), (e.holdTime = null));
+					: ((e.startTime = t - e.holdTime / e.animation.playbackRate), (e.holdTime = null)));
 		else if (null !== e.startTime && null !== e.pendingPlaybackRate) {
 			const n = (t - e.startTime) * e.animation.playbackRate;
 			rt(e);
 			const i = e.animation.playbackRate;
 			0 == i ? ((e.holdTime = null), (e.startTime = t)) : (e.startTime = t - n / i);
 		}
-		e.readyPromise && 'pending' == e.readyPromise.state && e.readyPromise.resolve(e.proxy),
+		(e.readyPromise && 'pending' == e.readyPromise.state && e.readyPromise.resolve(e.proxy),
 			st(e, !1, !1),
 			lt(e),
-			(e.pendingTask = null);
+			(e.pendingTask = null));
 	}
 	function tt(e) {
 		const t = Ze(e, e.timeline.currentTime);
-		null != e.startTime &&
+		(null != e.startTime &&
 			null == e.holdTime &&
 			(e.holdTime = (t - e.startTime) * e.animation.playbackRate),
 			rt(e),
@@ -1633,16 +1632,16 @@ var __defProp = Object.defineProperty,
 			e.readyPromise.resolve(e.proxy),
 			st(e, !1, !1),
 			lt(e),
-			(e.pendingTask = null);
+			(e.pendingTask = null));
 	}
 	function nt(e) {
 		if (!e.finishedPromise || 'pending' != e.finishedPromise.state) return;
 		if ('finished' != e.proxy.playState) return;
-		e.finishedPromise.resolve(e.proxy), e.animation.pause();
+		(e.finishedPromise.resolve(e.proxy), e.animation.pause());
 		const t = new CustomEvent('finish', {
 			detail: { currentTime: e.proxy.currentTime, timelineTime: e.proxy.timeline.currentTime }
 		});
-		Object.defineProperty(t, 'currentTime', {
+		(Object.defineProperty(t, 'currentTime', {
 			get: function () {
 				return this.detail.currentTime;
 			}
@@ -1656,7 +1655,7 @@ var __defProp = Object.defineProperty,
 				queueMicrotask(() => {
 					e.animation.dispatchEvent(t);
 				});
-			});
+			}));
 	}
 	function it(e) {
 		return null !== e.pendingPlaybackRate ? e.pendingPlaybackRate : e.animation.playbackRate;
@@ -1671,7 +1670,7 @@ var __defProp = Object.defineProperty,
 		if (null === t) return null;
 		if (null === e.startTime) return null;
 		let n = (t - e.startTime) * e.animation.playbackRate;
-		return -0 == n && (n = 0), n;
+		return (-0 == n && (n = 0), n);
 	}
 	function st(e, t, n) {
 		if (!e.timeline) return;
@@ -1694,7 +1693,7 @@ var __defProp = Object.defineProperty,
 							})(e, e.holdTime)),
 						(e.holdTime = null));
 		}
-		lt(e), (e.previousCurrentTime = Ze(e, e.proxy.currentTime));
+		(lt(e), (e.previousCurrentTime = Ze(e, e.proxy.currentTime)));
 		'finished' == e.proxy.playState
 			? (e.finishedPromise || (e.finishedPromise = new Qe()),
 				'pending' == e.finishedPromise.state &&
@@ -1735,7 +1734,7 @@ var __defProp = Object.defineProperty,
 		const n = 'paused' == e.proxy.playState && e.proxy.pending;
 		let i = !1,
 			r = Ze(e, e.proxy.currentTime);
-		0 == it(e) && null == r && (e.holdTime = 0),
+		(0 == it(e) && null == r && (e.holdTime = 0),
 			null == r && (e.autoAlignStartTime = !0),
 			('finished' === e.proxy.playState || n) &&
 				((e.holdTime = null), (e.startTime = null), (e.autoAlignStartTime = !0)),
@@ -1747,7 +1746,7 @@ var __defProp = Object.defineProperty,
 				e.readyPromise || Xe(e),
 				(e.pendingTask = 'play'),
 				Ae(e.timeline, e.animation, mt.bind(e.proxy)),
-				st(e, !1, !1));
+				st(e, !1, !1)));
 	}
 	function mt(e) {
 		const t = ht.get(this);
@@ -1758,17 +1757,17 @@ var __defProp = Object.defineProperty,
 				'idle' != t.animation.playState &&
 				t.animation.cancel()
 			);
-		dt(t),
+		(dt(t),
 			t.pendingTask &&
 				requestAnimationFrame(() => {
 					'play' !== t.pendingTask || (null === t.startTime && null === t.holdTime)
 						? 'pause' === t.pendingTask && tt(t)
 						: et(t);
-				});
+				}));
 		const n = this.playState;
 		if ('running' == n || 'finished' == n) {
 			const n = Ze(t, e);
-			ct(t, (n - Ze(t, this.startTime)) * this.playbackRate), st(t, !1, !1);
+			(ct(t, (n - Ze(t, this.startTime)) * this.playbackRate), st(t, !1, !1));
 		}
 	}
 	function ft(e) {
@@ -1800,9 +1799,9 @@ var __defProp = Object.defineProperty,
 					})(e)
 			);
 		} catch (o) {
-			(n = CSS.percent(0)),
+			((n = CSS.percent(0)),
 				(e.animationRange.start = 'normal'),
-				console.warn('Exception when calculating start offset', o);
+				console.warn('Exception when calculating start offset', o));
 		}
 		try {
 			i = CSS.percent(
@@ -1815,13 +1814,13 @@ var __defProp = Object.defineProperty,
 						})(e))
 			);
 		} catch (o) {
-			(i = CSS.percent(100)),
+			((i = CSS.percent(100)),
 				(e.animationRange.end = 'normal'),
-				console.warn('Exception when calculating end offset', o);
+				console.warn('Exception when calculating end offset', o));
 		}
 		e.rangeDuration = i.value - n.value;
 		const r = it(e);
-		(e.startTime = Ze(e, r >= 0 ? n : i)), (e.holdTime = null), e.rangeDuration !== t && ft(e);
+		((e.startTime = Ze(e, r >= 0 ? n : i)), (e.holdTime = null), e.rangeDuration !== t && ft(e));
 	}
 	function St(e) {
 		throw new Error('Unsupported timeline class');
@@ -1869,7 +1868,7 @@ var __defProp = Object.defineProperty,
 		if (e instanceof ScrollTimeline) {
 			const e = t.split(' ');
 			if (2 != e.length) throw TypeError('Invalid time range or unsupported time range format.');
-			return (n.start = CSSNumericValue.parse(e[0])), (n.end = CSSNumericValue.parse(e[1])), n;
+			return ((n.start = CSSNumericValue.parse(e[0])), (n.end = CSSNumericValue.parse(e[1])), n);
 		}
 		St();
 	}
@@ -1879,7 +1878,7 @@ var __defProp = Object.defineProperty,
 			let e = 'cover',
 				i = 'start' === n ? CSS.percent(0) : CSS.percent(100);
 			if (t instanceof Object)
-				void 0 !== t.rangeName && (e = t.rangeName), void 0 !== t.offset && (i = t.offset);
+				(void 0 !== t.rangeName && (e = t.rangeName), void 0 !== t.offset && (i = t.offset));
 			else {
 				const n = B(t);
 				1 === n.length
@@ -1898,7 +1897,7 @@ var __defProp = Object.defineProperty,
 		constructor(e, t, n = {}) {
 			const i = t instanceof ScrollTimeline,
 				r = e instanceof Ge ? e : new Ge(e, i ? void 0 : t);
-			pt.set(r, this),
+			(pt.set(r, this),
 				ht.set(this, {
 					animation: r,
 					timeline: i ? t : void 0,
@@ -1917,7 +1916,7 @@ var __defProp = Object.defineProperty,
 					effect: null,
 					animationRange: i ? Tt(t, n['animation-range']) : null,
 					proxy: this
-				});
+				}));
 		}
 		get effect() {
 			const e = ht.get(this);
@@ -1932,13 +1931,13 @@ var __defProp = Object.defineProperty,
 										const i = n.apply(t);
 										if (e.timeline) {
 											const t = e.duration ?? 100;
-											(i.localTime = Je(e, i.localTime)),
+											((i.localTime = Je(e, i.localTime)),
 												(i.endTime = Je(e, i.endTime)),
-												(i.activeDuration = Je(e, i.activeDuration));
+												(i.activeDuration = Je(e, i.activeDuration)));
 											const n = at(e),
 												r = i.iterations ? (n - i.delay - i.endDelay) / i.iterations : 0;
-											(i.duration = n ? CSS.percent((t * r) / n) : CSS.percent(0)),
-												void 0 === e.timeline.currentTime && (i.localTime = null);
+											((i.duration = n ? CSS.percent((t * r) / n) : CSS.percent(0)),
+												void 0 === e.timeline.currentTime && (i.localTime = null));
 										}
 										return i;
 									}
@@ -1984,7 +1983,7 @@ var __defProp = Object.defineProperty,
 													);
 												void 0 !== n && 'auto' !== n && (e.autoDurationEffect = null);
 											}
-											e.specifiedTiming && n.apply(t, [e.specifiedTiming]), n.apply(t, r), ft(e);
+											(e.specifiedTiming && n.apply(t, [e.specifiedTiming]), n.apply(t, r), ft(e));
 										}
 									}
 								},
@@ -1994,7 +1993,7 @@ var __defProp = Object.defineProperty,
 										return 'function' == typeof i ? i.bind(t) : i;
 									},
 									set: function (e, t, n) {
-										return (e[t] = n), !0;
+										return ((e[t] = n), !0);
 									}
 								});
 							return (
@@ -2009,7 +2008,7 @@ var __defProp = Object.defineProperty,
 		}
 		set effect(e) {
 			const t = ht.get(this);
-			(t.animation.effect = e), (t.effect = null), (t.autoDurationEffect = null);
+			((t.animation.effect = e), (t.effect = null), (t.autoDurationEffect = null));
 		}
 		get timeline() {
 			const e = ht.get(this);
@@ -2066,14 +2065,14 @@ var __defProp = Object.defineProperty,
 			t.autoAlignStartTime = !1;
 			null == Ze(t, t.timeline.currentTime) && null != t.startTime && ((t.holdTime = null), lt(t));
 			const n = Ze(t, this.currentTime);
-			rt(t),
+			(rt(t),
 				(t.startTime = e),
 				null !== t.startTime && 0 != t.animation.playbackRate
 					? (t.holdTime = null)
 					: (t.holdTime = n),
 				t.pendingTask && ((t.pendingTask = null), t.readyPromise.resolve(this)),
 				st(t, !0, !1),
-				lt(t);
+				lt(t));
 		}
 		get currentTime() {
 			const e = ht.get(this);
@@ -2088,7 +2087,7 @@ var __defProp = Object.defineProperty,
 			t.timeline
 				? (!(function (e, t) {
 						if (null == t && null !== e.currentTime) throw new TypeError();
-						(t = Ze(e, t)),
+						((t = Ze(e, t)),
 							(e.autoAlignStartTime = !1),
 							null !== e.holdTime ||
 							null === e.startTime ||
@@ -2097,7 +2096,7 @@ var __defProp = Object.defineProperty,
 								? (e.holdTime = t)
 								: (e.startTime = Ze(e, e.timeline.currentTime) - t / e.animation.playbackRate),
 							'inactive' === e.timeline.phase && (e.startTime = null),
-							(e.previousCurrentTime = null);
+							(e.previousCurrentTime = null));
 					})(t, e),
 					'pause' == t.pendingTask &&
 						((t.holdTime = Ze(t, e)),
@@ -2116,7 +2115,7 @@ var __defProp = Object.defineProperty,
 			if (!t.timeline) return void (t.animation.playbackRate = e);
 			t.pendingPlaybackRate = null;
 			const n = this.currentTime;
-			(t.animation.playbackRate = e), null !== n && (this.currentTime = n);
+			((t.animation.playbackRate = e), null !== n && (this.currentTime = n));
 		}
 		get playState() {
 			const e = ht.get(this);
@@ -2139,7 +2138,7 @@ var __defProp = Object.defineProperty,
 			const t = ht.get(this);
 			if (!t.timeline) return (t.animation.rangeStart = e);
 			if (t.timeline instanceof ScrollTimeline) {
-				(t.animationRange.start = yt(t.timeline, e, 'start')), dt(t), lt(t);
+				((t.animationRange.start = yt(t.timeline, e, 'start')), dt(t), lt(t));
 			}
 		}
 		get rangeEnd() {
@@ -2150,7 +2149,7 @@ var __defProp = Object.defineProperty,
 			const t = ht.get(this);
 			if (!t.timeline) return (t.animation.rangeEnd = e);
 			if (t.timeline instanceof ScrollTimeline) {
-				(t.animationRange.end = yt(t.timeline, e, 'end')), dt(t), lt(t);
+				((t.animationRange.end = yt(t.timeline, e, 'end')), dt(t), lt(t));
 			}
 		}
 		get replaceState() {
@@ -2181,14 +2180,14 @@ var __defProp = Object.defineProperty,
 			const i = t < 0 ? 0 : n;
 			this.currentTime = Je(e, i);
 			const r = Ze(e, e.timeline.currentTime);
-			null === e.startTime && null !== r && (e.startTime = r - i / e.animation.playbackRate),
+			(null === e.startTime && null !== r && (e.startTime = r - i / e.animation.playbackRate),
 				'pause' == e.pendingTask &&
 					null !== e.startTime &&
 					((e.holdTime = null), (e.pendingTask = null), e.readyPromise.resolve(this)),
 				'play' == e.pendingTask &&
 					null !== e.startTime &&
 					((e.pendingTask = null), e.readyPromise.resolve(this)),
-				st(e, !0, !0);
+				st(e, !0, !0));
 		}
 		play() {
 			const e = ht.get(this);
@@ -2212,13 +2211,13 @@ var __defProp = Object.defineProperty,
 				i = at(e) == 1 / 0,
 				r = 0 != t && (t < 0 || n > 0 || !i);
 			if (!e.timeline || !r)
-				return r && (e.pendingPlaybackRate = -it(e)), void e.animation.reverse();
+				return (r && (e.pendingPlaybackRate = -it(e)), void e.animation.reverse());
 			if ('inactive' == e.timeline.phase)
 				throw new DOMException(
 					'Cannot reverse an animation with no active timeline',
 					'InvalidStateError'
 				);
-			this.updatePlaybackRate(-t), ut(e);
+			(this.updatePlaybackRate(-t), ut(e));
 		}
 		updatePlaybackRate(e) {
 			const t = ht.get(this);
@@ -2233,10 +2232,10 @@ var __defProp = Object.defineProperty,
 					case 'finished':
 						const n = Ze(t, t.timeline.currentTime),
 							i = null !== n ? (n - t.startTime) * t.animation.playbackRate : null;
-						(t.startTime = 0 == e ? n : null != n && null != i ? (n - i) / e : null),
+						((t.startTime = 0 == e ? n : null != n && null != i ? (n - i) / e : null),
 							rt(t),
 							st(t, !1, !1),
-							lt(t);
+							lt(t));
 						break;
 					default:
 						ut(t);
@@ -2321,11 +2320,11 @@ var __defProp = Object.defineProperty,
 			r = new wt(i, n);
 		if (n instanceof ScrollTimeline) {
 			i.pause();
-			(ht.get(r).animationRange = {
+			((ht.get(r).animationRange = {
 				start: yt(n, t.rangeStart, 'start'),
 				end: yt(n, t.rangeEnd, 'end')
 			}),
-				r.play();
+				r.play());
 		}
 		return r;
 	}
@@ -2365,23 +2364,22 @@ var __defProp = Object.defineProperty,
 		Pt = ['nearest', 'root', 'self'];
 	const It = new (class {
 		constructor() {
-			(this.cssRulesWithTimelineName = []),
+			((this.cssRulesWithTimelineName = []),
 				(this.nextAnonymousTimelineNameIndex = 0),
 				(this.anonymousScrollTimelineOptions = new Map()),
 				(this.anonymousViewTimelineOptions = new Map()),
 				(this.sourceSelectorToScrollTimeline = []),
 				(this.subjectSelectorToViewTimeline = []),
-				(this.keyframeNamesSelectors = new Map());
+				(this.keyframeNamesSelectors = new Map()));
 		}
 		transpileStyleSheet(e, t, n) {
 			const i = { sheetSrc: e, index: 0, name: n };
 			for (
 				;
 				i.index < i.sheetSrc.length && (this.eatWhitespace(i), !(i.index >= i.sheetSrc.length));
-
 			) {
 				if (this.lookAhead('/*', i)) {
-					for (; this.lookAhead('/*', i); ) this.eatComment(i), this.eatWhitespace(i);
+					for (; this.lookAhead('/*', i); ) (this.eatComment(i), this.eatWhitespace(i));
 					continue;
 				}
 				const e = this.parseQualifiedRule(i);
@@ -2475,22 +2473,22 @@ var __defProp = Object.defineProperty,
 			let o = [],
 				s = [],
 				a = !1;
-			i && (o = this.extractScrollTimelineNames(e.block.contents)),
+			(i && (o = this.extractScrollTimelineNames(e.block.contents)),
 				n && (s = this.extractMatches(e.block.contents, kt.ANIMATION_NAME)),
 				(i && n) ||
 					(r &&
 						this.extractMatches(e.block.contents, kt.ANIMATION).forEach((t) => {
 							const n = this.extractAnimationName(t);
-							n && i && s.push(n),
+							(n && i && s.push(n),
 								i &&
 									(this.hasDuration(t) ||
 										(this.hasAutoDuration(t) &&
 											(e.block.contents = e.block.contents.replace('auto', '    ')),
 										(e.block.contents = e.block.contents.replace(t, ' 1s ' + t)),
-										(a = !0)));
+										(a = !0))));
 						}),
 					a && this.replacePart(e.block.startIndex, e.block.endIndex, e.block.contents, t)),
-				this.saveRelationInList(e, o, s);
+				this.saveRelationInList(e, o, s));
 		}
 		saveSourceSelectorToScrollTimeline(e) {
 			const t = e.block.contents.includes('scroll-timeline:'),
@@ -2503,13 +2501,13 @@ var __defProp = Object.defineProperty,
 				for (const n of t) {
 					const t = this.split(n);
 					let i = { selector: e.selector, name: '' };
-					1 == t.length
+					(1 == t.length
 						? (i.name = t[0])
 						: 2 == t.length &&
 							(Mt.includes(t[0])
 								? ((i.axis = t[0]), (i.name = t[1]))
 								: ((i.axis = t[1]), (i.name = t[0]))),
-						r.push(i);
+						r.push(i));
 				}
 			}
 			if (n) {
@@ -2542,13 +2540,13 @@ var __defProp = Object.defineProperty,
 				for (let n of t) {
 					const t = this.split(n);
 					let i = { selector: e.selector, name: '', inset: null };
-					1 == t.length
+					(1 == t.length
 						? (i.name = t[0])
 						: 2 == t.length &&
 							(Mt.includes(t[0])
 								? ((i.axis = t[0]), (i.name = t[1]))
 								: ((i.axis = t[1]), (i.name = t[0]))),
-						o.push(i);
+						o.push(i));
 				}
 			}
 			if (n) {
@@ -2568,13 +2566,13 @@ var __defProp = Object.defineProperty,
 					throw new Error('Invalid axis');
 			}
 			for (let l = 0; l < o.length; l++)
-				s.length && (o[l].inset = s[l % o.length]), a.length && (o[l].axis = a[l % o.length]);
+				(s.length && (o[l].inset = s[l % o.length]), a.length && (o[l].axis = a[l % o.length]));
 			this.subjectSelectorToViewTimeline.push(...o);
 		}
 		hasDuration(e) {
 			return (
 				e.split(' ').filter((e) => {
-					return (t = e), kt.TIME.exec(t);
+					return ((t = e), kt.TIME.exec(t));
 					var t;
 				}).length >= 1
 			);
@@ -2659,7 +2657,7 @@ var __defProp = Object.defineProperty,
 			kt.IDENTIFIER.lastIndex = e.index;
 			const t = kt.IDENTIFIER.exec(e.sheetSrc);
 			if (!t) throw this.parseError(e, 'Expected an identifier');
-			return (e.index += t[0].length), t[0];
+			return ((e.index += t[0].length), t[0]);
 		}
 		parseKeyframesAndSaveNameMapping(e, t) {
 			if (e.selector.startsWith('@keyframes')) {
@@ -2680,9 +2678,9 @@ var __defProp = Object.defineProperty,
 						i = -1;
 					const r = [];
 					for (let o = 0; o < e.length; o++)
-						'{' == e[o] ? t++ : '}' == e[o] && t--,
+						('{' == e[o] ? t++ : '}' == e[o] && t--,
 							1 == t && '{' != e[o] && '}' != e[o] && -1 == n && (n = o),
-							2 == t && '{' == e[o] && ((i = o), r.push({ start: n, end: i }), (n = i = -1));
+							2 == t && '{' == e[o] && ((i = o), r.push({ start: n, end: i }), (n = i = -1)));
 					return r;
 				})(i);
 			if (0 == r.length) return new Map();
@@ -2693,19 +2691,19 @@ var __defProp = Object.defineProperty,
 			for (let l = 0; l < r.length; l++) {
 				const e = i.substring(r[l].start, r[l].end);
 				let t = [];
-				e.split(',').forEach((e) => {
+				(e.split(',').forEach((e) => {
 					const i = e
 						.split(' ')
 						.map((e) => e.trim())
 						.filter((e) => '' != e)
 						.join(' ');
 					const r = o.size;
-					o.set(r, i), t.push(`${r}%`), n(i) && (s = !0);
+					(o.set(r, i), t.push(`${r}%`), n(i) && (s = !0));
 				}),
 					a.push(t.join(',')),
 					l == r.length - 1
 						? a.push(i.substring(r[l].end))
-						: a.push(i.substring(r[l].end, r[l + 1].start));
+						: a.push(i.substring(r[l].end, r[l + 1].start)));
 			}
 			return s
 				? ((e.block.contents = a.join('')),
@@ -2736,7 +2734,7 @@ var __defProp = Object.defineProperty,
 			}
 		}
 		eatComment(e) {
-			this.assertString(e, '/*'), this.eatUntil('*/', e, !0), this.assertString(e, '*/');
+			(this.assertString(e, '/*'), this.eatUntil('*/', e, !0), this.assertString(e, '*/'));
 		}
 		eatBlock(e) {
 			const t = e.index;
@@ -2850,7 +2848,7 @@ var __defProp = Object.defineProperty,
 			function e(e) {
 				if (0 === e.innerHTML.trim().length || 'aphrodite' in e.dataset) return;
 				let t = It.transpileStyleSheet(e.innerHTML, !0);
-				(t = It.transpileStyleSheet(t, !1)), (e.innerHTML = t);
+				((t = It.transpileStyleSheet(t, !1)), (e.innerHTML = t));
 			}
 			function t(e) {
 				('text/css' != e.type && 'stylesheet' != e.rel) ||
@@ -2866,16 +2864,16 @@ var __defProp = Object.defineProperty,
 							}
 						}));
 			}
-			new MutationObserver((n) => {
+			(new MutationObserver((n) => {
 				for (const i of n)
 					for (const n of i.addedNodes)
-						n instanceof HTMLStyleElement && e(n), n instanceof HTMLLinkElement && t(n);
+						(n instanceof HTMLStyleElement && e(n), n instanceof HTMLLinkElement && t(n));
 			}).observe(document.documentElement, { childList: !0, subtree: !0 }),
 				document.querySelectorAll('style').forEach((t) => e(t)),
-				document.querySelectorAll('link').forEach((e) => t(e));
+				document.querySelectorAll('link').forEach((e) => t(e)));
 		})();
 		const e = CSS.supports;
-		(CSS.supports = (t) => (
+		((CSS.supports = (t) => (
 			(t = t.replaceAll(
 				/(animation-timeline|scroll-timeline(-(name|axis))?|view-timeline(-(name|axis|inset))?|timeline-scope)\s*:/g,
 				'--supported-property:'
@@ -2892,10 +2890,10 @@ var __defProp = Object.defineProperty,
 							if (!n.timeline || t instanceof wt) t.timeline = n.timeline;
 							else {
 								const e = new wt(t, n.timeline, n.animOptions);
-								t.pause(), e.play();
+								(t.pause(), e.play());
 							}
 					});
-			});
+			}));
 	}
 	At()
 		? console.debug('Polyfill skipped because browser supports Scroll Timeline.')
