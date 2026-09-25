@@ -1,7 +1,7 @@
 {
 	"name": "juan-sk",
 	"version": "0.0.1",
-	"packageManager": "pnpm@11.1.2",
+	"packageManager": "pnpm@11.25.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev --open",
