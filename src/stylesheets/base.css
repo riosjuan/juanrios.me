@@ -6,6 +6,8 @@
 		font-size: 16px;
 		font-weight: var(--font-weight);
 		scroll-behavior: smooth;
+		/* Keep anchor targets and focused elements clear of the fixed header. */
+		scroll-padding-block-start: 4rem;
 	}
 
 	body {
