@@ -1,34 +1,15 @@
 @layer animations {
 	@media (prefers-reduced-motion: no-preference) {
-		@keyframes header-size-and-opacity {
+		/* Animate from these values to the element's own resting styles. */
+		@keyframes header-shrink {
 			from {
-				height: var(--header-size-start);
-				-webkit-backdrop-filter: saturate(var(--filter-saturation-start))
-					blur(var(--filter-blur-start));
-				backdrop-filter: saturate(var(--filter-saturation-start)) blur(var(--filter-blur-start));
-			}
-			to {
-				height: var(--header-size-end);
-				-webkit-backdrop-filter: saturate(var(--filter-saturation-end)) blur(var(--filter-blur-end));
-				backdrop-filter: saturate(var(--filter-saturation-end)) blur(var(--filter-blur-end));
+				block-size: var(--header-size-start);
 			}
 		}
 
-		@keyframes header-size-only {
+		@keyframes fade-in {
 			from {
-				height: var(--header-size-start);
-			}
-			to {
-				height: var(--header-size-end);
-			}
-		}
-
-		@keyframes divider-opacity {
-			from {
-				opacity: var(--divider-opacity-start);
-			}
-			to {
-				opacity: var(--divider-opacity-end);
+				opacity: 0;
 			}
 		}
 	}

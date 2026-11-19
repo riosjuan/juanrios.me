@@ -9,22 +9,6 @@ export const removeClass = (className) => {
 	}
 };
 
-// Checks if the browser is Firefox.
-export const isFirefox = typeof navigator !== 'undefined' && /firefox/i.test(navigator.userAgent);
-
-// Checks if the browser is Safari (excluding Chromium-based browsers).
-export const isSafari =
-	typeof navigator !== 'undefined' &&
-	/safari/i.test(navigator.userAgent) &&
-	!/chrome|chromium|android|crios|fxios|edgios/i.test(navigator.userAgent);
-
-// Loads the scroll timeline polyfill if needed.
-export const loadScrollTimelinePolyfillIfNeeded = async () => {
-	if (isFirefox) {
-		await import('./scroll-timeline');
-	}
-};
-
 // Generates a random hue value between 0 and 359.
 export const randomHue = () => Math.floor(Math.random() * 360);
 
