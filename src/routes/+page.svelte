@@ -1,7 +1,7 @@
 <script>
-	import OpenGraph from '$lib/OpenGraph.svelte';
-	import Projects from '$lib/Projects.svelte';
-	import Contact from '$lib/Contact.svelte';
+	import OpenGraph from '#lib/OpenGraph.svelte';
+	import Projects from '#lib/Projects.svelte';
+	import Contact from '#lib/Contact.svelte';
 	import links from '../data/contact-links.json';
 
 	let { data } = $props();
