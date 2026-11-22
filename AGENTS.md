@@ -80,7 +80,7 @@ pnpm exec playwright test -g "skip link"
 
 - Order imports by origin: framework/external first, local second.
 - Keep one blank line between import groups.
-- Prefer `$lib` alias in route-level components where clear.
+- Prefer the `#lib` import in route-level components where clear.
 - Use relative imports for nearby files in `src/lib` and `src/routes`.
 - Keep ESM syntax only (`import`/`export`).
 
