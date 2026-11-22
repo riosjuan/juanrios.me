@@ -9,10 +9,11 @@
 </script>
 
 <header>
+	<a class="skip-link" href="#content">Skip to content</a>
 	<div class="divider" aria-hidden="true"></div>
 	<nav class="container">
 		<ul>
-			{#each navigationLinks as link}
+			{#each navigationLinks as link (link.url)}
 				<li>
 					<a class:brand={link.brand} href={link.url}>{link.name}</a>
 				</li>
@@ -45,6 +46,23 @@
 			content: '';
 			inset: 0;
 			position: absolute;
+		}
+	}
+
+	/* Visually hidden until keyboard focus reveals it above the header. */
+	.skip-link {
+		background-color: var(--background-primary);
+		color: var(--accent);
+		font-size: var(--font-size-small);
+		inset-block-start: 0;
+		inset-inline-start: var(--inline-spacing);
+		padding: calc(var(--block-spacing) / 2) var(--inline-spacing);
+		position: absolute;
+		transform: translateY(-200%);
+		z-index: 2;
+
+		&:focus-visible {
+			transform: none;
 		}
 	}
 

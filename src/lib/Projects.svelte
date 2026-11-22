@@ -6,7 +6,7 @@
 </script>
 
 <ul>
-	{#each projects as { name, url, tags, links, body }}
+	{#each projects as { slug, name, url, tags, links, body } (slug)}
 		<li>
 			<article>
 				<h3>

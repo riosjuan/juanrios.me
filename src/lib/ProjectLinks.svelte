@@ -4,7 +4,7 @@
 
 <div>
 	<ul>
-		{#each links as { name, url }}
+		{#each links as { name, url } (url)}
 			<li>
 				<a href={url}>{name}</a>
 			</li>
