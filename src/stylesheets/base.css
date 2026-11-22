@@ -3,11 +3,13 @@
 		color: var(--text-primary);
 		font-feature-settings: 'ss01', 'ss03';
 		font-optical-sizing: auto;
-		font-size: 16px;
 		font-weight: var(--font-weight);
-		scroll-behavior: smooth;
 		/* Keep anchor targets and focused elements clear of the fixed header. */
 		scroll-padding-block-start: 4rem;
+
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
 	}
 
 	body {

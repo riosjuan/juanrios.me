@@ -1,5 +1,14 @@
 export const load = async ({ fetch }) => {
-	const response = await fetch('/api/projects');
-	const projects = await response.json();
-	return { projects };
+	try {
+		const response = await fetch('/api/projects');
+
+		if (!response.ok) {
+			return { projects: [] };
+		}
+
+		const projects = await response.json();
+		return { projects: Array.isArray(projects) ? projects : [] };
+	} catch {
+		return { projects: [] };
+	}
 };

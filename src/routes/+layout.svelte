@@ -7,7 +7,7 @@
 </script>
 
 <Header />
-<main class="main container">
+<main id="content" class="main container">
 	{@render children?.()}
 </main>
 <Footer />

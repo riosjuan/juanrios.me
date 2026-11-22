@@ -2,17 +2,30 @@
 	import OpenGraph from '$lib/OpenGraph.svelte';
 	import Projects from '$lib/Projects.svelte';
 	import Contact from '$lib/Contact.svelte';
+	import links from '../data/contact-links.json';
 
 	let { data } = $props();
 	const projects = $derived(data.projects);
+
+	const siteUrl = 'https://juanrios.me';
 
 	let openGraphData = {
 		title: 'Juan Rios – Design Systems & Platform UX',
 		description:
 			'Team Manager and UX Engineer working on design systems and platform UX, with a background in product design and front-end development.',
-		url: 'https://juanrios.me',
+		url: siteUrl,
 		ogImage: 'og-image.png',
-		twitterHandle: '@juanriosnl'
+		ogImageAlt: 'Juan Rios – Design Systems & Platform UX',
+		twitterHandle: '@juanriosnl',
+		structuredData: {
+			'@context': 'https://schema.org',
+			'@type': 'Person',
+			name: 'Juan Rios',
+			url: siteUrl,
+			jobTitle: 'Team Manager and UX Engineer',
+			worksFor: { '@type': 'Organization', name: 'Mendix', url: 'https://www.mendix.com' },
+			sameAs: [links.x, links.github, links.linkedin]
+		}
 	};
 </script>
 

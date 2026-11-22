@@ -22,7 +22,7 @@ Guidance for autonomous coding agents working in this repository.
 - Package manager: pnpm (`pnpm-lock.yaml` exists).
 - ESM project (`"type": "module"` in `package.json`).
 - Engine policy: `engine-strict=true` in `.npmrc`.
-- Linting: ESLint (`eslint:recommended`, `plugin:svelte/recommended`, `prettier`).
+- Linting: ESLint flat config in `eslint.config.js` (`@eslint/js` recommended, `eslint-plugin-svelte` flat/recommended, `prettier`).
 - Formatting: Prettier + `prettier-plugin-svelte`.
 - Static checks: `svelte-check` (strict compiler settings in `jsconfig.json`).
 
@@ -39,15 +39,16 @@ pnpm run check
 pnpm run check:watch
 pnpm run lint
 pnpm run format
+pnpm test
 ```
 
 ## Build/Lint/Test Guidance
 
 - Primary quality gate today: `pnpm run check && pnpm run lint`.
 - Build validation: `pnpm run build` for production-impacting changes.
-- No dedicated test script currently exists in `package.json`.
-- No Vitest/Playwright config files are present.
-- No `*.test.*` or `*.spec.*` files are present in this repo.
+- Tests: Playwright + axe smoke tests in `tests/*.spec.js` (`pnpm test` builds and previews the site).
+- First run needs a browser: `pnpm exec playwright install chromium`.
+- The axe suite sweeps the random theme hue; run it after any color token change.
 
 ## Single-Test / Single-File Commands
 
@@ -59,14 +60,11 @@ npx prettier --check src/lib/Projects.svelte
 npx prettier --write src/lib/Projects.svelte
 ```
 
-If tests are introduced later, run one test using the runner directly:
+Run one test file or test by name:
 
 ```bash
-# Vitest (if added)
-npx vitest run path/to/file.test.js
-
-# Playwright (if added)
-npx playwright test tests/example.spec.ts
+pnpm exec playwright test tests/home.spec.js
+pnpm exec playwright test -g "skip link"
 ```
 
 ## Formatting Rules (Enforced)
@@ -152,4 +150,5 @@ npx playwright test tests/example.spec.ts
 - Lint passes (`pnpm run lint`).
 - Static checks pass (`pnpm run check`).
 - Build passes when change impacts runtime output (`pnpm run build`).
+- Tests pass for UI or color changes (`pnpm test`).
 - Any HTML injection path is sanitized.

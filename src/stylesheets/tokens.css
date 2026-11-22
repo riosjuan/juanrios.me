@@ -3,7 +3,7 @@
 		color-scheme: light dark;
 
 		--hue-on-light: 262;
-		--lch-base-on-light: 50% 0.29 var(--hue-on-light);
+		--lch-base-on-light: 43% 0.29 var(--hue-on-light);
 		--lch-ink-strong-on-light: 0% 0.02 var(--hue-on-light);
 		--lch-ink-on-light: 20% 0.02 var(--hue-on-light);
 		--lch-complement-light: 95% 0.01 calc(var(--hue-on-light) + 180);
@@ -34,8 +34,8 @@
 		--text-primary-dark: oklch(var(--lch-ink-on-dark));
 		--text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
 
-		--text-secondary-light: lch(from oklch(var(--lch-ink-on-light)) calc(l + 50) c h);
-		--text-secondary-dark: lch(from oklch(var(--lch-ink-on-dark)) calc(l - 25) c h);
+		--text-secondary-light: lch(from oklch(var(--lch-ink-on-light)) calc(l + 22) c h);
+		--text-secondary-dark: lch(from oklch(var(--lch-ink-on-dark)) calc(l - 18) c h);
 		--text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
 
 		--text-strong-light: oklch(var(--lch-ink-strong-on-light));

@@ -8,10 +8,27 @@
 
 	let userTheme = $state();
 
+	// Storage can throw when blocked (private mode, disabled site data); theming still works without it.
+	const readStoredTheme = () => {
+		try {
+			return localStorage.getItem(storageKey);
+		} catch {
+			return null;
+		}
+	};
+
+	const storeTheme = (theme) => {
+		try {
+			localStorage.setItem(storageKey, theme);
+		} catch {
+			// Ignore: the preference just won't persist across visits.
+		}
+	};
+
 	$effect(() => {
 		if (userTheme) {
 			document.documentElement.setAttribute('data-theme', userTheme);
-			localStorage.setItem(storageKey, userTheme);
+			storeTheme(userTheme);
 		}
 	});
 
@@ -23,7 +40,7 @@
 	onMount(() => {
 		removeClass('js-disabled');
 		userTheme =
-			localStorage.getItem(storageKey) ||
+			readStoredTheme() ||
 			(window.matchMedia('(prefers-color-scheme: dark)').matches ? THEME.DARK : THEME.LIGHT);
 
 		applyThemeHue(userTheme, randomHue());
@@ -33,7 +50,8 @@
 <button
 	class="js-disabled"
 	onclick={themeToggleHandler}
-	aria-label={userTheme === THEME.DARK ? 'Switch to light theme' : 'Switch to dark theme'}
+	aria-label="Dark theme"
+	aria-pressed={userTheme === THEME.DARK}
 >
 	<IconThemeToggle />
 </button>
